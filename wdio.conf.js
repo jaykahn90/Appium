@@ -25,7 +25,7 @@ export const config = {
   //
   specs: [
     // ToDo: define location for spec files here
-    './test/specs/**/ios-native*.js',
+    './test/specs/ios/*.js',
   ],
   // Patterns to exclude.
   exclude: [
@@ -91,25 +91,8 @@ export const config = {
       'appium:deviceName': 'iPhone 17',          // or provide 'appium:udid': '<sim-udid>'
       // 'appium:udid': '13BDF56E-5011-42A6-99EF-9D774275162B',
       'appium:automationName': 'XCUITest',
-      'appium:app': path.join(process.cwd(), 'app/ios/UIKitCatalog.app'),
-      // 'appium:wdaLaunchTimeout': 180000,
-      // 'appium:wdaConnectionTimeout': 180000,
-      // 'appium:simulatorStartupTimeout': 180000,
-      // 'appium:wdaStartupRetries': 2,
-      // 'appium:wdaStartupRetryInterval': 60000,
-      // 'appium:showXcodeLog': true,
-      // // Set to true to rebuild WDA (needed for first run or after Xcode updates)
-      // 'appium:useNewWDA': true,
-      // 'appium:derivedDataPath': path.join(process.cwd(), 'tmp/derivedDataWDA'),
-      // // Code signing configuration to fix xcodebuild error 70
-      // // For simulators, these may not be required, but can help with build issues
-      // 'appium:useSimpleBuildTest': false, // Simplifies the build process
-      // 'appium:updatedWDABundleId': 'com.facebook.WebDriverAgentRunner',
-      // // Additional options to help with build issues
-      // 'appium:shouldUseSingletonTestManager': false,
-      // // Uncomment and set if you still have code signing issues:
-      // 'appium:xcodeOrgId': process.env.XCODE_ORG_ID || '', // Your Apple Team ID (e.g., ABC123DEF4)
-      // 'appium:xcodeSigningId': 'Apple Development', // For Xcode 12+
+      'appium:app': path.join(process.cwd(), 'app/ios/TestApp.app'),
+    
     },
   ],
 
