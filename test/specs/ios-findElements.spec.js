@@ -1,3 +1,5 @@
+import { $, $$, expect, driver } from '@wdio/globals';
+
 describe('iOS Find Elements', () => {
   it('find element by accessibility id', async () => {
     await $('~Alert Views').click();
@@ -51,8 +53,10 @@ describe('iOS Find Elements', () => {
    it.only('do the exercise with accessibility id', async () => {
     await $('~Search').click();
     await $('~Default').click();
+
     await $('//XCUIElementTypeSearchField').addValue('Jalal khan');
     await expect ($('//XCUIElementTypeStaticText')).toHaveAttribute('value');
+
 
 await $('~Clear text').click();
 await expect ($('//XCUIElementTypeSearchField')).not.toHaveAttribute('value');

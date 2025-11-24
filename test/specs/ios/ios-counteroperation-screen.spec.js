@@ -1,3 +1,4 @@
+import { $ } from '@wdio/globals';
 import CounterScreen  from '../../screenobjects/ios/counter.screen';
 
 
@@ -17,5 +18,6 @@ describe('iOS TestApp counter sample', () => {
   
       await expect(value).toEqual('8');
     });
+
   });
   
