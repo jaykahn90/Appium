@@ -17,6 +17,8 @@ describe('iOS TestApp counter sample', () => {
       console.log('Answer:', value);
   
       await expect(value).toEqual('8');
+
+      
     });
 
   });

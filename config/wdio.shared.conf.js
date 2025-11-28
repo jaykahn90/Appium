@@ -5,9 +5,10 @@ export const config = {
   // Runner Configuration
   // ====================
   // WebdriverIO supports running e2e tests as well as unit and component tests.
-  runner: 'local',
-  chostname: '127.0.0.1',
-  port: 4723,
+  //see if app test runs give issues then uncomment below 2 lines and see!!!!!
+  // runner: 'local',
+  // chostname: '127.0.0.1',
+ 
   //
   // ==================
   // Specify Test Files
@@ -23,10 +24,7 @@ export const config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: [
-    // ToDo: define location for spec files here
-    './test/specs/ios/ios-counteroperation-screen.spec*.js',
-  ],
+ 
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -53,48 +51,6 @@ export const config = {
   // Sauce Labs platform configurator - a great tool to configure your capabilities:
   // https://saucelabs.com/platform/platform-configurator
   //
-  capabilities: [
-    // {
-    //   'appium:platformName': 'Android',
-    //   'appium:platformVersion': '12.0',
-
-    //   // ✅ make sure this really points to Jalalemulator
-    //   // run: adb devices -l  → copy the UDID for Jalalemulator
-    //   'appium:udid': 'emulator-5554', // e.g. emulator-5556
-
-    //   // (optional) also name the AVD so WDIO boots the right one
-    //   'appium:avd': 'Pixel_XL',
-
-    //   'appium:deviceName': 'Pixel_XL', // just a label
-    //   'appium:automationName': 'UIAutomator2',
-    //   'appium:autoGrantPermissions': true,
-
-    //   // install + launch
-    //   'appium:app': path.join(process.cwd(), 'app/android/android-ui-fix.apk'),
-    //   'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
-    //   'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
-
-    //   // accept the fast jump from Splash → Main
-    //   'appium:appWaitActivity':
-    //     'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
-    //   'appium:appWaitForLaunch': false,
-    //   'appium:appWaitDuration': 15000,
-
-    //   // WebView / Chrome bits 👇
-    //   'appium:chromedriverAutodownload': true, // <-- IMPORTANT
-    //   'appium:noReset': true, // keeps Chrome onboarding dismissed
-    //   'appium:ensureWebviewsHavePages': true, // helps detect WEBVIEW
-    // },
-    {
-      'appium:platformName': 'ios',
-      'appium:platformVersion': '26.1',          // set to your actual sim version
-      'appium:deviceName': 'iPhone 17',          // or provide 'appium:udid': '<sim-udid>'
-      // 'appium:udid': '13BDF56E-5011-42A6-99EF-9D774275162B',
-      'appium:automationName': 'XCUITest',
-      'appium:app': path.join(process.cwd(), 'app/ios/TestApp.app'),
-    
-    },
-  ],
 
   //
   // ===================
