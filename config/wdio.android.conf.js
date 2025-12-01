@@ -14,7 +14,7 @@ config.port =  4723,
 
 config.specs = [
     // ToDo: define location for spec files here
-    '../test/specs/android/add-note-screen.spec*.js',
+    '../test/specs/android/add-note.spec*.js',
   ]
 
   // ============

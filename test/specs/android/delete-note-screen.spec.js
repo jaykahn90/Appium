@@ -1,5 +1,6 @@
 describe('Add Notes', () => {
-  it('skip the tutorial', async () => {
+  before(async () => {
+    // Skip the tutorial once before all tests
     await $(
       '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/btn_start_skip"]',
     ).click()
