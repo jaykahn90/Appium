@@ -1,0 +1,287 @@
+2025-12-02T11:16:13.093Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"appium:platformName":"Android","appium:platformVersion":"12.0","appium:udid":"emulator-5554","appium:deviceName":"Pixel XL","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://13688d13bdb23e4253b996728d64e6cc18053888","wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2025-12-02T11:16:13.103Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  Starting testhub from 30051:0
+2025-12-02T11:16:13.104Z CLI info  [jalalkhan_vhXeGd]   [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2025-12-02T11:16:14.344Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  startBuild: response=1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox
+2025-12-02T11:16:14.345Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:16:16.473Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2025-12-02T11:16:16.629Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2025-12-02T11:16:16.744Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2025-12-02T11:16:16.776Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  Driver initialized as primary driver: platformIndex=0
+2025-12-02T11:16:17.923Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2025-12-02T11:16:26.960Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2025-12-02T11:16:27.754Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  stopBuild: 1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox request={"finished_at":"2025-12-02T11:16:26.958Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2025-12-02T11:16:27.756Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:16:27.758Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  Visit https://automation.browserstack.com/builds/1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox to view build report, insights, and many more debugging information all at one place!
+2025-12-02T11:16:28.167Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2025-12-02T11:16:28.497Z CLI info  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2025-12-02T11:16:29.416Z CLI info [main]  [jalalkhan_vhXeGd]  [1dkdyaqwmruc2dpgjv0d9c33c1sx5gddd3ny8lox]  [f4dd84e3-a06d-4b82-85e6-5f3855863bba]  Received graceful signal termination, performing cleanup
+2025-12-02T11:21:32.760Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"12.0","appium:udid":"emulator-5554","appium:deviceName":"Pixel XL","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://13688d13bdb23e4253b996728d64e6cc18053888","wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2025-12-02T11:21:32.770Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  Starting testhub from 33127:0
+2025-12-02T11:21:32.771Z CLI info  [jalalkhan_vhXeGd]   [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2025-12-02T11:21:34.211Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  startBuild: response=ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k
+2025-12-02T11:21:34.213Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:21:36.436Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2025-12-02T11:21:36.561Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2025-12-02T11:21:36.673Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2025-12-02T11:21:36.704Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  Driver initialized as primary driver: platformIndex=0
+2025-12-02T11:21:37.970Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2025-12-02T11:21:46.929Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2025-12-02T11:21:48.007Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  stopBuild: ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k request={"finished_at":"2025-12-02T11:21:46.928Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2025-12-02T11:21:48.008Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:21:48.009Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  Visit https://automation.browserstack.com/builds/ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k to view build report, insights, and many more debugging information all at one place!
+2025-12-02T11:21:48.422Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2025-12-02T11:21:48.753Z CLI info  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2025-12-02T11:21:49.752Z CLI info [main]  [jalalkhan_vhXeGd]  [ucabrexkxzkbydevcu2ctkj9pkmlweaffyd9fp2k]  [49e0541c-b75e-4ff5-a1c5-e2b322531aad]  Received graceful signal termination, performing cleanup
+2025-12-02T11:29:02.439Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"12.0","appium:deviceName":"Google Pixel 7","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://13688d13bdb23e4253b996728d64e6cc18053888","wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2025-12-02T11:29:02.447Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [55197520-8fde-41d7-b39e-add83dd19bd7]  Starting testhub from 37281:0
+2025-12-02T11:29:02.448Z CLI info  [jalalkhan_vhXeGd]   [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2025-12-02T11:29:03.790Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [55197520-8fde-41d7-b39e-add83dd19bd7]  startBuild: response=e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0
+2025-12-02T11:29:03.793Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:29:05.574Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2025-12-02T11:29:05.703Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2025-12-02T11:29:05.817Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2025-12-02T11:29:05.847Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  Driver initialized as primary driver: platformIndex=0
+2025-12-02T11:29:07.084Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2025-12-02T11:29:16.041Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2025-12-02T11:29:16.916Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  stopBuild: e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0 request={"finished_at":"2025-12-02T11:29:16.040Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2025-12-02T11:29:16.919Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:29:16.920Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  Visit https://automation.browserstack.com/builds/e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0 to view build report, insights, and many more debugging information all at one place!
+2025-12-02T11:29:17.328Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2025-12-02T11:29:17.738Z CLI info  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2025-12-02T11:29:18.657Z CLI info [main]  [jalalkhan_vhXeGd]  [e2cj87t3dbrqktbng5n6uexpiw4zfl2oja8jufd0]  [55197520-8fde-41d7-b39e-add83dd19bd7]  Received graceful signal termination, performing cleanup
+2025-12-02T11:30:17.697Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"13.0","appium:deviceName":"Google Pixel 7","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://13688d13bdb23e4253b996728d64e6cc18053888","wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2025-12-02T11:30:17.707Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [b1192388-09dd-4a0f-94b5-ef64da28a442]  Starting testhub from 38086:0
+2025-12-02T11:30:17.711Z CLI info  [jalalkhan_vhXeGd]   [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2025-12-02T11:30:19.295Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [b1192388-09dd-4a0f-94b5-ef64da28a442]  startBuild: response=984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu
+2025-12-02T11:30:19.298Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:30:20.848Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2025-12-02T11:30:20.966Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2025-12-02T11:30:21.086Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2025-12-02T11:30:21.118Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Driver initialized as primary driver: platformIndex=0
+2025-12-02T11:30:22.679Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2025-12-02T11:30:38.480Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+    integrations: { browserstack: [Object] }
+  }
+} to 38086:0
+2025-12-02T11:30:38.483Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+    name: 'add a note, save changes & verify note',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        `    await $('//*[@text="Add note"]').click();\n` +
+        `    await $('//*[@text="Text"]').click();\n` +
+        `    await expect($('//*[@text="Editing"]')).toBeDisplayed();\n` +
+        '\n' +
+        '    // add note title\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_title"]',\n` +
+        "    ).addValue('Grocery List');\n" +
+        '\n' +
+        '    // add note body\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_note"]',\n` +
+        "    ).addValue('Bread\\nMilk\\nEggs');\n" +
+        '\n' +
+        '    // save the changes\n' +
+        '    await driver.back();\n' +
+        '    await driver.back();\n' +
+        '\n' +
+        '    // assertion\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"]',\n` +
+        '      ),\n' +
+        '    ).toBeDisplayed();\n' +
+        '\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/view_note"]',\n` +
+        '      ),\n' +
+        "    ).toHaveText('Bread\\nMilk\\nEggs');\n" +
+        '  }'
+    },
+    identifier: 'add a note, save changes & verify note',
+    scope: 'Add Notes - add a note, save changes & verify note',
+    scopes: [ 'Add Notes' ],
+    file_name: 'test/specs/android/add-note.spec.js',
+    vc_filepath: 'test/specs/android/add-note.spec.js',
+    location: 'test/specs/android/add-note.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2025-12-02T11:30:38.459Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 38086:0
+2025-12-02T11:30:39.305Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+      name: 'add a note, save changes & verify note',
+      body: [Object],
+      identifier: 'add a note, save changes & verify note',
+      scope: 'Add Notes - add a note, save changes & verify note',
+      scopes: [Array],
+      file_name: 'test/specs/android/add-note.spec.js',
+      vc_filepath: 'test/specs/android/add-note.spec.js',
+      location: 'test/specs/android/add-note.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2025-12-02T11:30:38.459Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 38086:0
+2025-12-02T11:30:39.306Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2025-12-02T11:30:44.196Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"23a44e25-02ff-49ec-b5a5-8ec3a8cfa499","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Add Notes - add a note, save changes & verify note","test_name":"add a note, save changes & verify note","test_code":"async () => {\n    await $('//*[@text=\"Add note\"]').click();\n    await $('//*[@text=\"Text\"]').click();\n    await expect($('//*[@text=\"Editing\"]')).toBeDisplayed();\n\n    // add note title\n    await $(\n      '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_title\"]',\n    ).addValue('Grocery List');\n\n    // add note body\n    await $(\n      '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_note\"]',\n    ).addValue('Bread\\nMilk\\nEggs');\n\n    // save the changes\n    await driver.back();\n    await driver.back();\n\n    // assertion\n    await expect(\n      $(\n        '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_btn\"]',\n      ),\n    ).toBeDisplayed();\n\n    await expect(\n      $(\n        '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/view_note\"]',\n      ),\n    ).toHaveText('Bread\\nMilk\\nEggs');\n  }","test_file_path":"test/specs/android/add-note.spec.js","test_location":"test/specs/android/add-note.spec.js","test_scope":"Add Notes - add a note, save changes & verify note","test_scopes":["Add Notes"],"test_started_at":"2025-12-02T11:30:38.459Z","automate_session_name":"Add Notes - add a note, save changes & verify note","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2025-12-02T11:30:44.192Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2025-12-02T11:30:44.198Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+    name: 'add a note, save changes & verify note',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        `    await $('//*[@text="Add note"]').click();\n` +
+        `    await $('//*[@text="Text"]').click();\n` +
+        `    await expect($('//*[@text="Editing"]')).toBeDisplayed();\n` +
+        '\n' +
+        '    // add note title\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_title"]',\n` +
+        "    ).addValue('Grocery List');\n" +
+        '\n' +
+        '    // add note body\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_note"]',\n` +
+        "    ).addValue('Bread\\nMilk\\nEggs');\n" +
+        '\n' +
+        '    // save the changes\n' +
+        '    await driver.back();\n' +
+        '    await driver.back();\n' +
+        '\n' +
+        '    // assertion\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"]',\n` +
+        '      ),\n' +
+        '    ).toBeDisplayed();\n' +
+        '\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/view_note"]',\n` +
+        '      ),\n' +
+        "    ).toHaveText('Bread\\nMilk\\nEggs');\n" +
+        '  }'
+    },
+    identifier: 'add a note, save changes & verify note',
+    scope: 'Add Notes - add a note, save changes & verify note',
+    scopes: [ 'Add Notes' ],
+    file_name: 'test/specs/android/add-note.spec.js',
+    vc_filepath: 'test/specs/android/add-note.spec.js',
+    location: 'test/specs/android/add-note.spec.js',
+    result: 'passed',
+    duration_in_ms: 5733,
+    started_at: '2025-12-02T11:30:38.459Z',
+    finished_at: '2025-12-02T11:30:44.192Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 38086:0
+2025-12-02T11:30:45.309Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '23a44e25-02ff-49ec-b5a5-8ec3a8cfa499',
+      name: 'add a note, save changes & verify note',
+      body: [Object],
+      identifier: 'add a note, save changes & verify note',
+      scope: 'Add Notes - add a note, save changes & verify note',
+      scopes: [Array],
+      file_name: 'test/specs/android/add-note.spec.js',
+      vc_filepath: 'test/specs/android/add-note.spec.js',
+      location: 'test/specs/android/add-note.spec.js',
+      result: 'passed',
+      duration_in_ms: 5733,
+      started_at: '2025-12-02T11:30:38.459Z',
+      finished_at: '2025-12-02T11:30:44.192Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 38086:0
+2025-12-02T11:30:45.311Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2025-12-02T11:30:48.605Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2025-12-02T11:30:49.380Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  stopBuild: 984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu request={"finished_at":"2025-12-02T11:30:48.604Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2025-12-02T11:30:49.383Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-02T11:30:49.386Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Visit https://automation.browserstack.com/builds/984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu to view build report, insights, and many more debugging information all at one place!
+2025-12-02T11:30:49.738Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2025-12-02T11:30:50.079Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2025-12-02T11:30:50.977Z CLI info [main]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Received graceful signal termination, performing cleanup
