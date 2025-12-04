@@ -285,3 +285,239 @@
 2025-12-02T11:30:49.738Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making GET request to https://api.browserstack.com
 2025-12-02T11:30:50.079Z CLI info  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  [PRODUCTION] Making POST request to https://eds.browserstack.com
 2025-12-02T11:30:50.977Z CLI info [main]  [jalalkhan_vhXeGd]  [984jaaxe1vomgzww0ltr0uu1qn74g3xnadhukqeu]  [b1192388-09dd-4a0f-94b5-ef64da28a442]  Received graceful signal termination, performing cleanup
+2025-12-04T09:21:02.808Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"13.0","appium:deviceName":"Google Pixel 7","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://13688d13bdb23e4253b996728d64e6cc18053888","wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2025-12-04T09:21:02.902Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Starting testhub from 19233:0
+2025-12-04T09:21:02.904Z CLI info  [jalalkhan_vhXeGd]   [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2025-12-04T09:21:04.282Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [552cfe44-cc2e-4a70-8698-19847b6e1f92]  startBuild: response=45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk
+2025-12-04T09:21:04.284Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-04T09:21:06.712Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2025-12-04T09:21:06.954Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2025-12-04T09:21:07.141Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2025-12-04T09:21:07.171Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Driver initialized as primary driver: platformIndex=0
+2025-12-04T09:21:08.097Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2025-12-04T09:21:22.960Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+    integrations: { browserstack: [Object] }
+  }
+} to 19233:0
+2025-12-04T09:21:22.962Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+    name: 'add a note, save changes & verify note',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        `    await $('//*[@text="Add note"]').click();\n` +
+        `    await $('//*[@text="Text"]').click();\n` +
+        `    await expect($('//*[@text="Editing"]')).toBeDisplayed();\n` +
+        '\n' +
+        '    // add note title\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_title"]',\n` +
+        "    ).addValue('Grocery List');\n" +
+        '\n' +
+        '    // add note body\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_note"]',\n` +
+        "    ).addValue('Bread\\nMilk\\nEggs');\n" +
+        '\n' +
+        '    // save the changes\n' +
+        '    await driver.back();\n' +
+        '    await driver.back();\n' +
+        '\n' +
+        '    // assertion\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"]',\n` +
+        '      ),\n' +
+        '    ).toBeDisplayed();\n' +
+        '\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/view_note"]',\n` +
+        '      ),\n' +
+        "    ).toHaveText('Bread\\nMilk\\nEggs');\n" +
+        '  }'
+    },
+    identifier: 'add a note, save changes & verify note',
+    scope: 'Add Notes - add a note, save changes & verify note',
+    scopes: [ 'Add Notes' ],
+    file_name: 'test/specs/android/add-note.spec.js',
+    vc_filepath: 'test/specs/android/add-note.spec.js',
+    location: 'test/specs/android/add-note.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2025-12-04T09:21:22.938Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 19233:0
+2025-12-04T09:21:24.293Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+      name: 'add a note, save changes & verify note',
+      body: [Object],
+      identifier: 'add a note, save changes & verify note',
+      scope: 'Add Notes - add a note, save changes & verify note',
+      scopes: [Array],
+      file_name: 'test/specs/android/add-note.spec.js',
+      vc_filepath: 'test/specs/android/add-note.spec.js',
+      location: 'test/specs/android/add-note.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2025-12-04T09:21:22.938Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 19233:0
+2025-12-04T09:21:24.297Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2025-12-04T09:21:28.618Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"7f72dce6-3830-4a71-b54b-e4dfd06b1efd","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Add Notes - add a note, save changes & verify note","test_name":"add a note, save changes & verify note","test_code":"async () => {\n    await $('//*[@text=\"Add note\"]').click();\n    await $('//*[@text=\"Text\"]').click();\n    await expect($('//*[@text=\"Editing\"]')).toBeDisplayed();\n\n    // add note title\n    await $(\n      '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_title\"]',\n    ).addValue('Grocery List');\n\n    // add note body\n    await $(\n      '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_note\"]',\n    ).addValue('Bread\\nMilk\\nEggs');\n\n    // save the changes\n    await driver.back();\n    await driver.back();\n\n    // assertion\n    await expect(\n      $(\n        '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/edit_btn\"]',\n      ),\n    ).toBeDisplayed();\n\n    await expect(\n      $(\n        '//*[@resource-id=\"com.socialnmobile.dictapps.notepad.color.note:id/view_note\"]',\n      ),\n    ).toHaveText('Bread\\nMilk\\nEggs');\n  }","test_file_path":"test/specs/android/add-note.spec.js","test_location":"test/specs/android/add-note.spec.js","test_scope":"Add Notes - add a note, save changes & verify note","test_scopes":["Add Notes"],"test_started_at":"2025-12-04T09:21:22.938Z","automate_session_name":"Add Notes - add a note, save changes & verify note","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2025-12-04T09:21:28.610Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2025-12-04T09:21:28.620Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+    name: 'add a note, save changes & verify note',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        `    await $('//*[@text="Add note"]').click();\n` +
+        `    await $('//*[@text="Text"]').click();\n` +
+        `    await expect($('//*[@text="Editing"]')).toBeDisplayed();\n` +
+        '\n' +
+        '    // add note title\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_title"]',\n` +
+        "    ).addValue('Grocery List');\n" +
+        '\n' +
+        '    // add note body\n' +
+        '    await $(\n' +
+        `      '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_note"]',\n` +
+        "    ).addValue('Bread\\nMilk\\nEggs');\n" +
+        '\n' +
+        '    // save the changes\n' +
+        '    await driver.back();\n' +
+        '    await driver.back();\n' +
+        '\n' +
+        '    // assertion\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/edit_btn"]',\n` +
+        '      ),\n' +
+        '    ).toBeDisplayed();\n' +
+        '\n' +
+        '    await expect(\n' +
+        '      $(\n' +
+        `        '//*[@resource-id="com.socialnmobile.dictapps.notepad.color.note:id/view_note"]',\n` +
+        '      ),\n' +
+        "    ).toHaveText('Bread\\nMilk\\nEggs');\n" +
+        '  }'
+    },
+    identifier: 'add a note, save changes & verify note',
+    scope: 'Add Notes - add a note, save changes & verify note',
+    scopes: [ 'Add Notes' ],
+    file_name: 'test/specs/android/add-note.spec.js',
+    vc_filepath: 'test/specs/android/add-note.spec.js',
+    location: 'test/specs/android/add-note.spec.js',
+    result: 'passed',
+    duration_in_ms: 5672,
+    started_at: '2025-12-04T09:21:22.938Z',
+    finished_at: '2025-12-04T09:21:28.610Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 19233:0
+2025-12-04T09:21:30.296Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '7f72dce6-3830-4a71-b54b-e4dfd06b1efd',
+      name: 'add a note, save changes & verify note',
+      body: [Object],
+      identifier: 'add a note, save changes & verify note',
+      scope: 'Add Notes - add a note, save changes & verify note',
+      scopes: [Array],
+      file_name: 'test/specs/android/add-note.spec.js',
+      vc_filepath: 'test/specs/android/add-note.spec.js',
+      location: 'test/specs/android/add-note.spec.js',
+      result: 'passed',
+      duration_in_ms: 5672,
+      started_at: '2025-12-04T09:21:22.938Z',
+      finished_at: '2025-12-04T09:21:28.610Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 19233:0
+2025-12-04T09:21:30.298Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2025-12-04T09:21:32.978Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2025-12-04T09:21:33.738Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  stopBuild: 45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk request={"finished_at":"2025-12-04T09:21:32.977Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2025-12-04T09:21:33.741Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2025-12-04T09:21:33.744Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Visit https://automation.browserstack.com/builds/45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk to view build report, insights, and many more debugging information all at one place!
+2025-12-04T09:21:34.051Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2025-12-04T09:21:34.365Z CLI info  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2025-12-04T09:21:35.276Z CLI info [main]  [jalalkhan_vhXeGd]  [45nyelwzrshcxnhjixvatka3kzmuq8egafsl4pfk]  [552cfe44-cc2e-4a70-8698-19847b6e1f92]  Received graceful signal termination, performing cleanup
