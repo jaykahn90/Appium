@@ -14,7 +14,7 @@ config.port =  4723,
 
 config.specs = [
     // ToDo: define location for spec files here
-    '../test/specs/android/add-note.spec*.js',
+    '../test/specs/android/automate-mainscreen-tabs.spec.js',
   ]
 
   // ============
@@ -38,20 +38,20 @@ config.specs = [
        'appium:autoGrantPermissions': true,
 
     //   // install + launch
-       'appium:app': path.join(process.cwd(), 'app/android/ColorNote+Notepad.apk'),
-    //   'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
-    //   'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
+       'appium:app': path.join(process.cwd(), 'app/android/app-release.apk'),
+      'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
+      'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
 
-    //   // accept the fast jump from Splash → Main
-    //   'appium:appWaitActivity':
-    //     'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
-    //   'appium:appWaitForLaunch': false,
-    //   'appium:appWaitDuration': 15000,
+      // accept the fast jump from Splash → Main
+      'appium:appWaitActivity':
+        'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
+      'appium:appWaitForLaunch': false,
+      'appium:appWaitDuration': 15000,
 
-    //   // WebView / Chrome bits 👇
-    //   'appium:chromedriverAutodownload': true, // <-- IMPORTANT
-    //   'appium:noReset': true, // keeps Chrome onboarding dismissed
-    //   'appium:ensureWebviewsHavePages': true, // helps detect WEBVIEW
+      // WebView / Chrome bits 👇
+      'appium:chromedriverAutodownload': true, // <-- IMPORTANT
+      'appium:noReset': true, // keeps Chrome onboarding dismissed
+      'appium:ensureWebviewsHavePages': true, // helps detect WEBVIEW
     },
     
   ]
