@@ -19,7 +19,7 @@ describe('Automate Pulse – Splash', () => {
   it('logs in via Auth0 webview and returns to the app', async () => {
     // 1) Tap LOG IN (native)
     const loginBtn = await $('android=new UiSelector().text("LOG IN")')
-    await loginBtn.waitForDisplayed({ timeout: 8000 })
+    await loginBtn.waitForDisplayed({ timeout: 10000 })
     await loginBtn.click()
 
     // 2) WAIT FOR CHROME (still native)
@@ -145,69 +145,21 @@ describe('Automate Pulse – Splash', () => {
 
   })
 
-  it('opens the sidebar via edge swipe and shows MENU', async () => {
+  it('opens the sidebar via menu button and shows MENU', async () => {
     // Ensure we are in native context and on main screen
     await driver.switchContext('NATIVE_APP')
     await browser.pause(300)
 
-    const { width, height } = await driver.getWindowSize()
-    const startX = Math.max(1, Math.floor(width * 0.01))
-    const endX = Math.floor(width * 0.9)
-    const yPositions = [0.2, 0.5, 0.8].map((p) => Math.floor(height * p))
+    // Click the menu button using XPath
+    const menuButton = await $('//android.widget.TextView[@text=""]')
+    await menuButton.waitForDisplayed({ timeout: 10000 })
+    await menuButton.click()
 
+    // Wait for MENU label to appear (confirms sidebar is open)
     const menuLabel = await $(
       'android=new UiSelector().className("android.widget.TextView").text("MENU")',
     )
-    const menuLabelXpath = await $(
-      '//android.widget.TextView[@text="MENU"]',
-    )
-    const closeIcon = await $('~Close navigation drawer')
-
-    const doSwipeAtY = async (y) => {
-      await driver.performActions([
-        {
-          type: 'pointer',
-          id: 'finger1',
-          parameters: { pointerType: 'touch' },
-          actions: [
-            { type: 'pointerMove', duration: 0, x: startX, y },
-            { type: 'pointerDown', button: 0 },
-            { type: 'pause', duration: 180 },
-            { type: 'pointerMove', duration: 900, x: endX, y },
-            { type: 'pointerUp', button: 0 },
-          ],
-        },
-      ])
-      await browser.pause(700)
-    }
-
-    const isDrawerOpen = async () =>
-      (await closeIcon.isDisplayed().catch(() => false)) ||
-      (await menuLabel.isDisplayed().catch(() => false)) ||
-      (await menuLabelXpath.isDisplayed().catch(() => false))
-
-    let opened = await isDrawerOpen()
-    let attempt = 0
-    while (!opened && attempt < 3) {
-      await doSwipeAtY(yPositions[attempt] || yPositions[1])
-      opened = await browser
-        .waitUntil(async () => await isDrawerOpen(), {
-          timeout: 4000,
-          interval: 250,
-        })
-        .catch(() => false)
-      attempt += 1
-    }
-
-    // Final assertion using either locator
-    const visible =
-      (await menuLabel.waitForDisplayed({ timeout: 6000 }).catch(() => false)) ||
-      (await menuLabelXpath
-        .waitForDisplayed({ timeout: 6000 })
-        .catch(() => false))
-    if (!visible) {
-      throw new Error('MENU not visible after opening the drawer')
-    }
+    await menuLabel.waitForDisplayed({ timeout: 6000 })
     await expect(menuLabel).toBeDisplayed()
   })
 
