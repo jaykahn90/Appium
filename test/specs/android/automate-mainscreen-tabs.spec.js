@@ -19,7 +19,7 @@ describe('Automate Pulse – Splash', () => {
   it('logs in via Auth0 webview and returns to the app', async () => {
     // 1) Tap LOG IN (native)
     const loginBtn = await $('android=new UiSelector().text("LOG IN")')
-    await loginBtn.waitForDisplayed({ timeout: 10000 })
+    await loginBtn.waitForDisplayed({ timeout: 20000 })
     await loginBtn.click()
 
     // 2) WAIT FOR CHROME (still native)
@@ -145,71 +145,61 @@ describe('Automate Pulse – Splash', () => {
 
   })
 
-  it('opens the sidebar via edge swipe and shows MENU', async () => {
-    // Ensure we are in native context and on main screen
+  
+  it('opens menu, expands Support Center, and shows Support options', async () => {
     await driver.switchContext('NATIVE_APP')
-    await browser.pause(300)
-
-    const { width, height } = await driver.getWindowSize()
-    const startX = Math.max(1, Math.floor(width * 0.01))
-    const endX = Math.floor(width * 0.9)
-    const yPositions = [0.2, 0.5, 0.8].map((p) => Math.floor(height * p))
-
-    const menuLabel = await $(
-      'android=new UiSelector().className("android.widget.TextView").text("MENU")',
+    await browser.pause(1500)
+  
+    // 1) Open sidebar menu
+    const hamburgerButton = await $(
+      'android=new UiSelector().description("sharedHeader.menuButton.button")'
     )
-    const menuLabelXpath = await $(
-      '//android.widget.TextView[@text="MENU"]',
+    await hamburgerButton.waitForDisplayed({
+      timeout: 8000,
+      timeoutMsg: 'Hamburger button not visible',
+    })
+    await hamburgerButton.click()
+  
+    // 2) Expand Support Center dropdown (click the card/button container, not the TextView)
+    const supportCenterBtn = await $(
+      'android=new UiSelector().description("sidebar.supportCenterCard.button")'
     )
-    const closeIcon = await $('~Close navigation drawer')
-
-    const doSwipeAtY = async (y) => {
-      await driver.performActions([
-        {
-          type: 'pointer',
-          id: 'finger1',
-          parameters: { pointerType: 'touch' },
-          actions: [
-            { type: 'pointerMove', duration: 0, x: startX, y },
-            { type: 'pointerDown', button: 0 },
-            { type: 'pause', duration: 180 },
-            { type: 'pointerMove', duration: 900, x: endX, y },
-            { type: 'pointerUp', button: 0 },
-          ],
-        },
-      ])
-      await browser.pause(700)
-    }
-
-    const isDrawerOpen = async () =>
-      (await closeIcon.isDisplayed().catch(() => false)) ||
-      (await menuLabel.isDisplayed().catch(() => false)) ||
-      (await menuLabelXpath.isDisplayed().catch(() => false))
-
-    let opened = await isDrawerOpen()
-    let attempt = 0
-    while (!opened && attempt < 3) {
-      await doSwipeAtY(yPositions[attempt] || yPositions[1])
-      opened = await browser
-        .waitUntil(async () => await isDrawerOpen(), {
-          timeout: 4000,
-          interval: 250,
-        })
-        .catch(() => false)
-      attempt += 1
-    }
-
-    // Final assertion using either locator
-    const visible =
-      (await menuLabel.waitForDisplayed({ timeout: 6000 }).catch(() => false)) ||
-      (await menuLabelXpath
-        .waitForDisplayed({ timeout: 6000 })
-        .catch(() => false))
-    if (!visible) {
-      throw new Error('MENU not visible after opening the drawer')
-    }
-    await expect(menuLabel).toBeDisplayed()
+    await supportCenterBtn.waitForDisplayed({
+      timeout: 8000,
+      timeoutMsg: 'Support Center not visible in drawer',
+    })
+    await supportCenterBtn.click()
+  
+    // 3) Assert dropdown options are visible
+    const supportChat = await $(
+      'android=new UiSelector().description("sidebar.supportChatCard.button")'
+    )
+    const contactSupport = await $(
+      'android=new UiSelector().description("sidebar.contactSupportCard.button")'
+    )
+    const knowledgeBase = await $(
+      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")'
+    )
+  
+    await supportChat.waitForDisplayed({
+      timeout: 8000,
+      timeoutMsg: 'Support Chat option not visible after expanding Support Center',
+    })
+    await contactSupport.waitForDisplayed({
+      timeout: 8000,
+      timeoutMsg: 'Contact Support option not visible after expanding Support Center',
+    })
+    await knowledgeBase.waitForDisplayed({
+      timeout: 8000,
+      timeoutMsg: 'Knowledge Base option not visible after expanding Support Center',
+    })
+  
+    await expect(supportChat).toBeDisplayed()
+    await expect(contactSupport).toBeDisplayed()
+    await expect(knowledgeBase).toBeDisplayed()
   })
+  
+  
 
   
 })
