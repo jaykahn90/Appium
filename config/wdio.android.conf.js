@@ -28,7 +28,7 @@ config.specs = [
 
        // ✅ make sure this really points to Jalalemulator
     //   // run: adb devices -l  → copy the UDID for Jalalemulator
-      'appium:udid': 'emulator-5556', // e.g. emulator-5556
+      'appium:udid': 'emulator-5554', // e.g. emulator-5556
 
     //   // (optional) also name the AVD so WDIO boots the right one
       //'appium:avd': 'Pixel_XL',
