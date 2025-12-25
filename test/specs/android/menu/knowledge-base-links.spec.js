@@ -9,28 +9,42 @@ describe('Menu – Knowledge Base links', () => {
     // 1) Ensure logged in
     await ensureLoggedIn()
 
-    // 2) Open menu
+    // 2) Wait for home screen to fully settle
+    // Using header right button as stable home marker
+    const homeHeaderMarker = await $(
+      'android=new UiSelector().description("sharedHeader.rightButton.button")',
+    )
+    await homeHeaderMarker.waitForDisplayed({
+      timeout: 20000,
+      timeoutMsg: 'Home header marker not visible after login',
+    })
+
+    // Let app finish background loading (hub scan etc.)
+    await browser.pause(7000)
+
+    // 3) Open menu (ONCE)
     const hamburgerButton = await $(
       'android=new UiSelector().description("sharedHeader.menuButton.button")',
     )
     await hamburgerButton.waitForDisplayed({ timeout: 10000 })
     await hamburgerButton.click()
 
-    // 3) Expand Support Center
+    // 4) Expand Support Center (scroll-safe)
     const supportCenterBtn = await $(
-      'android=new UiSelector().description("sidebar.supportCenterCard.button")',
+      'android=new UiScrollable(new UiSelector().scrollable(true))' +
+        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',
     )
     await supportCenterBtn.waitForDisplayed({ timeout: 10000 })
     await supportCenterBtn.click()
 
-    // 4) Open Knowledge Base
+    // 5) Open Knowledge Base
     const knowledgeBaseBtn = await $(
       'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',
     )
     await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })
     await knowledgeBaseBtn.click()
 
-    // 5) Help cards (we will click 4 of them; contact support is web so skip for now)
+    // 6) Help cards (presence check)
     const hubPairingCard = await $(
       'android=new UiSelector().description("sidebar.help.hubPairingCard.button")',
     )
@@ -51,14 +65,14 @@ describe('Menu – Knowledge Base links', () => {
     await expect(hubOfflineCard).toBeDisplayed()
     await expect(shadeIssuesCard).toBeDisplayed()
     await expect(simpleControlCard).toBeDisplayed()
-    await expect(contactSupportCard).toBeDisplayed() // present only, no click
+    await expect(contactSupportCard).toBeDisplayed() // present only
 
-    // Back button (shared)
+    // Back button
     const backBtn = await $(
       'android=new UiSelector().description("sharedHeader.backButton.button")',
     )
 
-    // Helper to open a card, assert title, then go back
+    // Helper: open native help screen, assert title, go back
     const openAndAssert = async (cardEl, titleText) => {
       await cardEl.waitForDisplayed({ timeout: 10000 })
       await cardEl.click()
@@ -73,11 +87,11 @@ describe('Menu – Knowledge Base links', () => {
       await backBtn.waitForDisplayed({ timeout: 10000 })
       await backBtn.click()
 
-      // Ensure we are back on the HELP list by checking one stable item
+      // Ensure we are back on the HELP list
       await hubPairingCard.waitForDisplayed({ timeout: 10000 })
     }
 
-    // 6) Validate each native help screen opens
+    // 7) Validate each native help screen
     await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')
     await openAndAssert(hubOfflineCard, 'HUB OFFLINE')
     await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')

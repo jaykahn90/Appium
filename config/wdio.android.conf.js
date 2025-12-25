@@ -36,6 +36,10 @@ config.specs = [
        'appium:deviceName': 'Pixel XL', // just a label
        'appium:automationName': 'UIAutomator2',
        'appium:autoGrantPermissions': true,
+       //reduces UI animation timing flakiness.
+       'appium:disableWindowAnimation': true,
+       
+
 
     //   // install + launch
        'appium:app': path.join(process.cwd(), 'app/android/appium-fix.apk'),
