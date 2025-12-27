@@ -3,268 +3,201 @@
 const APP_PKG = 'com.rolleaseacmeda.automatepulse'
 const CHROME_PKG = 'com.android.chrome'
 
+const SELECTORS = {
+  hamburger:
+    'android=new UiSelector().description("sharedHeader.menuButton.button")',
+
+  // More flexible login marker
+  loginBtn:
+    'android=new UiSelector().textMatches("(?i)log\\s?in|sign\\s?in")',
+
+  // Optional: another home marker that sometimes shows even if hamburger is delayed
+  homeMarker:
+    'android=new UiSelector().description("sharedHeader.rightButton.button")',
+}
+
+async function ensureAppForegroundOnce() {
+  await driver.switchContext('NATIVE_APP')
+
+  const current = await driver.getCurrentPackage().catch(() => null)
+
+  // If Chrome is in front, bring AUT forward
+  if (current === CHROME_PKG) {
+    await driver.activateApp(APP_PKG)
+    await browser.pause(800)
+    return
+  }
+
+  // If anything else is in front (launcher, settings, etc), bring AUT forward
+  if (current && current !== APP_PKG) {
+    await driver.activateApp(APP_PKG)
+    await browser.pause(800)
+  }
+}
+
 async function ensureLoggedIn() {
   await driver.switchContext('NATIVE_APP')
   await browser.pause(500)
 
-  const hamburgerSelector =
-    'android=new UiSelector().description("sharedHeader.menuButton.button")'
-  const hamburgerButton = await $(hamburgerSelector)
+  // 🔑 Phase 0: bring app to foreground ONCE (no terminate loops)
+  await ensureAppForegroundOnce()
 
-  // flexible login marker
-  const loginBtn = await $(
-    'android=new UiSelector().textMatches("(?i)log\\s?in|sign\\s?in")',
-  )
+  const hamburger = await $(SELECTORS.hamburger)
+  const loginBtn = await $(SELECTORS.loginBtn)
+  const homeMarker = await $(SELECTORS.homeMarker)
 
-  // Optional extra “home is loaded” marker (helps stability)
-  const homeHeaderMarker = await $(
-    'android=new UiSelector().description("sharedHeader.rightButton.button")',
-  )
-
-  async function bringAppToForeground() {
-    // If Chrome is foreground, bring app back
-    const current = await driver.getCurrentPackage()
-    if (current === CHROME_PKG) {
-      await driver.activateApp(APP_PKG)
-      await browser.pause(800)
-      return
-    }
-
-    // If anything else is foreground (launcher etc), bring app forward
-    if (current !== APP_PKG) {
-      await driver.activateApp(APP_PKG)
-      await browser.pause(800)
-
-      // If still not foreground, cold restart once
-      const after = await driver.getCurrentPackage()
-      if (after !== APP_PKG) {
-        await driver.terminateApp(APP_PKG)
-        await browser.pause(500)
-        await driver.activateApp(APP_PKG)
-        await browser.pause(1200)
-      }
-    }
-  }
-
-  async function isHomeVisible() {
-    const hb = await hamburgerButton.isDisplayed().catch(() => false)
-    const marker = await homeHeaderMarker.isDisplayed().catch(() => false)
-    return hb || marker
-  }
-
-  async function recoverToHomeIfDeepScreen() {
-    // Sometimes app is foreground but on a deep screen with no hamburger.
-    // Try backing out a few times to reach home.
-    for (let i = 0; i < 5; i++) {
-      if (await isHomeVisible()) return true
-      await driver.back()
-      await browser.pause(500)
-    }
-    return await isHomeVisible()
-  }
-
-  // 🔥 NEW: always force app to foreground BEFORE waiting for UI
-  await bringAppToForeground()
-
+  // Phase 1: wait until we see either Login or Home (hamburger/marker)
   await browser.waitUntil(
     async () => {
-      await bringAppToForeground()
+      // small nudge only if we’re clearly not in app
+      const pkg = await driver.getCurrentPackage().catch(() => null)
+      if (pkg && pkg !== APP_PKG && pkg !== CHROME_PKG) {
+        await driver.activateApp(APP_PKG)
+        await browser.pause(600)
+      }
 
-      // if app is on some deep screen, try to back to home
-      await recoverToHomeIfDeepScreen()
+      const onHome =
+        (await hamburger.isDisplayed().catch(() => false)) ||
+        (await homeMarker.isDisplayed().catch(() => false))
 
-      const onMain = await hamburgerButton.isDisplayed().catch(() => false)
       const onLogin = await loginBtn.isDisplayed().catch(() => false)
-      return onMain || onLogin
+
+      return onHome || onLogin
     },
     {
-      timeout: 30000,
-      interval: 400,
+      timeout: 60000,
+      interval: 500,
       timeoutMsg:
-        'Neither login screen nor hamburger menu became visible (even after foreground + back recovery)',
+        'Neither login screen nor home markers became visible (hamburger/homeMarker/loginBtn)',
     },
   )
 
-  // ---------- HOME PATH ----------
-  if (await hamburgerButton.isDisplayed().catch(() => false)) {
-    // wait for app to settle before returning
-    let stableCount = 0
-    await browser.waitUntil(
-      async () => {
-        const visible = await hamburgerButton.isDisplayed().catch(() => false)
-        if (visible) stableCount++
-        else stableCount = 0
-        return stableCount >= 3
-      },
-      {
-        timeout: 30000,
-        interval: 500,
-        timeoutMsg: 'Hamburger did not become stable after reaching home',
-      },
-    )
+  // If already on Home, we’re done
+  const alreadyHome =
+    (await hamburger.isDisplayed().catch(() => false)) ||
+    (await homeMarker.isDisplayed().catch(() => false))
+
+  if (alreadyHome) {
+    await hamburger.waitForDisplayed({ timeout: 20000 }).catch(() => {})
     return
   }
 
-  // ---------- LOGIN PATH ----------
-  if (await loginBtn.isDisplayed().catch(() => false)) {
-    await loginBtn.click()
+  // Phase 2: Login path (Strategy B expects this usually)
+  await loginBtn.waitForDisplayed({ timeout: 30000 })
+  await loginBtn.click()
 
-    const landedQuickly = await browser
-      .waitUntil(
-        async () => (await $(hamburgerSelector).isDisplayed().catch(() => false)),
-        { timeout: 8000, interval: 250 },
-      )
-      .then(() => true)
-      .catch(() => false)
-
-    if (landedQuickly) {
-      const hb = await $(hamburgerSelector)
-      let stableCount = 0
-      await browser.waitUntil(
-        async () => {
-          const visible = await hb.isDisplayed().catch(() => false)
-          if (visible) stableCount++
-          else stableCount = 0
-          return stableCount >= 3
-        },
-        {
-          timeout: 30000,
-          interval: 500,
-          timeoutMsg: 'Hamburger did not become stable after quick login',
-        },
-      )
-      return
-    }
-
-    await driver.switchContext('NATIVE_APP')
-    await browser.waitUntil(
-      async () => (await driver.getCurrentPackage()) === CHROME_PKG,
-      {
-        timeout: 20000,
-        interval: 300,
-        timeoutMsg: 'Chrome did not launch after pressing login',
-      },
-    )
-
-    // Chrome first-run prompts (safe)
-    try {
-      const accept = await $('id=com.android.chrome:id/terms_accept')
-      if (await accept.isDisplayed()) await accept.click()
-    } catch {}
-
-    try {
-      const noThanks = await $('id=com.android.chrome:id/negative_button')
-      if (await noThanks.isDisplayed()) await noThanks.click()
-    } catch {}
-
-    const webviewCtx = await browser.waitUntil(
-      async () => {
-        const ctxs = await driver.getContexts()
-        return ctxs.find((c) => c.startsWith('WEBVIEW')) || false
-      },
-      {
-        timeout: 10000,
-        interval: 300,
-        timeoutMsg: 'No WEBVIEW context after dismissing Chrome welcome',
-      },
-    )
-    await driver.switchContext(webviewCtx)
-
-    await browser.waitUntil(async () => (await browser.getTitle()).length > 0, {
-      timeout: 10000,
-      interval: 200,
-    })
-
-    const emailToUse = process.env.TEST_EMAIL || 'j.k90@hotmail.com'
-
-    const emailTextDiv = await $(
-      `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]`,
-    )
-    const tileExists = await emailTextDiv
-      .waitForExist({ timeout: 3000 })
-      .catch(() => false)
-
-    if (tileExists) {
-      const savedAccountBtn = await $(
-        `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]` +
-          `/ancestor::*[self::button or self::a or @role="button"][1]`,
-      )
-
-      const canClickBtn = await savedAccountBtn.isExisting().catch(() => false)
-      if (canClickBtn) {
-        await savedAccountBtn.click().catch(async () => {
-          const retryBtn = await $(
-            `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]` +
-              `/ancestor::*[self::button or self::a or @role="button"][1]`,
-          )
-          await retryBtn.click()
-        })
-      } else {
-        await emailTextDiv.click().catch(async () => {
-          const retryDiv = await $(
-            `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]`,
-          )
-          await retryDiv.click()
-        })
-      }
-    } else {
-      const emailInput = await $('[id="1-email"]')
-      await emailInput.waitForDisplayed({ timeout: 10000 })
-      await emailInput.setValue(emailToUse)
-
-      const passwordInput = await $('input[name="password"]')
-      await passwordInput.setValue(process.env.TEST_PASSWORD || 'Zipscreen')
-
-      const submitCandidates = await $$('button[type="submit"]')
-      const submitBtn = submitCandidates[0] || (await $('.auth0-label-submit'))
-      await submitBtn.waitForClickable({ timeout: 10000 })
-
-      await submitBtn.click().catch(async () => {
-        const refreshedCandidates = await $$('button[type="submit"]')
-        const refreshedSubmit =
-          refreshedCandidates[0] || (await $('.auth0-label-submit'))
-        await refreshedSubmit.waitForClickable({ timeout: 8000 })
-        await refreshedSubmit.click()
-      })
-    }
-
-    await browser.waitUntil(
-      async () => {
-        const ctxs = await driver.getContexts().catch(() => [])
-        return ctxs.length === 1 && ctxs[0] === 'NATIVE_APP'
-      },
-      {
-        timeout: 20000,
-        interval: 500,
-        timeoutMsg: 'No return to native after login',
-      },
-    )
-    await driver.switchContext('NATIVE_APP')
-  }
-
-  // ---------- FINAL ASSERT ----------
-  await bringAppToForeground()
-  await recoverToHomeIfDeepScreen()
-
-  const finalHamburger = await $(hamburgerSelector)
-  await finalHamburger.waitForDisplayed({ timeout: 20000 })
-
-  let stableCount = 0
+  // Now Chrome Custom Tab / Auth0 should appear
   await browser.waitUntil(
-    async () => {
-      const visible = await finalHamburger.isDisplayed().catch(() => false)
-      if (visible) stableCount++
-      else stableCount = 0
-      return stableCount >= 3
-    },
+    async () => (await driver.getCurrentPackage().catch(() => null)) === CHROME_PKG,
     {
       timeout: 30000,
       interval: 500,
-      timeoutMsg: 'Hamburger did not become stable after login',
+      timeoutMsg: 'Chrome did not come to foreground after tapping login',
     },
   )
 
-  await expect(finalHamburger).toBeDisplayed()
+  // Handle Chrome first-run prompts (safe)
+  try {
+    const accept = await $('id=com.android.chrome:id/terms_accept')
+    if (await accept.isDisplayed().catch(() => false)) await accept.click()
+  } catch {}
+
+  try {
+    const noThanks = await $('id=com.android.chrome:id/negative_button')
+    if (await noThanks.isDisplayed().catch(() => false)) await noThanks.click()
+  } catch {}
+
+  // Switch into WEBVIEW context (Auth0 page)
+  const webviewCtx = await browser.waitUntil(
+    async () => {
+      const ctxs = await driver.getContexts().catch(() => [])
+      return ctxs.find((c) => c.startsWith('WEBVIEW')) || false
+    },
+    {
+      timeout: 20000,
+      interval: 500,
+      timeoutMsg: 'No WEBVIEW context found for Auth0 login page',
+    },
+  )
+  await driver.switchContext(webviewCtx)
+
+  // Wait for page to be ready
+  await browser.waitUntil(async () => (await browser.getTitle()).length > 0, {
+    timeout: 20000,
+    interval: 500,
+    timeoutMsg: 'Auth0 page title not ready',
+  })
+
+  const emailToUse = process.env.TEST_EMAIL || 'j.k90@hotmail.com'
+  const passToUse = process.env.TEST_PASSWORD || 'Zipscreen'
+
+  // Saved account tile path (if present)
+  const emailTileText = await $(
+    `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]`,
+  )
+
+  const tileExists = await emailTileText.isExisting().catch(() => false)
+
+  if (tileExists) {
+    const tileBtn = await $(
+      `//div[contains(@class,"auth0-lock-social-button-text") and normalize-space(.)="${emailToUse}"]` +
+        `/ancestor::*[self::button or self::a or @role="button"][1]`,
+    )
+    await tileBtn.click()
+  } else {
+    // Normal email/password login
+    const emailInput = await $('[id="1-email"]')
+    await emailInput.waitForDisplayed({ timeout: 30000 })
+    await emailInput.setValue(emailToUse)
+
+    const passwordInput = await $('input[name="password"]')
+    await passwordInput.waitForDisplayed({ timeout: 30000 })
+    await passwordInput.setValue(passToUse)
+
+    const submit = (await $$('button[type="submit"]'))[0] || (await $('.auth0-label-submit'))
+    await submit.waitForClickable({ timeout: 30000 })
+    await submit.click()
+  }
+
+  // Phase 3: wait for app to return to NATIVE
+  await browser.waitUntil(
+    async () => {
+      const ctxs = await driver.getContexts().catch(() => [])
+      return ctxs.length === 1 && ctxs[0] === 'NATIVE_APP'
+    },
+    {
+      timeout: 60000,
+      interval: 500,
+      timeoutMsg: 'Did not return to NATIVE_APP after login',
+    },
+  )
+
+  await driver.switchContext('NATIVE_APP')
+
+  // Final: wait for Home markers (hamburger)
+  await browser.waitUntil(
+    async () => {
+      const pkg = await driver.getCurrentPackage().catch(() => null)
+      if (pkg && pkg !== APP_PKG) {
+        await driver.activateApp(APP_PKG)
+        await browser.pause(600)
+      }
+
+      const onHome =
+        (await $(SELECTORS.hamburger).isDisplayed().catch(() => false)) ||
+        (await $(SELECTORS.homeMarker).isDisplayed().catch(() => false))
+
+      return onHome
+    },
+    {
+      timeout: 60000,
+      interval: 500,
+      timeoutMsg: 'Home did not appear after login (hamburger/homeMarker)',
+    },
+  )
+
+  const finalHamburger = await $(SELECTORS.hamburger)
+  await finalHamburger.waitForDisplayed({ timeout: 30000 })
 }
 
 module.exports = { ensureLoggedIn }

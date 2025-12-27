@@ -22,43 +22,40 @@ config.specs = [
   // ============
 
   config.capabilities = [
- {
+    {
       'appium:platformName': 'Android',
-   'appium:platformVersion': '12.0',
-
-       // ✅ make sure this really points to Jalalemulator
-    //   // run: adb devices -l  → copy the UDID for Jalalemulator
-      'appium:udid': 'emulator-5554', // e.g. emulator-5556
-
-    //   // (optional) also name the AVD so WDIO boots the right one
-      //'appium:avd': 'Pixel_XL',
-
-       'appium:deviceName': 'Pixel XL', // just a label
-       'appium:automationName': 'UIAutomator2',
-       'appium:autoGrantPermissions': true,
-       //reduces UI animation timing flakiness.
-       'appium:disableWindowAnimation': true,
-       
-
-
-    //   // install + launch
-       'appium:app': path.join(process.cwd(), 'app/android/appium-fix.apk'),
+      'appium:platformVersion': '12.0',
+      'appium:udid': 'emulator-5554',
+      'appium:deviceName': 'Pixel XL',
+      'appium:automationName': 'UIAutomator2',
+  
+      'appium:autoGrantPermissions': true,
+      'appium:disableWindowAnimation': true,
+  
+      // install + launch
+      'appium:app': path.join(process.cwd(), 'app/android/appium-fix.apk'),
       'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
       'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
-
-      // accept the fast jump from Splash → Main
+  
       'appium:appWaitActivity':
-        'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
-        //doing true below because app sometimes do not come to foreground when test runs and causing test to fail. 
+        'com.rolleaseacmeda.automatepulse.SplashActivity,' +
+        'com.rolleaseacmeda.automatepulse.MainActivity,' +
+        'com.rolleaseacmeda.automatepulse.*',
+  
       'appium:appWaitForLaunch': true,
-      'appium:appWaitDuration': 15000,
-
-      // WebView / Chrome bits 👇
-      'appium:chromedriverAutodownload': true, // <-- IMPORTANT
-      'appium:noReset': true, // keeps Chrome onboarding dismissed
-      'appium:ensureWebviewsHavePages': true, // helps detect WEBVIEW
+      'appium:appWaitDuration': 60000,
+  
+      // ✅ IMPORTANT for stability (prevents “stuck in launcher / weird task”)
+      'appium:forceAppLaunch': true,
+  
+      // ✅ Strategy B
+      'appium:noReset': false,     // clear app data each session (logged out)
+      'appium:fullReset': false,   // don’t uninstall/reinstall each time (faster & less flaky)
+  
+      // WebView / Chrome bits
+      'appium:chromedriverAutodownload': true,
+      'appium:ensureWebviewsHavePages': true,
     },
-    
   ]
   
 // Test runner services
