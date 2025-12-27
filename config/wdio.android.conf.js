@@ -49,7 +49,8 @@ config.specs = [
       // accept the fast jump from Splash → Main
       'appium:appWaitActivity':
         'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
-      'appium:appWaitForLaunch': false,
+        //doing true below because app sometimes do not come to foreground when test runs and causing test to fail. 
+      'appium:appWaitForLaunch': true,
       'appium:appWaitDuration': 15000,
 
       // WebView / Chrome bits 👇
