@@ -1,4 +1,4 @@
-// test/specs/android/menu/knowledge-base-links.spec.js
+//This covers test where user will open sidebar menu and then tap on support centre> then tap on knowledge base and open each section one by one. 
 
 const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
 

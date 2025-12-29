@@ -1,4 +1,4 @@
-// test/specs/android/menu/support-center.spec.js
+// This test covers where user opens up the sidebar and then tap on support centre and it opens up drag down menu which shows supoport chat, contact support and knowledge base.
 
 const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
 

@@ -1,4 +1,4 @@
-// test/specs/android/menu/contact-support-web.spec.js
+//this test covers opening sidebar menu > Then tap on Support centre> then tap on contact support which will take to inapp contact support screen. 
 
 const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
 

@@ -1,4 +1,4 @@
-// test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js
+// This test is to check the external URL links which opens up when user taps on the knowledge base > then any help section and then presses on external URL links down the bottom. 
 
 const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
 
