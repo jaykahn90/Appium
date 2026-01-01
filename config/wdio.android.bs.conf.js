@@ -14,7 +14,7 @@ config.key = process.env.BROWSERSTACK_KEY
 
 config.specs = [
     // ToDo: define location for spec files here
-    '../test/specs/android/add-note.spec*.js',
+    '../test/specs/android/menu/contact-support-inapp.spec.js',
   ]
 
   // ============
@@ -38,7 +38,7 @@ config.specs = [
        'appium:autoGrantPermissions': true,
 
     //   // install + launch
-       'appium:app': 'bs://13688d13bdb23e4253b996728d64e6cc18053888',
+       'appium:app': 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
     //   'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
     //   'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
 
