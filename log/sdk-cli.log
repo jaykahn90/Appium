@@ -1817,3 +1817,2426 @@
 2026-01-01T13:10:21.332Z CLI info  [jalalkhan_vhXeGd]  [8f5dnofalcddtd78ewgu0ykwfsaq1d8tmraixbfk]  [9526e169-cfdf-41ce-9b20-1d6d646fbdb0]  [PRODUCTION] Making GET request to https://api.browserstack.com
 2026-01-01T13:10:22.343Z CLI info  [jalalkhan_vhXeGd]  [8f5dnofalcddtd78ewgu0ykwfsaq1d8tmraixbfk]  [9526e169-cfdf-41ce-9b20-1d6d646fbdb0]  [PRODUCTION] Making POST request to https://eds.browserstack.com
 2026-01-01T13:10:23.267Z CLI info [main]  [jalalkhan_vhXeGd]  [8f5dnofalcddtd78ewgu0ykwfsaq1d8tmraixbfk]  [9526e169-cfdf-41ce-9b20-1d6d646fbdb0]  Received graceful signal termination, performing cleanup
+2026-01-02T06:43:58.266Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"13.0","appium:deviceName":"Google Pixel 7","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01","projectName":"Automate Pulse","buildName":"Support Smoke – Holiday Testing Project (2026-01-02)","sessionName":"Support Smoke Suite","debug":true,"networkLogs":true,"wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2026-01-02T06:43:58.281Z CLI info     Should start debug utility: undefined
+2026-01-02T06:43:58.285Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Starting testhub from 99293:0
+2026-01-02T06:43:58.286Z CLI info  [jalalkhan_vhXeGd]   [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2026-01-02T06:44:00.522Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  startBuild: response=ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf
+2026-01-02T06:44:00.525Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2026-01-02T06:44:03.185Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2026-01-02T06:44:03.381Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2026-01-02T06:44:03.541Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2026-01-02T06:44:03.563Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T06:44:03.568Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T06:44:03.721Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T06:44:04.027Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T06:44:04.787Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2026-01-02T06:44:22.527Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+    integrations: { browserstack: [Object] }
+  }
+} to 99293:0
+2026-01-02T06:44:22.530Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+    name: 'opens Knowledge Base and validates help screens open',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '\n' +
+        '    // 1) Ensure logged in\n' +
+        '    await ensureLoggedIn()\n' +
+        '\n' +
+        '    // 2) Wait for home screen to fully settle\n' +
+        '    // Using header right button as stable home marker\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    // Let app finish background loading (hub scan etc.)\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // 3) Open menu (ONCE)\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 4) Expand Support Center (scroll-safe)\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 5) Open Knowledge Base\n' +
+        '    const knowledgeBaseBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await knowledgeBaseBtn.click()\n' +
+        '\n' +
+        '    // 6) Help cards (presence check)\n' +
+        '    const hubPairingCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubPairingCard.button")',\n` +
+        '    )\n' +
+        '    const hubOfflineCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubOfflineCard.button")',\n` +
+        '    )\n' +
+        '    const shadeIssuesCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.shadeIssuesCard.button")',\n` +
+        '    )\n' +
+        '    const simpleControlCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.simpleControlCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupportCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(hubPairingCard).toBeDisplayed()\n' +
+        '    await expect(hubOfflineCard).toBeDisplayed()\n' +
+        '    await expect(shadeIssuesCard).toBeDisplayed()\n' +
+        '    await expect(simpleControlCard).toBeDisplayed()\n' +
+        '    await expect(contactSupportCard).toBeDisplayed() // present only\n' +
+        '\n' +
+        '    // Back button\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    // Helper: open native help screen, assert title, go back\n' +
+        '    const openAndAssert = async (cardEl, titleText) => {\n' +
+        '      await cardEl.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await cardEl.click()\n' +
+        '\n' +
+        '      const title = await $(`android=new UiSelector().text("${titleText}")`)\n' +
+        '      await title.waitForDisplayed({\n' +
+        '        timeout: 10000,\n' +
+        '        timeoutMsg: `Expected title not visible: ${titleText}`,\n' +
+        '      })\n' +
+        '      await expect(title).toBeDisplayed()\n' +
+        '\n' +
+        '      await backBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await backBtn.click()\n' +
+        '\n' +
+        '      // Ensure we are back on the HELP list\n' +
+        '      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n' +
+        '    }\n' +
+        '\n' +
+        '    // 7) Validate each native help screen\n' +
+        "    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n" +
+        "    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n" +
+        "    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n" +
+        "    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n" +
+        '  }'
+    },
+    identifier: 'opens Knowledge Base and validates help screens open',
+    scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+    scopes: [ 'Menu – Knowledge Base links' ],
+    file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T06:44:22.503Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:44:22.533Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+      name: 'opens Knowledge Base and validates help screens open',
+      body: [Object],
+      identifier: 'opens Knowledge Base and validates help screens open',
+      scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T06:44:22.503Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:44:22.534Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:44:40.102Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+    integrations: { browserstack: [Object] }
+  }
+} to 99293:0
+2026-01-02T06:44:40.105Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+    name: 'opens Contact Support and validates the Contact Support screen',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n" +
+        "    const CHROME_PKG = 'com.android.chrome'\n" +
+        '\n' +
+        '    // If Chrome is foreground, bring app back (safe guard)\n' +
+        '    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n' +
+        '      await driver.activateApp(APP_PKG)\n' +
+        '      await browser.pause(1000)\n' +
+        '    }\n' +
+        '\n' +
+        '    // ---------- WAIT FOR HOME TO SETTLE ----------\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // ---------- OPEN DRAWER (ONCE) ----------\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Hamburger button not visible on main screen',\n" +
+        '    })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    await browser.waitUntil(\n' +
+        '      async () => {\n' +
+        '        const supportCenterExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        const knowledgeBaseExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        return supportCenterExists || knowledgeBaseExists\n' +
+        '      },\n' +
+        '      {\n' +
+        '        timeout: 15000,\n' +
+        '        interval: 400,\n' +
+        "        timeoutMsg: 'Drawer opened but content not ready',\n" +
+        '      },\n' +
+        '    )\n' +
+        '\n' +
+        '    // ---------- OPEN SUPPORT CENTER ----------\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center not visible in drawer',\n" +
+        '    })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n' +
+        '    const supportChatBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    await supportChatBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center expanded but content not ready',\n" +
+        '    })\n' +
+        '\n' +
+        '    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n' +
+        '    const contactSupportBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    await contactSupportBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n" +
+        '    })\n' +
+        '    await contactSupportBtn.click()\n' +
+        '\n' +
+        '    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n' +
+        `    const heading = await $('android=new UiSelector().text("How can we help?")')\n` +
+        '    await heading.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        `      timeoutMsg: '"How can we help?" not visible on Contact Support screen',\n` +
+        '    })\n' +
+        '    await expect(heading).toBeDisplayed()\n' +
+        '\n' +
+        '    const bodyText = await $(\n' +
+        `      'android=new UiSelector().text("Whether you have questions about a product, need technical support or anything else, our team is ready to support you.")',\n` +
+        '    )\n' +
+        '    await bodyText.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n" +
+        '    })\n' +
+        '    await expect(bodyText).toBeDisplayed()\n' +
+        '\n' +
+        '    // ---------- GO BACK TO HOME ----------\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '    await backBtn.waitForDisplayed({ timeout: 15000 })\n' +
+        '    await backBtn.click()\n' +
+        '\n' +
+        '    // ---------- FINAL SANITY ----------\n' +
+        '    const hamburgerAgain = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerAgain.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Returned to home but hamburger not visible',\n" +
+        '    })\n' +
+        '    await expect(hamburgerAgain).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens Contact Support and validates the Contact Support screen',
+    scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+    scopes: [ 'Menu – Contact Support (Web)' ],
+    file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T06:44:40.090Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:44:40.542Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+      name: 'opens Contact Support and validates the Contact Support screen',
+      body: [Object],
+      identifier: 'opens Contact Support and validates the Contact Support screen',
+      scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T06:44:40.090Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:44:40.543Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:44:53.002Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"b6bccaa8-965f-447b-8b6d-919906892c6f","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_name":"opens Contact Support and validates the Contact Support screen","test_code":"async () => {\n    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n    const CHROME_PKG = 'com.android.chrome'\n\n    // If Chrome is foreground, bring app back (safe guard)\n    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n      await driver.activateApp(APP_PKG)\n      await browser.pause(1000)\n    }\n\n    // ---------- WAIT FOR HOME TO SETTLE ----------\n    const homeHeaderMarker = await $(\n      'android=new UiSelector().description(\"sharedHeader.rightButton.button\")',\n    )\n    await homeHeaderMarker.waitForDisplayed({\n      timeout: 20000,\n      timeoutMsg: 'Home header marker not visible after login',\n    })\n\n    await browser.pause(7000)\n\n    // ---------- OPEN DRAWER (ONCE) ----------\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Hamburger button not visible on main screen',\n    })\n    await hamburgerButton.click()\n\n    await browser.waitUntil(\n      async () => {\n        const supportCenterExists = await $(\n          'android=new UiSelector().description(\"sidebar.supportCenterCard.button\")',\n        )\n          .isDisplayed()\n          .catch(() => false)\n\n        const knowledgeBaseExists = await $(\n          'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n        )\n          .isDisplayed()\n          .catch(() => false)\n\n        return supportCenterExists || knowledgeBaseExists\n      },\n      {\n        timeout: 15000,\n        interval: 400,\n        timeoutMsg: 'Drawer opened but content not ready',\n      },\n    )\n\n    // ---------- OPEN SUPPORT CENTER ----------\n    const supportCenterBtn = await $(\n      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n        '.scrollIntoView(new UiSelector().description(\"sidebar.supportCenterCard.button\"))',\n    )\n    await supportCenterBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Support Center not visible in drawer',\n    })\n    await supportCenterBtn.click()\n\n    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n    const supportChatBtn = await $(\n      'android=new UiSelector().description(\"sidebar.supportChatCard.button\")',\n    )\n    await supportChatBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Support Center expanded but content not ready',\n    })\n\n    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n    const contactSupportBtn = await $(\n      'android=new UiSelector().description(\"sidebar.contactSupportCard.button\")',\n    )\n    await contactSupportBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n    })\n    await contactSupportBtn.click()\n\n    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n    const heading = await $('android=new UiSelector().text(\"How can we help?\")')\n    await heading.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: '\"How can we help?\" not visible on Contact Support screen',\n    })\n    await expect(heading).toBeDisplayed()\n\n    const bodyText = await $(\n      'android=new UiSelector().text(\"Whether you have questions about a product, need technical support or anything else, our team is ready to support you.\")',\n    )\n    await bodyText.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n    })\n    await expect(bodyText).toBeDisplayed()\n\n    // ---------- GO BACK TO HOME ----------\n    const backBtn = await $(\n      'android=new UiSelector().description(\"sharedHeader.backButton.button\")',\n    )\n    await backBtn.waitForDisplayed({ timeout: 15000 })\n    await backBtn.click()\n\n    // ---------- FINAL SANITY ----------\n    const hamburgerAgain = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerAgain.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Returned to home but hamburger not visible',\n    })\n    await expect(hamburgerAgain).toBeDisplayed()\n  }","test_file_path":"test/specs/android/menu/contact-support-inapp.spec.js","test_location":"test/specs/android/menu/contact-support-inapp.spec.js","test_scope":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_scopes":["Menu – Contact Support (Web)"],"test_started_at":"2026-01-02T06:44:40.090Z","automate_session_name":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T06:44:52.990Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T06:44:53.004Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+    name: 'opens Contact Support and validates the Contact Support screen',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n" +
+        "    const CHROME_PKG = 'com.android.chrome'\n" +
+        '\n' +
+        '    // If Chrome is foreground, bring app back (safe guard)\n' +
+        '    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n' +
+        '      await driver.activateApp(APP_PKG)\n' +
+        '      await browser.pause(1000)\n' +
+        '    }\n' +
+        '\n' +
+        '    // ---------- WAIT FOR HOME TO SETTLE ----------\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // ---------- OPEN DRAWER (ONCE) ----------\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Hamburger button not visible on main screen',\n" +
+        '    })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    await browser.waitUntil(\n' +
+        '      async () => {\n' +
+        '        const supportCenterExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        const knowledgeBaseExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        return supportCenterExists || knowledgeBaseExists\n' +
+        '      },\n' +
+        '      {\n' +
+        '        timeout: 15000,\n' +
+        '        interval: 400,\n' +
+        "        timeoutMsg: 'Drawer opened but content not ready',\n" +
+        '      },\n' +
+        '    )\n' +
+        '\n' +
+        '    // ---------- OPEN SUPPORT CENTER ----------\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center not visible in drawer',\n" +
+        '    })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n' +
+        '    const supportChatBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    await supportChatBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center expanded but content not ready',\n" +
+        '    })\n' +
+        '\n' +
+        '    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n' +
+        '    const contactSupportBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    await contactSupportBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n" +
+        '    })\n' +
+        '    await contactSupportBtn.click()\n' +
+        '\n' +
+        '    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n' +
+        `    const heading = await $('android=new UiSelector().text("How can we help?")')\n` +
+        '    await heading.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        `      timeoutMsg: '"How can we help?" not visible on Contact Support screen',\n` +
+        '    })\n' +
+        '    await expect(heading).toBeDisplayed()\n' +
+        '\n' +
+        '    const bodyText = await $(\n' +
+        `      'android=new UiSelector().text("Whether you have questions about a product, need technical support or anything else, our team is ready to support you.")',\n` +
+        '    )\n' +
+        '    await bodyText.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n" +
+        '    })\n' +
+        '    await expect(bodyText).toBeDisplayed()\n' +
+        '\n' +
+        '    // ---------- GO BACK TO HOME ----------\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '    await backBtn.waitForDisplayed({ timeout: 15000 })\n' +
+        '    await backBtn.click()\n' +
+        '\n' +
+        '    // ---------- FINAL SANITY ----------\n' +
+        '    const hamburgerAgain = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerAgain.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Returned to home but hamburger not visible',\n" +
+        '    })\n' +
+        '    await expect(hamburgerAgain).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens Contact Support and validates the Contact Support screen',
+    scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+    scopes: [ 'Menu – Contact Support (Web)' ],
+    file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    result: 'passed',
+    duration_in_ms: 12900,
+    started_at: '2026-01-02T06:44:40.090Z',
+    finished_at: '2026-01-02T06:44:52.990Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:44:54.548Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: 'b6bccaa8-965f-447b-8b6d-919906892c6f',
+      name: 'opens Contact Support and validates the Contact Support screen',
+      body: [Object],
+      identifier: 'opens Contact Support and validates the Contact Support screen',
+      scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      result: 'passed',
+      duration_in_ms: 12900,
+      started_at: '2026-01-02T06:44:40.090Z',
+      finished_at: '2026-01-02T06:44:52.990Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:44:54.549Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:44:55.670Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"120c30bc-7fc2-4819-9c64-598cc764d721","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_name":"opens Knowledge Base and validates help screens open","test_code":"async () => {\n    await driver.switchContext('NATIVE_APP')\n\n    // 1) Ensure logged in\n    await ensureLoggedIn()\n\n    // 2) Wait for home screen to fully settle\n    // Using header right button as stable home marker\n    const homeHeaderMarker = await $(\n      'android=new UiSelector().description(\"sharedHeader.rightButton.button\")',\n    )\n    await homeHeaderMarker.waitForDisplayed({\n      timeout: 20000,\n      timeoutMsg: 'Home header marker not visible after login',\n    })\n\n    // Let app finish background loading (hub scan etc.)\n    await browser.pause(7000)\n\n    // 3) Open menu (ONCE)\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n    await hamburgerButton.click()\n\n    // 4) Expand Support Center (scroll-safe)\n    const supportCenterBtn = await $(\n      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n        '.scrollIntoView(new UiSelector().description(\"sidebar.supportCenterCard.button\"))',\n    )\n    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n    await supportCenterBtn.click()\n\n    // 5) Open Knowledge Base\n    const knowledgeBaseBtn = await $(\n      'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n    )\n    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n    await knowledgeBaseBtn.click()\n\n    // 6) Help cards (presence check)\n    const hubPairingCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.hubPairingCard.button\")',\n    )\n    const hubOfflineCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.hubOfflineCard.button\")',\n    )\n    const shadeIssuesCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.shadeIssuesCard.button\")',\n    )\n    const simpleControlCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.simpleControlCard.button\")',\n    )\n    const contactSupportCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.contactSupportCard.button\")',\n    )\n\n    await expect(hubPairingCard).toBeDisplayed()\n    await expect(hubOfflineCard).toBeDisplayed()\n    await expect(shadeIssuesCard).toBeDisplayed()\n    await expect(simpleControlCard).toBeDisplayed()\n    await expect(contactSupportCard).toBeDisplayed() // present only\n\n    // Back button\n    const backBtn = await $(\n      'android=new UiSelector().description(\"sharedHeader.backButton.button\")',\n    )\n\n    // Helper: open native help screen, assert title, go back\n    const openAndAssert = async (cardEl, titleText) => {\n      await cardEl.waitForDisplayed({ timeout: 10000 })\n      await cardEl.click()\n\n      const title = await $(`android=new UiSelector().text(\"${titleText}\")`)\n      await title.waitForDisplayed({\n        timeout: 10000,\n        timeoutMsg: `Expected title not visible: ${titleText}`,\n      })\n      await expect(title).toBeDisplayed()\n\n      await backBtn.waitForDisplayed({ timeout: 10000 })\n      await backBtn.click()\n\n      // Ensure we are back on the HELP list\n      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n    }\n\n    // 7) Validate each native help screen\n    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n  }","test_file_path":"test/specs/android/menu/knowledge-base-links.spec.js","test_location":"test/specs/android/menu/knowledge-base-links.spec.js","test_scope":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_scopes":["Menu – Knowledge Base links"],"test_started_at":"2026-01-02T06:44:22.503Z","automate_session_name":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T06:44:55.660Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T06:44:55.672Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+    name: 'opens Knowledge Base and validates help screens open',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '\n' +
+        '    // 1) Ensure logged in\n' +
+        '    await ensureLoggedIn()\n' +
+        '\n' +
+        '    // 2) Wait for home screen to fully settle\n' +
+        '    // Using header right button as stable home marker\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    // Let app finish background loading (hub scan etc.)\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // 3) Open menu (ONCE)\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 4) Expand Support Center (scroll-safe)\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 5) Open Knowledge Base\n' +
+        '    const knowledgeBaseBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await knowledgeBaseBtn.click()\n' +
+        '\n' +
+        '    // 6) Help cards (presence check)\n' +
+        '    const hubPairingCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubPairingCard.button")',\n` +
+        '    )\n' +
+        '    const hubOfflineCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubOfflineCard.button")',\n` +
+        '    )\n' +
+        '    const shadeIssuesCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.shadeIssuesCard.button")',\n` +
+        '    )\n' +
+        '    const simpleControlCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.simpleControlCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupportCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(hubPairingCard).toBeDisplayed()\n' +
+        '    await expect(hubOfflineCard).toBeDisplayed()\n' +
+        '    await expect(shadeIssuesCard).toBeDisplayed()\n' +
+        '    await expect(simpleControlCard).toBeDisplayed()\n' +
+        '    await expect(contactSupportCard).toBeDisplayed() // present only\n' +
+        '\n' +
+        '    // Back button\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    // Helper: open native help screen, assert title, go back\n' +
+        '    const openAndAssert = async (cardEl, titleText) => {\n' +
+        '      await cardEl.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await cardEl.click()\n' +
+        '\n' +
+        '      const title = await $(`android=new UiSelector().text("${titleText}")`)\n' +
+        '      await title.waitForDisplayed({\n' +
+        '        timeout: 10000,\n' +
+        '        timeoutMsg: `Expected title not visible: ${titleText}`,\n' +
+        '      })\n' +
+        '      await expect(title).toBeDisplayed()\n' +
+        '\n' +
+        '      await backBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await backBtn.click()\n' +
+        '\n' +
+        '      // Ensure we are back on the HELP list\n' +
+        '      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n' +
+        '    }\n' +
+        '\n' +
+        '    // 7) Validate each native help screen\n' +
+        "    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n" +
+        "    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n" +
+        "    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n" +
+        "    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n" +
+        '  }'
+    },
+    identifier: 'opens Knowledge Base and validates help screens open',
+    scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+    scopes: [ 'Menu – Knowledge Base links' ],
+    file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    result: 'passed',
+    duration_in_ms: 33157,
+    started_at: '2026-01-02T06:44:22.503Z',
+    finished_at: '2026-01-02T06:44:55.660Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:44:56.230Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+    integrations: { browserstack: [Object] }
+  }
+} to 99293:0
+2026-01-02T06:44:56.231Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+    name: 'opens both external help links in Chrome and validates URLs',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        '    await ensureAppForeground()\n' +
+        '\n' +
+        '    await waitForHomeToSettle()\n' +
+        '    await openDrawer()\n' +
+        '    await openSupportCenter()\n' +
+        '    await openKnowledgeBase()\n' +
+        '    await openHubPairingAssist()\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n' +
+        '    const contactLink = await $(ui.contactLocalSupportLink)\n' +
+        '    await contactLink.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"Contact Local Support if Necessary" not visible',\n` +
+        '    })\n' +
+        '    await contactLink.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/contact')\n" +
+        '    await returnToApp()\n' +
+        '\n' +
+        '    // Ensure we’re back on Hub Pairing Assist screen before next click\n' +
+        '    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 2) More Info -> Chrome -> assert support URL -> back\n' +
+        '    const moreInfo = await $(ui.moreInfoLink)\n' +
+        '    await moreInfo.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"More Info" not visible',\n` +
+        '    })\n' +
+        '    await moreInfo.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/support')\n" +
+        "    await assertChromeUrlContains('hub-pairing-assistant')\n" +
+        '    await returnToApp()\n' +
+        '  }'
+    },
+    identifier: 'opens both external help links in Chrome and validates URLs',
+    scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+    scopes: [ 'Menu – Knowledge Base – Help – External URL links (Chrome)' ],
+    file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T06:44:56.221Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:44:56.548Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '120c30bc-7fc2-4819-9c64-598cc764d721',
+      name: 'opens Knowledge Base and validates help screens open',
+      body: [Object],
+      identifier: 'opens Knowledge Base and validates help screens open',
+      scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      result: 'passed',
+      duration_in_ms: 33157,
+      started_at: '2026-01-02T06:44:22.503Z',
+      finished_at: '2026-01-02T06:44:55.660Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  },
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+      name: 'opens both external help links in Chrome and validates URLs',
+      body: [Object],
+      identifier: 'opens both external help links in Chrome and validates URLs',
+      scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T06:44:56.221Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:44:56.552Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:45:02.175Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+    integrations: { browserstack: [Object] }
+  }
+} to 99293:0
+2026-01-02T06:45:02.176Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+    name: 'opens menu, expands Support Center, and shows Support options',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '    await browser.pause(800)\n' +
+        '\n' +
+        '    // 1) Open sidebar menu\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 2) Expand Support Center dropdown\n' +
+        '    const supportCenterBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 3) Assert dropdown options are visible\n' +
+        '    const supportChat = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupport = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    const knowledgeBase = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(supportChat).toBeDisplayed()\n' +
+        '    await expect(contactSupport).toBeDisplayed()\n' +
+        '    await expect(knowledgeBase).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens menu, expands Support Center, and shows Support options',
+    scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+    scopes: [ 'Menu – Support Center' ],
+    file_name: 'test/specs/android/menu/support-center.spec.js',
+    vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+    location: 'test/specs/android/menu/support-center.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T06:45:02.162Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:45:02.550Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+      name: 'opens menu, expands Support Center, and shows Support options',
+      body: [Object],
+      identifier: 'opens menu, expands Support Center, and shows Support options',
+      scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/support-center.spec.js',
+      vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+      location: 'test/specs/android/menu/support-center.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T06:45:02.162Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:45:02.553Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:45:06.066Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"19422586-865e-4634-8aa8-af0ce7a5a0b5","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_name":"opens menu, expands Support Center, and shows Support options","test_code":"async () => {\n    await driver.switchContext('NATIVE_APP')\n    await browser.pause(800)\n\n    // 1) Open sidebar menu\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n    await hamburgerButton.click()\n\n    // 2) Expand Support Center dropdown\n    const supportCenterBtn = await $(\n      'android=new UiSelector().description(\"sidebar.supportCenterCard.button\")',\n    )\n    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n    await supportCenterBtn.click()\n\n    // 3) Assert dropdown options are visible\n    const supportChat = await $(\n      'android=new UiSelector().description(\"sidebar.supportChatCard.button\")',\n    )\n    const contactSupport = await $(\n      'android=new UiSelector().description(\"sidebar.contactSupportCard.button\")',\n    )\n    const knowledgeBase = await $(\n      'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n    )\n\n    await expect(supportChat).toBeDisplayed()\n    await expect(contactSupport).toBeDisplayed()\n    await expect(knowledgeBase).toBeDisplayed()\n  }","test_file_path":"test/specs/android/menu/support-center.spec.js","test_location":"test/specs/android/menu/support-center.spec.js","test_scope":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_scopes":["Menu – Support Center"],"test_started_at":"2026-01-02T06:45:02.162Z","automate_session_name":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T06:45:06.060Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T06:45:06.068Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+    name: 'opens menu, expands Support Center, and shows Support options',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '    await browser.pause(800)\n' +
+        '\n' +
+        '    // 1) Open sidebar menu\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 2) Expand Support Center dropdown\n' +
+        '    const supportCenterBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 3) Assert dropdown options are visible\n' +
+        '    const supportChat = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupport = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    const knowledgeBase = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(supportChat).toBeDisplayed()\n' +
+        '    await expect(contactSupport).toBeDisplayed()\n' +
+        '    await expect(knowledgeBase).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens menu, expands Support Center, and shows Support options',
+    scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+    scopes: [ 'Menu – Support Center' ],
+    file_name: 'test/specs/android/menu/support-center.spec.js',
+    vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+    location: 'test/specs/android/menu/support-center.spec.js',
+    result: 'passed',
+    duration_in_ms: 3898,
+    started_at: '2026-01-02T06:45:02.162Z',
+    finished_at: '2026-01-02T06:45:06.060Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:45:06.552Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '19422586-865e-4634-8aa8-af0ce7a5a0b5',
+      name: 'opens menu, expands Support Center, and shows Support options',
+      body: [Object],
+      identifier: 'opens menu, expands Support Center, and shows Support options',
+      scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/support-center.spec.js',
+      vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+      location: 'test/specs/android/menu/support-center.spec.js',
+      result: 'passed',
+      duration_in_ms: 3898,
+      started_at: '2026-01-02T06:45:02.162Z',
+      finished_at: '2026-01-02T06:45:06.060Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:45:06.553Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:45:17.909Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"a249ebb8-9155-4a2b-b538-64660d1ef9e1","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_name":"opens both external help links in Chrome and validates URLs","test_code":"async () => {\n    await ensureAppForeground()\n\n    await waitForHomeToSettle()\n    await openDrawer()\n    await openSupportCenter()\n    await openKnowledgeBase()\n    await openHubPairingAssist()\n    await scrollToBottomLinks()\n\n    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n    const contactLink = await $(ui.contactLocalSupportLink)\n    await contactLink.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: '\"Contact Local Support if Necessary\" not visible',\n    })\n    await contactLink.click()\n\n    await waitForChrome()\n    await acceptCookiesIfPresent()\n    await assertChromeUrlContains('automateshades.com/contact')\n    await returnToApp()\n\n    // Ensure we’re back on Hub Pairing Assist screen before next click\n    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n    await scrollToBottomLinks()\n\n    // 2) More Info -> Chrome -> assert support URL -> back\n    const moreInfo = await $(ui.moreInfoLink)\n    await moreInfo.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: '\"More Info\" not visible',\n    })\n    await moreInfo.click()\n\n    await waitForChrome()\n    await acceptCookiesIfPresent()\n    await assertChromeUrlContains('automateshades.com/support')\n    await assertChromeUrlContains('hub-pairing-assistant')\n    await returnToApp()\n  }","test_file_path":"test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js","test_location":"test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js","test_scope":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_scopes":["Menu – Knowledge Base – Help – External URL links (Chrome)"],"test_started_at":"2026-01-02T06:44:56.221Z","automate_session_name":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T06:45:17.899Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T06:45:17.910Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+    name: 'opens both external help links in Chrome and validates URLs',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        '    await ensureAppForeground()\n' +
+        '\n' +
+        '    await waitForHomeToSettle()\n' +
+        '    await openDrawer()\n' +
+        '    await openSupportCenter()\n' +
+        '    await openKnowledgeBase()\n' +
+        '    await openHubPairingAssist()\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n' +
+        '    const contactLink = await $(ui.contactLocalSupportLink)\n' +
+        '    await contactLink.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"Contact Local Support if Necessary" not visible',\n` +
+        '    })\n' +
+        '    await contactLink.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/contact')\n" +
+        '    await returnToApp()\n' +
+        '\n' +
+        '    // Ensure we’re back on Hub Pairing Assist screen before next click\n' +
+        '    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 2) More Info -> Chrome -> assert support URL -> back\n' +
+        '    const moreInfo = await $(ui.moreInfoLink)\n' +
+        '    await moreInfo.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"More Info" not visible',\n` +
+        '    })\n' +
+        '    await moreInfo.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/support')\n" +
+        "    await assertChromeUrlContains('hub-pairing-assistant')\n" +
+        '    await returnToApp()\n' +
+        '  }'
+    },
+    identifier: 'opens both external help links in Chrome and validates URLs',
+    scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+    scopes: [ 'Menu – Knowledge Base – Help – External URL links (Chrome)' ],
+    file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    result: 'passed',
+    duration_in_ms: 21678,
+    started_at: '2026-01-02T06:44:56.221Z',
+    finished_at: '2026-01-02T06:45:17.899Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 99293:0
+2026-01-02T06:45:18.556Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: 'a249ebb8-9155-4a2b-b538-64660d1ef9e1',
+      name: 'opens both external help links in Chrome and validates URLs',
+      body: [Object],
+      identifier: 'opens both external help links in Chrome and validates URLs',
+      scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      result: 'passed',
+      duration_in_ms: 21678,
+      started_at: '2026-01-02T06:44:56.221Z',
+      finished_at: '2026-01-02T06:45:17.899Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 99293:0
+2026-01-02T06:45:18.559Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T06:45:22.316Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2026-01-02T06:45:23.015Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  stopBuild: ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf request={"finished_at":"2026-01-02T06:45:22.315Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2026-01-02T06:45:23.019Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2026-01-02T06:45:23.023Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Visit https://automation.browserstack.com/builds/ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf to view build report, insights, and many more debugging information all at one place!
+2026-01-02T06:45:23.343Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2026-01-02T06:45:23.662Z CLI info  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2026-01-02T06:45:24.803Z CLI info [main]  [jalalkhan_vhXeGd]  [ldw0f8bjrseyai4kppi2cloz8t8bmdcunydtczlf]  [db5da2fd-1cd7-4bbd-aa95-df3d8bc75621]  Received graceful signal termination, performing cleanup
+2026-01-02T07:08:17.426Z CLI info     Config : {"userName":"[REDACTED]","accessKey":"[REDACTED]","platforms":[{"platformName":"Android","appium:platformVersion":"13.0","appium:deviceName":"Google Pixel 7","appium:automationName":"UIAutomator2","appium:autoGrantPermissions":true,"appium:app":"bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01","projectName":"Automate Pulse","buildName":"Support Smoke – Holiday Testing Project (2026-01-02)","sessionName":"Support Smoke Suite","debug":true,"networkLogs":true,"wdioService":"9.20.1"}],"isNonBstackA11yWDIO":false,"accessibility":null,"testObservability":true,"testContextOptions":{"skipSessionName":false,"skipSessionStatus":false,"sessionNameOmitTestTitle":false,"sessionNamePrependTopLevelSuiteTitle":false,"sessionNameFormat":""},"buildTag":[]}
+2026-01-02T07:08:17.435Z CLI info     Should start debug utility: undefined
+2026-01-02T07:08:17.438Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [dacf5bee-a952-4827-a616-7e0666245eba]  Starting testhub from 4282:0
+2026-01-02T07:08:17.439Z CLI info  [jalalkhan_vhXeGd]   [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://sdk.browserstack.com
+2026-01-02T07:08:18.624Z CLI info [testhub:module]  [jalalkhan_vhXeGd]   [dacf5bee-a952-4827-a616-7e0666245eba]  startBuild: response=y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c
+2026-01-02T07:08:18.627Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2026-01-02T07:08:21.584Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making GET request to https://hub.browserstack.com
+2026-01-02T07:08:21.720Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making GET request to https://hub-apse.browserstack.com
+2026-01-02T07:08:21.826Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making GET request to https://hub-aps.browserstack.com
+2026-01-02T07:08:21.863Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T07:08:22.204Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T07:08:22.718Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T07:08:22.819Z CLI info [sdk:service]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Driver initialized as primary driver: platformIndex=0
+2026-01-02T07:08:22.871Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making GET request to https://hub-usw.browserstack.com
+2026-01-02T07:08:39.007Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+    integrations: { browserstack: [Object] }
+  }
+} to 4282:0
+2026-01-02T07:08:39.010Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+    name: 'opens Knowledge Base and validates help screens open',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '\n' +
+        '    // 1) Ensure logged in\n' +
+        '    await ensureLoggedIn()\n' +
+        '\n' +
+        '    // 2) Wait for home screen to fully settle\n' +
+        '    // Using header right button as stable home marker\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    // Let app finish background loading (hub scan etc.)\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // 3) Open menu (ONCE)\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 4) Expand Support Center (scroll-safe)\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 5) Open Knowledge Base\n' +
+        '    const knowledgeBaseBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await knowledgeBaseBtn.click()\n' +
+        '\n' +
+        '    // 6) Help cards (presence check)\n' +
+        '    const hubPairingCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubPairingCard.button")',\n` +
+        '    )\n' +
+        '    const hubOfflineCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubOfflineCard.button")',\n` +
+        '    )\n' +
+        '    const shadeIssuesCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.shadeIssuesCard.button")',\n` +
+        '    )\n' +
+        '    const simpleControlCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.simpleControlCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupportCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(hubPairingCard).toBeDisplayed()\n' +
+        '    await expect(hubOfflineCard).toBeDisplayed()\n' +
+        '    await expect(shadeIssuesCard).toBeDisplayed()\n' +
+        '    await expect(simpleControlCard).toBeDisplayed()\n' +
+        '    await expect(contactSupportCard).toBeDisplayed() // present only\n' +
+        '\n' +
+        '    // Back button\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    // Helper: open native help screen, assert title, go back\n' +
+        '    const openAndAssert = async (cardEl, titleText) => {\n' +
+        '      await cardEl.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await cardEl.click()\n' +
+        '\n' +
+        '      const title = await $(`android=new UiSelector().text("${titleText}")`)\n' +
+        '      await title.waitForDisplayed({\n' +
+        '        timeout: 10000,\n' +
+        '        timeoutMsg: `Expected title not visible: ${titleText}`,\n' +
+        '      })\n' +
+        '      await expect(title).toBeDisplayed()\n' +
+        '\n' +
+        '      await backBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await backBtn.click()\n' +
+        '\n' +
+        '      // Ensure we are back on the HELP list\n' +
+        '      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n' +
+        '    }\n' +
+        '\n' +
+        '    // 7) Validate each native help screen\n' +
+        "    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n" +
+        "    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n" +
+        "    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n" +
+        "    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n" +
+        '  }'
+    },
+    identifier: 'opens Knowledge Base and validates help screens open',
+    scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+    scopes: [ 'Menu – Knowledge Base links' ],
+    file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T07:08:38.981Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:08:40.630Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+      name: 'opens Knowledge Base and validates help screens open',
+      body: [Object],
+      identifier: 'opens Knowledge Base and validates help screens open',
+      scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T07:08:38.981Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:08:40.631Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:08:53.590Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+    integrations: { browserstack: [Object] }
+  }
+} to 4282:0
+2026-01-02T07:08:53.593Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+    name: 'opens Contact Support and validates the Contact Support screen',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n" +
+        "    const CHROME_PKG = 'com.android.chrome'\n" +
+        '\n' +
+        '    // If Chrome is foreground, bring app back (safe guard)\n' +
+        '    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n' +
+        '      await driver.activateApp(APP_PKG)\n' +
+        '      await browser.pause(1000)\n' +
+        '    }\n' +
+        '\n' +
+        '    // ---------- WAIT FOR HOME TO SETTLE ----------\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // ---------- OPEN DRAWER (ONCE) ----------\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Hamburger button not visible on main screen',\n" +
+        '    })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    await browser.waitUntil(\n' +
+        '      async () => {\n' +
+        '        const supportCenterExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        const knowledgeBaseExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        return supportCenterExists || knowledgeBaseExists\n' +
+        '      },\n' +
+        '      {\n' +
+        '        timeout: 15000,\n' +
+        '        interval: 400,\n' +
+        "        timeoutMsg: 'Drawer opened but content not ready',\n" +
+        '      },\n' +
+        '    )\n' +
+        '\n' +
+        '    // ---------- OPEN SUPPORT CENTER ----------\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center not visible in drawer',\n" +
+        '    })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n' +
+        '    const supportChatBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    await supportChatBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center expanded but content not ready',\n" +
+        '    })\n' +
+        '\n' +
+        '    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n' +
+        '    const contactSupportBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    await contactSupportBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n" +
+        '    })\n' +
+        '    await contactSupportBtn.click()\n' +
+        '\n' +
+        '    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n' +
+        `    const heading = await $('android=new UiSelector().text("How can we help?")')\n` +
+        '    await heading.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        `      timeoutMsg: '"How can we help?" not visible on Contact Support screen',\n` +
+        '    })\n' +
+        '    await expect(heading).toBeDisplayed()\n' +
+        '\n' +
+        '    const bodyText = await $(\n' +
+        `      'android=new UiSelector().text("Whether you have questions about a product, need technical support or anything else, our team is ready to support you.")',\n` +
+        '    )\n' +
+        '    await bodyText.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n" +
+        '    })\n' +
+        '    await expect(bodyText).toBeDisplayed()\n' +
+        '\n' +
+        '    // ---------- GO BACK TO HOME ----------\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '    await backBtn.waitForDisplayed({ timeout: 15000 })\n' +
+        '    await backBtn.click()\n' +
+        '\n' +
+        '    // ---------- FINAL SANITY ----------\n' +
+        '    const hamburgerAgain = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerAgain.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Returned to home but hamburger not visible',\n" +
+        '    })\n' +
+        '    await expect(hamburgerAgain).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens Contact Support and validates the Contact Support screen',
+    scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+    scopes: [ 'Menu – Contact Support (Web)' ],
+    file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T07:08:53.578Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:08:54.635Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+      name: 'opens Contact Support and validates the Contact Support screen',
+      body: [Object],
+      identifier: 'opens Contact Support and validates the Contact Support screen',
+      scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T07:08:53.578Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:08:54.637Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:08:55.288Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+    integrations: { browserstack: [Object] }
+  }
+} to 4282:0
+2026-01-02T07:08:55.289Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+    name: 'opens menu, expands Support Center, and shows Support options',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '    await browser.pause(800)\n' +
+        '\n' +
+        '    // 1) Open sidebar menu\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 2) Expand Support Center dropdown\n' +
+        '    const supportCenterBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 3) Assert dropdown options are visible\n' +
+        '    const supportChat = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupport = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    const knowledgeBase = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(supportChat).toBeDisplayed()\n' +
+        '    await expect(contactSupport).toBeDisplayed()\n' +
+        '    await expect(knowledgeBase).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens menu, expands Support Center, and shows Support options',
+    scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+    scopes: [ 'Menu – Support Center' ],
+    file_name: 'test/specs/android/menu/support-center.spec.js',
+    vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+    location: 'test/specs/android/menu/support-center.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T07:08:55.274Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:08:56.635Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+      name: 'opens menu, expands Support Center, and shows Support options',
+      body: [Object],
+      identifier: 'opens menu, expands Support Center, and shows Support options',
+      scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/support-center.spec.js',
+      vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+      location: 'test/specs/android/menu/support-center.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T07:08:55.274Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:08:56.636Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:08:56.825Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'CBTSessionCreated',
+  test_run: {
+    uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+    integrations: { browserstack: [Object] }
+  }
+} to 4282:0
+2026-01-02T07:08:56.827Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunStarted',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+    name: 'opens both external help links in Chrome and validates URLs',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        '    await ensureAppForeground()\n' +
+        '\n' +
+        '    await waitForHomeToSettle()\n' +
+        '    await openDrawer()\n' +
+        '    await openSupportCenter()\n' +
+        '    await openKnowledgeBase()\n' +
+        '    await openHubPairingAssist()\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n' +
+        '    const contactLink = await $(ui.contactLocalSupportLink)\n' +
+        '    await contactLink.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"Contact Local Support if Necessary" not visible',\n` +
+        '    })\n' +
+        '    await contactLink.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/contact')\n" +
+        '    await returnToApp()\n' +
+        '\n' +
+        '    // Ensure we’re back on Hub Pairing Assist screen before next click\n' +
+        '    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 2) More Info -> Chrome -> assert support URL -> back\n' +
+        '    const moreInfo = await $(ui.moreInfoLink)\n' +
+        '    await moreInfo.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"More Info" not visible',\n` +
+        '    })\n' +
+        '    await moreInfo.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/support')\n" +
+        "    await assertChromeUrlContains('hub-pairing-assistant')\n" +
+        '    await returnToApp()\n' +
+        '  }'
+    },
+    identifier: 'opens both external help links in Chrome and validates URLs',
+    scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+    scopes: [ 'Menu – Knowledge Base – Help – External URL links (Chrome)' ],
+    file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    result: 'pending',
+    duration_in_ms: null,
+    started_at: '2026-01-02T07:08:56.814Z',
+    failure: undefined,
+    failure_type: undefined,
+    failure_reason: undefined,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:08:58.635Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'CBTSessionCreated',
+    test_run: {
+      uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+      integrations: [Object]
+    }
+  },
+  {
+    event_type: 'TestRunStarted',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+      name: 'opens both external help links in Chrome and validates URLs',
+      body: [Object],
+      identifier: 'opens both external help links in Chrome and validates URLs',
+      scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      result: 'pending',
+      duration_in_ms: null,
+      started_at: '2026-01-02T07:08:56.814Z',
+      failure: undefined,
+      failure_type: undefined,
+      failure_reason: undefined,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:08:58.636Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:08:59.269Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"8daac2f2-a826-49e0-b131-804a9cffa110","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_name":"opens menu, expands Support Center, and shows Support options","test_code":"async () => {\n    await driver.switchContext('NATIVE_APP')\n    await browser.pause(800)\n\n    // 1) Open sidebar menu\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n    await hamburgerButton.click()\n\n    // 2) Expand Support Center dropdown\n    const supportCenterBtn = await $(\n      'android=new UiSelector().description(\"sidebar.supportCenterCard.button\")',\n    )\n    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n    await supportCenterBtn.click()\n\n    // 3) Assert dropdown options are visible\n    const supportChat = await $(\n      'android=new UiSelector().description(\"sidebar.supportChatCard.button\")',\n    )\n    const contactSupport = await $(\n      'android=new UiSelector().description(\"sidebar.contactSupportCard.button\")',\n    )\n    const knowledgeBase = await $(\n      'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n    )\n\n    await expect(supportChat).toBeDisplayed()\n    await expect(contactSupport).toBeDisplayed()\n    await expect(knowledgeBase).toBeDisplayed()\n  }","test_file_path":"test/specs/android/menu/support-center.spec.js","test_location":"test/specs/android/menu/support-center.spec.js","test_scope":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_scopes":["Menu – Support Center"],"test_started_at":"2026-01-02T07:08:55.274Z","automate_session_name":"Menu – Support Center - opens menu, expands Support Center, and shows Support options","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T07:08:59.262Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T07:08:59.270Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+    name: 'opens menu, expands Support Center, and shows Support options',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '    await browser.pause(800)\n' +
+        '\n' +
+        '    // 1) Open sidebar menu\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 2) Expand Support Center dropdown\n' +
+        '    const supportCenterBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 3) Assert dropdown options are visible\n' +
+        '    const supportChat = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupport = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    const knowledgeBase = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(supportChat).toBeDisplayed()\n' +
+        '    await expect(contactSupport).toBeDisplayed()\n' +
+        '    await expect(knowledgeBase).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens menu, expands Support Center, and shows Support options',
+    scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+    scopes: [ 'Menu – Support Center' ],
+    file_name: 'test/specs/android/menu/support-center.spec.js',
+    vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+    location: 'test/specs/android/menu/support-center.spec.js',
+    result: 'passed',
+    duration_in_ms: 3988,
+    started_at: '2026-01-02T07:08:55.274Z',
+    finished_at: '2026-01-02T07:08:59.262Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:09:00.636Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '8daac2f2-a826-49e0-b131-804a9cffa110',
+      name: 'opens menu, expands Support Center, and shows Support options',
+      body: [Object],
+      identifier: 'opens menu, expands Support Center, and shows Support options',
+      scope: 'Menu – Support Center - opens menu, expands Support Center, and shows Support options',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/support-center.spec.js',
+      vc_filepath: 'test/specs/android/menu/support-center.spec.js',
+      location: 'test/specs/android/menu/support-center.spec.js',
+      result: 'passed',
+      duration_in_ms: 3988,
+      started_at: '2026-01-02T07:08:55.274Z',
+      finished_at: '2026-01-02T07:08:59.262Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:09:00.637Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:09:07.770Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"60a614c3-5e60-4857-9d1c-ec9bbee54d3e","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_name":"opens Contact Support and validates the Contact Support screen","test_code":"async () => {\n    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n    const CHROME_PKG = 'com.android.chrome'\n\n    // If Chrome is foreground, bring app back (safe guard)\n    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n      await driver.activateApp(APP_PKG)\n      await browser.pause(1000)\n    }\n\n    // ---------- WAIT FOR HOME TO SETTLE ----------\n    const homeHeaderMarker = await $(\n      'android=new UiSelector().description(\"sharedHeader.rightButton.button\")',\n    )\n    await homeHeaderMarker.waitForDisplayed({\n      timeout: 20000,\n      timeoutMsg: 'Home header marker not visible after login',\n    })\n\n    await browser.pause(7000)\n\n    // ---------- OPEN DRAWER (ONCE) ----------\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Hamburger button not visible on main screen',\n    })\n    await hamburgerButton.click()\n\n    await browser.waitUntil(\n      async () => {\n        const supportCenterExists = await $(\n          'android=new UiSelector().description(\"sidebar.supportCenterCard.button\")',\n        )\n          .isDisplayed()\n          .catch(() => false)\n\n        const knowledgeBaseExists = await $(\n          'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n        )\n          .isDisplayed()\n          .catch(() => false)\n\n        return supportCenterExists || knowledgeBaseExists\n      },\n      {\n        timeout: 15000,\n        interval: 400,\n        timeoutMsg: 'Drawer opened but content not ready',\n      },\n    )\n\n    // ---------- OPEN SUPPORT CENTER ----------\n    const supportCenterBtn = await $(\n      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n        '.scrollIntoView(new UiSelector().description(\"sidebar.supportCenterCard.button\"))',\n    )\n    await supportCenterBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Support Center not visible in drawer',\n    })\n    await supportCenterBtn.click()\n\n    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n    const supportChatBtn = await $(\n      'android=new UiSelector().description(\"sidebar.supportChatCard.button\")',\n    )\n    await supportChatBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Support Center expanded but content not ready',\n    })\n\n    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n    const contactSupportBtn = await $(\n      'android=new UiSelector().description(\"sidebar.contactSupportCard.button\")',\n    )\n    await contactSupportBtn.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n    })\n    await contactSupportBtn.click()\n\n    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n    const heading = await $('android=new UiSelector().text(\"How can we help?\")')\n    await heading.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: '\"How can we help?\" not visible on Contact Support screen',\n    })\n    await expect(heading).toBeDisplayed()\n\n    const bodyText = await $(\n      'android=new UiSelector().text(\"Whether you have questions about a product, need technical support or anything else, our team is ready to support you.\")',\n    )\n    await bodyText.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n    })\n    await expect(bodyText).toBeDisplayed()\n\n    // ---------- GO BACK TO HOME ----------\n    const backBtn = await $(\n      'android=new UiSelector().description(\"sharedHeader.backButton.button\")',\n    )\n    await backBtn.waitForDisplayed({ timeout: 15000 })\n    await backBtn.click()\n\n    // ---------- FINAL SANITY ----------\n    const hamburgerAgain = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerAgain.waitForDisplayed({\n      timeout: 15000,\n      timeoutMsg: 'Returned to home but hamburger not visible',\n    })\n    await expect(hamburgerAgain).toBeDisplayed()\n  }","test_file_path":"test/specs/android/menu/contact-support-inapp.spec.js","test_location":"test/specs/android/menu/contact-support-inapp.spec.js","test_scope":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_scopes":["Menu – Contact Support (Web)"],"test_started_at":"2026-01-02T07:08:53.578Z","automate_session_name":"Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T07:09:07.760Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T07:09:07.771Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+    name: 'opens Contact Support and validates the Contact Support screen',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    const APP_PKG = 'com.rolleaseacmeda.automatepulse'\n" +
+        "    const CHROME_PKG = 'com.android.chrome'\n" +
+        '\n' +
+        '    // If Chrome is foreground, bring app back (safe guard)\n' +
+        '    if ((await driver.getCurrentPackage()) === CHROME_PKG) {\n' +
+        '      await driver.activateApp(APP_PKG)\n' +
+        '      await browser.pause(1000)\n' +
+        '    }\n' +
+        '\n' +
+        '    // ---------- WAIT FOR HOME TO SETTLE ----------\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // ---------- OPEN DRAWER (ONCE) ----------\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Hamburger button not visible on main screen',\n" +
+        '    })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    await browser.waitUntil(\n' +
+        '      async () => {\n' +
+        '        const supportCenterExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.supportCenterCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        const knowledgeBaseExists = await $(\n' +
+        `          'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '        )\n' +
+        '          .isDisplayed()\n' +
+        '          .catch(() => false)\n' +
+        '\n' +
+        '        return supportCenterExists || knowledgeBaseExists\n' +
+        '      },\n' +
+        '      {\n' +
+        '        timeout: 15000,\n' +
+        '        interval: 400,\n' +
+        "        timeoutMsg: 'Drawer opened but content not ready',\n" +
+        '      },\n' +
+        '    )\n' +
+        '\n' +
+        '    // ---------- OPEN SUPPORT CENTER ----------\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center not visible in drawer',\n" +
+        '    })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // ✅ WAIT FOR SUPPORT CENTER CONTENT TO FINISH RENDERING\n' +
+        '    const supportChatBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.supportChatCard.button")',\n` +
+        '    )\n' +
+        '    await supportChatBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Support Center expanded but content not ready',\n" +
+        '    })\n' +
+        '\n' +
+        '    // ---------- NOW SAFE TO ACCESS CONTACT SUPPORT ----------\n' +
+        '    const contactSupportBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '    await contactSupportBtn.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        "      timeoutMsg: 'Contact Support not visible after Support Center expanded',\n" +
+        '    })\n' +
+        '    await contactSupportBtn.click()\n' +
+        '\n' +
+        '    // ---------- ASSERT CONTACT SUPPORT SCREEN (IN-APP) ----------\n' +
+        `    const heading = await $('android=new UiSelector().text("How can we help?")')\n` +
+        '    await heading.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        `      timeoutMsg: '"How can we help?" not visible on Contact Support screen',\n` +
+        '    })\n' +
+        '    await expect(heading).toBeDisplayed()\n' +
+        '\n' +
+        '    const bodyText = await $(\n' +
+        `      'android=new UiSelector().text("Whether you have questions about a product, need technical support or anything else, our team is ready to support you.")',\n` +
+        '    )\n' +
+        '    await bodyText.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Expected description text not visible on Contact Support screen',\n" +
+        '    })\n' +
+        '    await expect(bodyText).toBeDisplayed()\n' +
+        '\n' +
+        '    // ---------- GO BACK TO HOME ----------\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '    await backBtn.waitForDisplayed({ timeout: 15000 })\n' +
+        '    await backBtn.click()\n' +
+        '\n' +
+        '    // ---------- FINAL SANITY ----------\n' +
+        '    const hamburgerAgain = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerAgain.waitForDisplayed({\n' +
+        '      timeout: 15000,\n' +
+        "      timeoutMsg: 'Returned to home but hamburger not visible',\n" +
+        '    })\n' +
+        '    await expect(hamburgerAgain).toBeDisplayed()\n' +
+        '  }'
+    },
+    identifier: 'opens Contact Support and validates the Contact Support screen',
+    scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+    scopes: [ 'Menu – Contact Support (Web)' ],
+    file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+    result: 'passed',
+    duration_in_ms: 14182,
+    started_at: '2026-01-02T07:08:53.578Z',
+    finished_at: '2026-01-02T07:09:07.760Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:09:08.639Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '60a614c3-5e60-4857-9d1c-ec9bbee54d3e',
+      name: 'opens Contact Support and validates the Contact Support screen',
+      body: [Object],
+      identifier: 'opens Contact Support and validates the Contact Support screen',
+      scope: 'Menu – Contact Support (Web) - opens Contact Support and validates the Contact Support screen',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      vc_filepath: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      location: 'test/specs/android/menu/contact-support-inapp.spec.js',
+      result: 'passed',
+      duration_in_ms: 14182,
+      started_at: '2026-01-02T07:08:53.578Z',
+      finished_at: '2026-01-02T07:09:07.760Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:09:08.640Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:09:12.741Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"2bf159aa-fcb7-4fbc-bdce-04e94791923e","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_name":"opens Knowledge Base and validates help screens open","test_code":"async () => {\n    await driver.switchContext('NATIVE_APP')\n\n    // 1) Ensure logged in\n    await ensureLoggedIn()\n\n    // 2) Wait for home screen to fully settle\n    // Using header right button as stable home marker\n    const homeHeaderMarker = await $(\n      'android=new UiSelector().description(\"sharedHeader.rightButton.button\")',\n    )\n    await homeHeaderMarker.waitForDisplayed({\n      timeout: 20000,\n      timeoutMsg: 'Home header marker not visible after login',\n    })\n\n    // Let app finish background loading (hub scan etc.)\n    await browser.pause(7000)\n\n    // 3) Open menu (ONCE)\n    const hamburgerButton = await $(\n      'android=new UiSelector().description(\"sharedHeader.menuButton.button\")',\n    )\n    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n    await hamburgerButton.click()\n\n    // 4) Expand Support Center (scroll-safe)\n    const supportCenterBtn = await $(\n      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n        '.scrollIntoView(new UiSelector().description(\"sidebar.supportCenterCard.button\"))',\n    )\n    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n    await supportCenterBtn.click()\n\n    // 5) Open Knowledge Base\n    const knowledgeBaseBtn = await $(\n      'android=new UiSelector().description(\"sidebar.knowledgeBaseCard.button\")',\n    )\n    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n    await knowledgeBaseBtn.click()\n\n    // 6) Help cards (presence check)\n    const hubPairingCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.hubPairingCard.button\")',\n    )\n    const hubOfflineCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.hubOfflineCard.button\")',\n    )\n    const shadeIssuesCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.shadeIssuesCard.button\")',\n    )\n    const simpleControlCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.simpleControlCard.button\")',\n    )\n    const contactSupportCard = await $(\n      'android=new UiSelector().description(\"sidebar.help.contactSupportCard.button\")',\n    )\n\n    await expect(hubPairingCard).toBeDisplayed()\n    await expect(hubOfflineCard).toBeDisplayed()\n    await expect(shadeIssuesCard).toBeDisplayed()\n    await expect(simpleControlCard).toBeDisplayed()\n    await expect(contactSupportCard).toBeDisplayed() // present only\n\n    // Back button\n    const backBtn = await $(\n      'android=new UiSelector().description(\"sharedHeader.backButton.button\")',\n    )\n\n    // Helper: open native help screen, assert title, go back\n    const openAndAssert = async (cardEl, titleText) => {\n      await cardEl.waitForDisplayed({ timeout: 10000 })\n      await cardEl.click()\n\n      const title = await $(`android=new UiSelector().text(\"${titleText}\")`)\n      await title.waitForDisplayed({\n        timeout: 10000,\n        timeoutMsg: `Expected title not visible: ${titleText}`,\n      })\n      await expect(title).toBeDisplayed()\n\n      await backBtn.waitForDisplayed({ timeout: 10000 })\n      await backBtn.click()\n\n      // Ensure we are back on the HELP list\n      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n    }\n\n    // 7) Validate each native help screen\n    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n  }","test_file_path":"test/specs/android/menu/knowledge-base-links.spec.js","test_location":"test/specs/android/menu/knowledge-base-links.spec.js","test_scope":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_scopes":["Menu – Knowledge Base links"],"test_started_at":"2026-01-02T07:08:38.981Z","automate_session_name":"Menu – Knowledge Base links - opens Knowledge Base and validates help screens open","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T07:09:12.729Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T07:09:12.743Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+    name: 'opens Knowledge Base and validates help screens open',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        "    await driver.switchContext('NATIVE_APP')\n" +
+        '\n' +
+        '    // 1) Ensure logged in\n' +
+        '    await ensureLoggedIn()\n' +
+        '\n' +
+        '    // 2) Wait for home screen to fully settle\n' +
+        '    // Using header right button as stable home marker\n' +
+        '    const homeHeaderMarker = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.rightButton.button")',\n` +
+        '    )\n' +
+        '    await homeHeaderMarker.waitForDisplayed({\n' +
+        '      timeout: 20000,\n' +
+        "      timeoutMsg: 'Home header marker not visible after login',\n" +
+        '    })\n' +
+        '\n' +
+        '    // Let app finish background loading (hub scan etc.)\n' +
+        '    await browser.pause(7000)\n' +
+        '\n' +
+        '    // 3) Open menu (ONCE)\n' +
+        '    const hamburgerButton = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.menuButton.button")',\n` +
+        '    )\n' +
+        '    await hamburgerButton.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await hamburgerButton.click()\n' +
+        '\n' +
+        '    // 4) Expand Support Center (scroll-safe)\n' +
+        '    const supportCenterBtn = await $(\n' +
+        "      'android=new UiScrollable(new UiSelector().scrollable(true))' +\n" +
+        `        '.scrollIntoView(new UiSelector().description("sidebar.supportCenterCard.button"))',\n` +
+        '    )\n' +
+        '    await supportCenterBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await supportCenterBtn.click()\n' +
+        '\n' +
+        '    // 5) Open Knowledge Base\n' +
+        '    const knowledgeBaseBtn = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',\n` +
+        '    )\n' +
+        '    await knowledgeBaseBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '    await knowledgeBaseBtn.click()\n' +
+        '\n' +
+        '    // 6) Help cards (presence check)\n' +
+        '    const hubPairingCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubPairingCard.button")',\n` +
+        '    )\n' +
+        '    const hubOfflineCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.hubOfflineCard.button")',\n` +
+        '    )\n' +
+        '    const shadeIssuesCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.shadeIssuesCard.button")',\n` +
+        '    )\n' +
+        '    const simpleControlCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.simpleControlCard.button")',\n` +
+        '    )\n' +
+        '    const contactSupportCard = await $(\n' +
+        `      'android=new UiSelector().description("sidebar.help.contactSupportCard.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    await expect(hubPairingCard).toBeDisplayed()\n' +
+        '    await expect(hubOfflineCard).toBeDisplayed()\n' +
+        '    await expect(shadeIssuesCard).toBeDisplayed()\n' +
+        '    await expect(simpleControlCard).toBeDisplayed()\n' +
+        '    await expect(contactSupportCard).toBeDisplayed() // present only\n' +
+        '\n' +
+        '    // Back button\n' +
+        '    const backBtn = await $(\n' +
+        `      'android=new UiSelector().description("sharedHeader.backButton.button")',\n` +
+        '    )\n' +
+        '\n' +
+        '    // Helper: open native help screen, assert title, go back\n' +
+        '    const openAndAssert = async (cardEl, titleText) => {\n' +
+        '      await cardEl.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await cardEl.click()\n' +
+        '\n' +
+        '      const title = await $(`android=new UiSelector().text("${titleText}")`)\n' +
+        '      await title.waitForDisplayed({\n' +
+        '        timeout: 10000,\n' +
+        '        timeoutMsg: `Expected title not visible: ${titleText}`,\n' +
+        '      })\n' +
+        '      await expect(title).toBeDisplayed()\n' +
+        '\n' +
+        '      await backBtn.waitForDisplayed({ timeout: 10000 })\n' +
+        '      await backBtn.click()\n' +
+        '\n' +
+        '      // Ensure we are back on the HELP list\n' +
+        '      await hubPairingCard.waitForDisplayed({ timeout: 10000 })\n' +
+        '    }\n' +
+        '\n' +
+        '    // 7) Validate each native help screen\n' +
+        "    await openAndAssert(hubPairingCard, 'HUB PAIRING ASSIST')\n" +
+        "    await openAndAssert(hubOfflineCard, 'HUB OFFLINE')\n" +
+        "    await openAndAssert(shadeIssuesCard, 'SHADE ISSUES')\n" +
+        "    await openAndAssert(simpleControlCard, 'SIMPLE CONTROL HELP')\n" +
+        '  }'
+    },
+    identifier: 'opens Knowledge Base and validates help screens open',
+    scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+    scopes: [ 'Menu – Knowledge Base links' ],
+    file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+    result: 'passed',
+    duration_in_ms: 33748,
+    started_at: '2026-01-02T07:08:38.981Z',
+    finished_at: '2026-01-02T07:09:12.729Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:09:14.642Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '2bf159aa-fcb7-4fbc-bdce-04e94791923e',
+      name: 'opens Knowledge Base and validates help screens open',
+      body: [Object],
+      identifier: 'opens Knowledge Base and validates help screens open',
+      scope: 'Menu – Knowledge Base links - opens Knowledge Base and validates help screens open',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      vc_filepath: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      location: 'test/specs/android/menu/knowledge-base-links.spec.js',
+      result: 'passed',
+      duration_in_ms: 33748,
+      started_at: '2026-01-02T07:08:38.981Z',
+      finished_at: '2026-01-02T07:09:12.729Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:09:14.643Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:09:19.203Z CLI warn [TEST REPORTING AND ANALYTICS:webdriverio:mocha]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  TestRunFinished: event={"test_framework_name":"WebdriverIO-mocha","test_framework_version":"9.20.1","test_logs":[],"test_hooks_finished":{},"test_hooks_started":{},"test_uuid":"32ec3371-d38b-4106-a2c7-a050390203a1","test_result":"passed","test_hook_last_started":"TestFrameworkState.TEST","test_id":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_name":"opens both external help links in Chrome and validates URLs","test_code":"async () => {\n    await ensureAppForeground()\n\n    await waitForHomeToSettle()\n    await openDrawer()\n    await openSupportCenter()\n    await openKnowledgeBase()\n    await openHubPairingAssist()\n    await scrollToBottomLinks()\n\n    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n    const contactLink = await $(ui.contactLocalSupportLink)\n    await contactLink.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: '\"Contact Local Support if Necessary\" not visible',\n    })\n    await contactLink.click()\n\n    await waitForChrome()\n    await acceptCookiesIfPresent()\n    await assertChromeUrlContains('automateshades.com/contact')\n    await returnToApp()\n\n    // Ensure we’re back on Hub Pairing Assist screen before next click\n    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n    await scrollToBottomLinks()\n\n    // 2) More Info -> Chrome -> assert support URL -> back\n    const moreInfo = await $(ui.moreInfoLink)\n    await moreInfo.waitForDisplayed({\n      timeout: 10000,\n      timeoutMsg: '\"More Info\" not visible',\n    })\n    await moreInfo.click()\n\n    await waitForChrome()\n    await acceptCookiesIfPresent()\n    await assertChromeUrlContains('automateshades.com/support')\n    await assertChromeUrlContains('hub-pairing-assistant')\n    await returnToApp()\n  }","test_file_path":"test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js","test_location":"test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js","test_scope":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_scopes":["Menu – Knowledge Base – Help – External URL links (Chrome)"],"test_started_at":"2026-01-02T07:08:56.814Z","automate_session_name":"Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs","test_failure":null,"test_failure_reason":null,"test_failure_type":null,"test_ended_at":"2026-01-02T07:09:19.197Z","test_hook_last_finished":"TestFrameworkState.TEST","automate_session_status":"passed","test_deferred":true,"logs":[]}
+2026-01-02T07:09:19.205Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Added the event {
+  event_type: 'TestRunFinished',
+  test_run: {
+    type: 'test',
+    framework: 'WebdriverIO-mocha',
+    uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+    name: 'opens both external help links in Chrome and validates URLs',
+    body: {
+      lang: 'ecmascript',
+      code: 'async () => {\n' +
+        '    await ensureAppForeground()\n' +
+        '\n' +
+        '    await waitForHomeToSettle()\n' +
+        '    await openDrawer()\n' +
+        '    await openSupportCenter()\n' +
+        '    await openKnowledgeBase()\n' +
+        '    await openHubPairingAssist()\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 1) Contact Local Support if Necessary -> Chrome -> assert contact URL -> back\n' +
+        '    const contactLink = await $(ui.contactLocalSupportLink)\n' +
+        '    await contactLink.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"Contact Local Support if Necessary" not visible',\n` +
+        '    })\n' +
+        '    await contactLink.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/contact')\n" +
+        '    await returnToApp()\n' +
+        '\n' +
+        '    // Ensure we’re back on Hub Pairing Assist screen before next click\n' +
+        '    await $(ui.hubPairingAssistTitle).waitForDisplayed({ timeout: 15000 })\n' +
+        '    await scrollToBottomLinks()\n' +
+        '\n' +
+        '    // 2) More Info -> Chrome -> assert support URL -> back\n' +
+        '    const moreInfo = await $(ui.moreInfoLink)\n' +
+        '    await moreInfo.waitForDisplayed({\n' +
+        '      timeout: 10000,\n' +
+        `      timeoutMsg: '"More Info" not visible',\n` +
+        '    })\n' +
+        '    await moreInfo.click()\n' +
+        '\n' +
+        '    await waitForChrome()\n' +
+        '    await acceptCookiesIfPresent()\n' +
+        "    await assertChromeUrlContains('automateshades.com/support')\n" +
+        "    await assertChromeUrlContains('hub-pairing-assistant')\n" +
+        '    await returnToApp()\n' +
+        '  }'
+    },
+    identifier: 'opens both external help links in Chrome and validates URLs',
+    scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+    scopes: [ 'Menu – Knowledge Base – Help – External URL links (Chrome)' ],
+    file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    result: 'passed',
+    duration_in_ms: 22383,
+    started_at: '2026-01-02T07:08:56.814Z',
+    finished_at: '2026-01-02T07:09:19.197Z',
+    failure: null,
+    failure_type: null,
+    failure_reason: null,
+    retry_of: null,
+    custom_metadata: undefined,
+    tags: [],
+    customRerunParam: { rerun_name: undefined },
+    hooks: [],
+    product_map: {
+      observability: true,
+      accessibility: false,
+      percy: false,
+      automate: true,
+      app_automate: false
+    }
+  },
+  logs: []
+} to 4282:0
+2026-01-02T07:09:20.642Z CLI info [testhub:request-queue-handler]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Processing batch event [
+  {
+    event_type: 'TestRunFinished',
+    test_run: {
+      type: 'test',
+      framework: 'WebdriverIO-mocha',
+      uuid: '32ec3371-d38b-4106-a2c7-a050390203a1',
+      name: 'opens both external help links in Chrome and validates URLs',
+      body: [Object],
+      identifier: 'opens both external help links in Chrome and validates URLs',
+      scope: 'Menu – Knowledge Base – Help – External URL links (Chrome) - opens both external help links in Chrome and validates URLs',
+      scopes: [Array],
+      file_name: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      vc_filepath: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      location: 'test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+      result: 'passed',
+      duration_in_ms: 22383,
+      started_at: '2026-01-02T07:08:56.814Z',
+      finished_at: '2026-01-02T07:09:19.197Z',
+      failure: null,
+      failure_type: null,
+      failure_reason: null,
+      retry_of: null,
+      custom_metadata: undefined,
+      tags: [],
+      customRerunParam: [Object],
+      hooks: [],
+      product_map: [Object]
+    },
+    logs: []
+  }
+] to 4282:0
+2026-01-02T07:09:20.644Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://collector-observability.browserstack.com
+2026-01-02T07:09:23.564Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making PUT request to https://collector-observability.browserstack.com
+2026-01-02T07:09:24.248Z CLI info [testhub:module]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  stopBuild: y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c request={"finished_at":"2026-01-02T07:09:23.564Z","finished_metadata":[],"custom_metadata":null} response={"data":""}
+2026-01-02T07:09:24.249Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://api.browserstack.com
+2026-01-02T07:09:24.251Z CLI info [TEST REPORTING AND ANALYTICS:module]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Visit https://automation.browserstack.com/builds/y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c to view build report, insights, and many more debugging information all at one place!
+2026-01-02T07:09:24.559Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making GET request to https://api.browserstack.com
+2026-01-02T07:09:24.868Z CLI info  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  [PRODUCTION] Making POST request to https://eds.browserstack.com
+2026-01-02T07:09:26.006Z CLI info [main]  [jalalkhan_vhXeGd]  [y8xjrgtl7rbz9nl9iefhhaypb9wtq8vej0u1kj4c]  [dacf5bee-a952-4827-a616-7e0666245eba]  Received graceful signal termination, performing cleanup

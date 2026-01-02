@@ -448,5 +448,105 @@
         "success": true,
         "failure": null,
         "worker": 24071
+    },
+    {
+        "name": "sdk:testhub",
+        "entryType": "measure",
+        "startTime": 392.8608219921589,
+        "duration": 2237.8071480095387,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 99293
+    },
+    {
+        "name": "sdk:percy",
+        "entryType": "measure",
+        "startTime": 2635.0250749886036,
+        "duration": 0.3377470076084137,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 99293
+    },
+    {
+        "name": "sdk:automate:local",
+        "entryType": "measure",
+        "startTime": 2635.478275999427,
+        "duration": 0.506977990269661,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 99293
+    },
+    {
+        "name": "sdk:automate:hub-management",
+        "entryType": "measure",
+        "startTime": 5293.349619999528,
+        "duration": 357.26315300166607,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 99293
+    },
+    {
+        "name": "sdk:automate:print-buildlink",
+        "entryType": "measure",
+        "startTime": 85134.72014199197,
+        "duration": 634.4235240072012,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 99293
+    },
+    {
+        "name": "sdk:testhub",
+        "entryType": "measure",
+        "startTime": 395.47001700103283,
+        "duration": 1186.7223760038614,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 4282
+    },
+    {
+        "name": "sdk:percy",
+        "entryType": "measure",
+        "startTime": 1586.7273530066013,
+        "duration": 0.3330349922180176,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 4282
+    },
+    {
+        "name": "sdk:automate:local",
+        "entryType": "measure",
+        "startTime": 1587.1796090006828,
+        "duration": 0.56283999979496,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 4282
+    },
+    {
+        "name": "sdk:automate:hub-management",
+        "entryType": "measure",
+        "startTime": 4541.420256003737,
+        "duration": 243.57858799397945,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 4282
+    },
+    {
+        "name": "sdk:automate:print-buildlink",
+        "entryType": "measure",
+        "startTime": 67209.51350800693,
+        "duration": 614.5783169865608,
+        "detail": null,
+        "success": true,
+        "failure": null,
+        "worker": 4282
     }
 ]

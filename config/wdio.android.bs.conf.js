@@ -1,65 +1,65 @@
 require('dotenv').config()
-const {config} = require('./wdio.shared.conf')
+const { config } = require('./wdio.shared.conf')
 
 // ============
-  // Browser Stack Credentials
-  // ============
-
+// BrowserStack Credentials
+// ============
 config.user = process.env.BROWSERSTACK_USER
 config.key = process.env.BROWSERSTACK_KEY
 
 // ============
-  // Specs
-  // ============
+// Specs
+// ============
+// Keep generic so suites control execution
+config.specs = ['../test/specs/**/*.spec.js']
 
-config.specs = [
-    // ToDo: define location for spec files here
+// ============
+// Suites
+// ============
+config.suites = {
+  support_smoke: [
     '../test/specs/android/menu/contact-support-inapp.spec.js',
-  ]
+    '../test/specs/android/menu/knowledge-base-links.spec.js',
+    '../test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    '../test/specs/android/menu/support-center.spec.js',
+  ],
+}
 
-  // ============
-  // Capabilities
-  // ============
+// ============
+// BrowserStack Build Naming
+// ============
+const buildName =
+  process.env.BS_BUILD_NAME ||
+  `Support Smoke – Holiday Testing Project (${new Date().toISOString().slice(0, 10)})`
 
-  config.capabilities = [
- {
-      'platformName': 'Android',
-   'appium:platformVersion': '13.0',
+// ============
+// Capabilities
+// ============
+config.capabilities = [
+  {
+    platformName: 'Android',
+    'appium:platformVersion': '13.0',
+    'appium:deviceName': 'Google Pixel 7',
+    'appium:automationName': 'UIAutomator2',
+    'appium:autoGrantPermissions': true,
 
-       // ✅ make sure this really points to Jalalemulator
-    //   // run: adb devices -l  → copy the UDID for Jalalemulator
-      // 'appium:udid': 'emulator-5554', // e.g. emulator-5556
+    // BrowserStack uploaded app
+    'appium:app': 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
 
-    //   // (optional) also name the AVD so WDIO boots the right one
-      //'appium:avd': 'Pixel_XL',
-
-       'appium:deviceName': 'Google Pixel 7', // just a label
-       'appium:automationName': 'UIAutomator2',
-       'appium:autoGrantPermissions': true,
-
-    //   // install + launch
-       'appium:app': 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
-    //   'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
-    //   'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
-
-    //   // accept the fast jump from Splash → Main
-    //   'appium:appWaitActivity':
-    //     'com.rolleaseacmeda.automatepulse.SplashActivity,com.rolleaseacmeda.automatepulse.MainActivity,com.rolleaseacmeda.automatepulse.*',
-    //   'appium:appWaitForLaunch': false,
-    //   'appium:appWaitDuration': 15000,
-
-    //   // WebView / Chrome bits 👇
-    //   'appium:chromedriverAutodownload': true, // <-- IMPORTANT
-    //   'appium:noReset': true, // keeps Chrome onboarding dismissed
-    //   'appium:ensureWebviewsHavePages': true, // helps detect WEBVIEW
+    // BrowserStack metadata (fixes "Untitled Build Run")
+    'bstack:options': {
+      projectName: 'Automate Pulse',
+      buildName,
+      sessionName: 'Support Smoke Suite',
+      debug: true,
+      networkLogs: true,
     },
-    
-  ]
+  },
+]
 
-  // Test runner services
-  // Services take over a specific job you don't want to take care of. They enhance
-  // your test setup with almost no effort. Unlike plugins, they don't add new
-  // commands. Instead, they hook themselves up into the test process.
-  config.services = ['browserstack'];
+// ============
+// Services
+// ============
+config.services = ['browserstack']
 
-  exports.config = config;
+module.exports.config = config
