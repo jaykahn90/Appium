@@ -1,5 +1,5 @@
 // This test covers where user opens up the sidebar and then tap on support centre and it opens up drag down menu which shows supoport chat, contact support and knowledge base.
-
+//to test CI pipeline
 const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
 
 describe('Menu – Support Center', () => {
