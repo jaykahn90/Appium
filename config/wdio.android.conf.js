@@ -33,7 +33,7 @@ config.specs = [
       'appium:disableWindowAnimation': true,
   
       // install + launch
-      'appium:app': path.join(process.cwd(), 'app/android/appium-fix.apk'),
+      'appium:app': path.join(process.cwd(), 'app/android/appium.apk'),
       'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
       'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
   
@@ -53,6 +53,7 @@ config.specs = [
       'appium:fullReset': false,   // don’t uninstall/reinstall each time (faster & less flaky)
   
       // WebView / Chrome bits
+      'appium:chromedriverExecutable': path.join(process.cwd(), 'drivers/chromedriver'),
       'appium:chromedriverAutodownload': true,
       'appium:ensureWebviewsHavePages': true,
     },

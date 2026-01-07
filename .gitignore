@@ -1,2 +1,4 @@
+node_modules/
+drivers/chromedriver
 app/android/*.apk
 .env
