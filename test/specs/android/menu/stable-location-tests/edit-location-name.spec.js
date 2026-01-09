@@ -1,6 +1,6 @@
 // test/specs/android/menu/edit-location-name.spec.js
 
-const { ensureLoggedIn } = require('../../../helpers/app/ensureLoggedIn')
+const { ensureLoggedIn } = require('../../../../helpers/app/ensureLoggedIn')
 
 /**
  * CI-safe helpers: always wait, and allow fallback selectors.
