@@ -33,7 +33,7 @@ config.specs = [
       'appium:disableWindowAnimation': true,
   
       // install + launch
-      'appium:app': path.join(process.cwd(), 'app/android/app-release.apk'),
+      'appium:app': path.join(process.cwd(), 'app/android/app-release-ios-android.apk'),
       'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
       'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
   

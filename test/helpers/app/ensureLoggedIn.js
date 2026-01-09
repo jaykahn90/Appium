@@ -4,21 +4,28 @@ const APP_PKG = 'com.rolleaseacmeda.automatepulse'
 const CHROME_PKG = 'com.android.chrome'
 
 const SELECTORS = {
-  // Hamburger menu button - use resource-id (not description) with fallback candidates
+  // Hamburger menu button - use accessibility ID for cross-platform uniformity
+  // Fallbacks for backwards compatibility during transition
   hamburgerCandidates: [
+    '~sharedHeader.menuButton.button',
     'id=sharedHeader.menuButton.button',
     'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
-    // Fallback to description in case resource-id changes in future builds
     'android=new UiSelector().description("sharedHeader.menuButton.button")',
   ],
 
   // More flexible login marker
+  // Note: Login button may not have accessibility ID, using text match as fallback
   loginBtn:
     'android=new UiSelector().textMatches("(?i)log\\s?in|sign\\s?in")',
 
   // Optional: another home marker that sometimes shows even if hamburger is delayed
-  homeMarker:
+  // Use accessibility ID with fallbacks for reliability
+  homeMarkerCandidates: [
+    '~sharedHeader.rightButton.button',
+    'id=sharedHeader.rightButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.rightButton.button")',
     'android=new UiSelector().description("sharedHeader.rightButton.button")',
+  ],
 }
 
 /**
@@ -68,7 +75,6 @@ async function ensureLoggedIn() {
   await ensureAppForegroundOnce()
 
   const loginBtn = await $(SELECTORS.loginBtn)
-  const homeMarker = await $(SELECTORS.homeMarker)
 
   // Phase 1: wait until we see either Login or Home (hamburger/marker)
   await browser.waitUntil(
@@ -90,7 +96,17 @@ async function ensureLoggedIn() {
         }
       }
 
-      const onHome = hamburgerVisible || (await homeMarker.isDisplayed().catch(() => false))
+      // Try to find home marker using candidates
+      let homeMarkerVisible = false
+      for (const sel of SELECTORS.homeMarkerCandidates) {
+        const el = await $(sel)
+        if (await el.isDisplayed().catch(() => false)) {
+          homeMarkerVisible = true
+          break
+        }
+      }
+
+      const onHome = hamburgerVisible || homeMarkerVisible
 
       const onLogin = await loginBtn.isDisplayed().catch(() => false)
 
@@ -114,7 +130,13 @@ async function ensureLoggedIn() {
     }
   }
   if (!alreadyHome) {
-    alreadyHome = await homeMarker.isDisplayed().catch(() => false)
+    for (const sel of SELECTORS.homeMarkerCandidates) {
+      const el = await $(sel)
+      if (await el.isDisplayed().catch(() => false)) {
+        alreadyHome = true
+        break
+      }
+    }
   }
 
   if (alreadyHome) {
@@ -234,7 +256,17 @@ async function ensureLoggedIn() {
         }
       }
 
-      const onHome = hamburgerVisible || (await $(SELECTORS.homeMarker).isDisplayed().catch(() => false))
+      // Try to find home marker using candidates
+      let homeMarkerVisible = false
+      for (const sel of SELECTORS.homeMarkerCandidates) {
+        const el = await $(sel)
+        if (await el.isDisplayed().catch(() => false)) {
+          homeMarkerVisible = true
+          break
+        }
+      }
+
+      const onHome = hamburgerVisible || homeMarkerVisible
 
       return onHome
     },

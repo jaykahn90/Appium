@@ -48,56 +48,71 @@ async function setInputValue(el, value) {
 
 /**
  * App selectors
- * NOTE:
- * - On your current build, hamburger is a resource-id (Inspector shows "id=sharedHeader.menuButton.button"),
- *   not a content-desc. So we use id/resourceId selectors.
- * - Home readiness marker is resource-id "home.location.icon".
+ * NOTE: All selectors now use accessibility IDs for cross-platform uniformity (Android & iOS)
+ * Accessibility IDs are uniform across both platforms:
+ * - Android: accessibilityLabel → content-desc → Appium shows as "accessibility id"
+ * - iOS: testID → accessibilityIdentifier → Appium shows as "accessibility id"
+ * Fallbacks included for backwards compatibility during transition period
  */
 const SELECTORS = {
-  // ✅ Home readiness marker (resource-id)
+  // Home readiness marker - use accessibility ID with fallbacks
   homeReadyCandidates: [
+    '~home.location.icon',
     'id=home.location.icon',
     'android=new UiSelector().resourceId("home.location.icon")',
   ],
 
-  // ✅ Hamburger (resource-id)
+  // Hamburger menu button - use accessibility ID with fallbacks
   hamburgerCandidates: [
+    '~sharedHeader.menuButton.button',
     'id=sharedHeader.menuButton.button',
     'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    'android=new UiSelector().description("sharedHeader.menuButton.button")',
   ],
 
-  // Current location (card in drawer) — use resource-id (not accessibility id)
+  // Current location name in drawer - use accessibility ID with fallbacks
   currentLocationCandidates: [
+    '~sidebar.activeLocationName.text',
     'id=sidebar.activeLocationName.text',
     'android=new UiSelector().resourceId("sidebar.activeLocationName.text")',
-    // Fallback to description in case resource-id changes in future builds
-    'android=new UiSelector().description("sidebar.locationCard.button")',
+    // Fallback to location card button if name element not found
     '~sidebar.locationCard.button',
+    'android=new UiSelector().description("sidebar.locationCard.button")',
   ],
 
-  // Edit pencil on Location Name screen
-  editNameCandidates: ['~Edit name'],
+  // Edit pencil icon on Location Name screen - use accessibility ID with fallback
+  editNameCandidates: [
+    '~locationDetails.locationName.pencillcon.button',
+    'id=locationDetails.locationName.pencillcon.button',
+    'android=new UiSelector().resourceId("locationDetails.locationName.pencillcon.button")',
+    // Fallback to text-based selector
+    '~Edit name',
+  ],
 
-  // Location name input
+  // Location name input field - use accessibility ID with fallbacks
   locationNameInputCandidates: [
     '~locationDetails.locationName.input',
+    'id=locationDetails.locationName.input',
     'android=new UiSelector().resourceId("locationDetails.locationName.input")',
-    'android=new UiSelector().resourceIdMatches(".*location.*name.*")',
-    'android=new UiSelector().className("android.widget.EditText")',
   ],
 
-  // Confirm (tick) on edit screen
-  saveNameCandidates: ['~Save changes'],
+  // Confirm/save check icon on edit screen - use accessibility ID with fallbacks (note: capital I in checkIcon)
+  saveNameCandidates: [
+    '~locationDetails.locationName.checkIcon.button',
+    'id=locationDetails.locationName.checkicon.button',
+    'android=new UiSelector().resourceId("locationDetails.locationName.checkicon.button")',
+    // Fallback to text-based selector
+    '~Save changes',
+  ],
 
-  // Back to drawer/menu — use resource-id (not accessibility id)
+  // Back button to return to drawer/menu - use accessibility ID with fallbacks
   inAppBackCandidates: [
+    '~locationDetails.backButton.button',
     'id=locationDetails.backButton.button',
     'android=new UiSelector().resourceId("locationDetails.backButton.button")',
-    // Fallback to accessibility id in case resource-id changes in future builds
-    '~locationDetails.backButton.button',
   ],
 
-  // Menu title to confirm we returned
+  // Menu title to confirm we returned - using text selector as accessibility ID may not be available
   menuTitle: 'android=new UiSelector().text("MENU")',
 }
 
