@@ -4,8 +4,13 @@ const APP_PKG = 'com.rolleaseacmeda.automatepulse'
 const CHROME_PKG = 'com.android.chrome'
 
 const SELECTORS = {
-  hamburger:
+  // Hamburger menu button - use resource-id (not description) with fallback candidates
+  hamburgerCandidates: [
+    'id=sharedHeader.menuButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    // Fallback to description in case resource-id changes in future builds
     'android=new UiSelector().description("sharedHeader.menuButton.button")',
+  ],
 
   // More flexible login marker
   loginBtn:
@@ -14,6 +19,26 @@ const SELECTORS = {
   // Optional: another home marker that sometimes shows even if hamburger is delayed
   homeMarker:
     'android=new UiSelector().description("sharedHeader.rightButton.button")',
+}
+
+/**
+ * Helper: find first displayed element from candidate selectors
+ */
+async function findFirstDisplayed(selectors, timeout = 20000, pollMs = 300) {
+  const start = Date.now()
+
+  while (Date.now() - start < timeout) {
+    for (const sel of selectors) {
+      const el = await $(sel)
+      const displayed = await el.isDisplayed().catch(() => false)
+      if (displayed) return el
+    }
+    await browser.pause(pollMs)
+  }
+
+  throw new Error(
+    `None of these selectors became visible within ${timeout}ms:\n${selectors.join('\n')}`,
+  )
 }
 
 async function ensureAppForegroundOnce() {
@@ -42,23 +67,30 @@ async function ensureLoggedIn() {
   // 🔑 Phase 0: bring app to foreground ONCE (no terminate loops)
   await ensureAppForegroundOnce()
 
-  const hamburger = await $(SELECTORS.hamburger)
   const loginBtn = await $(SELECTORS.loginBtn)
   const homeMarker = await $(SELECTORS.homeMarker)
 
   // Phase 1: wait until we see either Login or Home (hamburger/marker)
   await browser.waitUntil(
     async () => {
-      // small nudge only if we’re clearly not in app
+      // small nudge only if we're clearly not in app
       const pkg = await driver.getCurrentPackage().catch(() => null)
       if (pkg && pkg !== APP_PKG && pkg !== CHROME_PKG) {
         await driver.activateApp(APP_PKG)
         await browser.pause(600)
       }
 
-      const onHome =
-        (await hamburger.isDisplayed().catch(() => false)) ||
-        (await homeMarker.isDisplayed().catch(() => false))
+      // Try to find hamburger using candidates
+      let hamburgerVisible = false
+      for (const sel of SELECTORS.hamburgerCandidates) {
+        const el = await $(sel)
+        if (await el.isDisplayed().catch(() => false)) {
+          hamburgerVisible = true
+          break
+        }
+      }
+
+      const onHome = hamburgerVisible || (await homeMarker.isDisplayed().catch(() => false))
 
       const onLogin = await loginBtn.isDisplayed().catch(() => false)
 
@@ -72,13 +104,22 @@ async function ensureLoggedIn() {
     },
   )
 
-  // If already on Home, we’re done
-  const alreadyHome =
-    (await hamburger.isDisplayed().catch(() => false)) ||
-    (await homeMarker.isDisplayed().catch(() => false))
+  // If already on Home, we're done
+  let alreadyHome = false
+  for (const sel of SELECTORS.hamburgerCandidates) {
+    const el = await $(sel)
+    if (await el.isDisplayed().catch(() => false)) {
+      alreadyHome = true
+      break
+    }
+  }
+  if (!alreadyHome) {
+    alreadyHome = await homeMarker.isDisplayed().catch(() => false)
+  }
 
   if (alreadyHome) {
-    await hamburger.waitForDisplayed({ timeout: 20000 }).catch(() => {})
+    // Wait for hamburger to be fully ready
+    await findFirstDisplayed(SELECTORS.hamburgerCandidates, 20000).catch(() => {})
     return
   }
 
@@ -183,9 +224,17 @@ async function ensureLoggedIn() {
         await browser.pause(600)
       }
 
-      const onHome =
-        (await $(SELECTORS.hamburger).isDisplayed().catch(() => false)) ||
-        (await $(SELECTORS.homeMarker).isDisplayed().catch(() => false))
+      // Try to find hamburger using candidates
+      let hamburgerVisible = false
+      for (const sel of SELECTORS.hamburgerCandidates) {
+        const el = await $(sel)
+        if (await el.isDisplayed().catch(() => false)) {
+          hamburgerVisible = true
+          break
+        }
+      }
+
+      const onHome = hamburgerVisible || (await $(SELECTORS.homeMarker).isDisplayed().catch(() => false))
 
       return onHome
     },
@@ -196,8 +245,8 @@ async function ensureLoggedIn() {
     },
   )
 
-  const finalHamburger = await $(SELECTORS.hamburger)
-  await finalHamburger.waitForDisplayed({ timeout: 30000 })
+  // Wait for hamburger to be fully ready using candidate selectors
+  await findFirstDisplayed(SELECTORS.hamburgerCandidates, 30000)
 }
 
 module.exports = { ensureLoggedIn }

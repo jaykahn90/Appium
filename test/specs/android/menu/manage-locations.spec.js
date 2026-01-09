@@ -26,7 +26,9 @@ async function findFirstDisplayed(selectors, timeout = 25000, pollMs = 300) {
 
 async function clickFirstReady(selectors, timeout = 25000) {
   const el = await findFirstDisplayed(selectors, timeout)
-  await el.waitForEnabled({ timeout })
+  // Wait for element to be displayed and ready (matching pattern from working tests)
+  await el.waitForDisplayed({ timeout: 10000 })
+  await browser.pause(300) // Small pause to ensure element is ready
   await el.click()
 }
 
@@ -41,8 +43,11 @@ async function expectDisplayed(selector, timeout = 30000) {
  * App selectors (keep these together)
  */
 const SELECTORS = {
-  // Menu hamburger - try both (your screenshot shows the description one is real)
+  // Menu hamburger - use resource-id as primary (not accessibility-id or description)
   hamburgerCandidates: [
+    'id=sharedHeader.menuButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    // Fallback to accessibility-id and description in case resource-id changes
     '~sidebar.menu.button',
     'android=new UiSelector().description("sharedHeader.menuButton.button")',
   ],

@@ -22,12 +22,25 @@ describe('Menu – Knowledge Base links', () => {
     // Let app finish background loading (hub scan etc.)
     await browser.pause(7000)
 
-    // 3) Open menu (ONCE)
-    const hamburgerButton = await $(
-      'android=new UiSelector().description("sharedHeader.menuButton.button")',
-    )
-    await hamburgerButton.waitForDisplayed({ timeout: 10000 })
-    await hamburgerButton.click()
+    // 3) Open menu (ONCE) - use resource-id as primary
+    const hamburgerSelectors = [
+      'id=sharedHeader.menuButton.button',
+      'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+      'android=new UiSelector().description("sharedHeader.menuButton.button")', // fallback
+    ]
+    let hamburger = null
+    for (const selector of hamburgerSelectors) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        hamburger = el
+        break
+      }
+    }
+    if (!hamburger) {
+      throw new Error('Hamburger button not found with any selector')
+    }
+    await hamburger.waitForDisplayed({ timeout: 10000 })
+    await hamburger.click()
 
     // 4) Expand Support Center (scroll-safe)
     const supportCenterBtn = await $(

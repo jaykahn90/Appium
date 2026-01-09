@@ -10,8 +10,13 @@ describe('Menu – Knowledge Base – Help – External URL links (Chrome)', () 
     // Home marker + menu
     homeHeaderMarker:
       'android=new UiSelector().description("sharedHeader.rightButton.button")',
-    hamburger:
+    // Hamburger - use resource-id as primary (not description)
+    hamburgerCandidates: [
+      'id=sharedHeader.menuButton.button',
+      'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+      // Fallback to description in case resource-id changes
       'android=new UiSelector().description("sharedHeader.menuButton.button")',
+    ],
 
     // Drawer cards
     supportCenterCard:
@@ -68,7 +73,20 @@ describe('Menu – Knowledge Base – Help – External URL links (Chrome)', () 
   }
 
   async function openDrawer() {
-    const hamburger = await $(ui.hamburger)
+    // Try resource-id selectors first, then fallback to description
+    let hamburger = null
+    for (const selector of ui.hamburgerCandidates) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        hamburger = el
+        break
+      }
+    }
+    if (!hamburger) {
+      throw new Error(
+        `Hamburger button not found with any selector: ${ui.hamburgerCandidates.join(', ')}`,
+      )
+    }
     await hamburger.waitForDisplayed({
       timeout: 15000,
       timeoutMsg: 'Hamburger button not visible on main screen',

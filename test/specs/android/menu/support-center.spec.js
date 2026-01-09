@@ -9,14 +9,70 @@ describe('Menu – Support Center', () => {
 
   it('opens menu, expands Support Center, and shows Support options', async () => {
     await driver.switchContext('NATIVE_APP')
-    await browser.pause(800)
 
-    // 1) Open sidebar menu
-    const hamburgerButton = await $(
-      'android=new UiSelector().description("sharedHeader.menuButton.button")',
+    // Wait for home screen to fully settle (similar to other working tests)
+    const homeReadySelectors = [
+      'id=home.location.icon',
+      'android=new UiSelector().resourceId("home.location.icon")',
+    ]
+    let homeMarker = null
+    for (const selector of homeReadySelectors) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        homeMarker = el
+        break
+      }
+    }
+    if (homeMarker) {
+      await homeMarker.waitForDisplayed({ timeout: 60000 })
+    }
+
+    // Let app finish background loading (hub scan etc.) - similar to other working tests
+    await browser.pause(7000)
+
+    // 1) Open sidebar menu (use resource-id as primary)
+    const hamburgerSelectors = [
+      'id=sharedHeader.menuButton.button',
+      'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+      'android=new UiSelector().description("sharedHeader.menuButton.button")', // fallback
+    ]
+    let hamburger = null
+    for (const selector of hamburgerSelectors) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        hamburger = el
+        break
+      }
+    }
+    if (!hamburger) {
+      throw new Error('Hamburger button not found with any selector')
+    }
+    await hamburger.waitForDisplayed({ timeout: 10000 })
+    await hamburger.click()
+
+    // Wait for drawer to open and content to be ready (similar to contact-support-inapp.spec.js)
+    await browser.waitUntil(
+      async () => {
+        const supportCenterExists = await $(
+          'android=new UiSelector().description("sidebar.supportCenterCard.button")',
+        )
+          .isDisplayed()
+          .catch(() => false)
+
+        const knowledgeBaseExists = await $(
+          'android=new UiSelector().description("sidebar.knowledgeBaseCard.button")',
+        )
+          .isDisplayed()
+          .catch(() => false)
+
+        return supportCenterExists || knowledgeBaseExists
+      },
+      {
+        timeout: 15000,
+        interval: 400,
+        timeoutMsg: 'Drawer opened but content not ready',
+      },
     )
-    await hamburgerButton.waitForDisplayed({ timeout: 10000 })
-    await hamburgerButton.click()
 
     // 2) Expand Support Center dropdown
     const supportCenterBtn = await $(

@@ -30,14 +30,28 @@ describe('Menu – Contact Support (Web)', () => {
     await browser.pause(7000)
 
     // ---------- OPEN DRAWER (ONCE) ----------
-    const hamburgerButton = await $(
-      'android=new UiSelector().description("sharedHeader.menuButton.button")',
-    )
-    await hamburgerButton.waitForDisplayed({
+    // Use resource-id as primary (not description)
+    const hamburgerSelectors = [
+      'id=sharedHeader.menuButton.button',
+      'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+      'android=new UiSelector().description("sharedHeader.menuButton.button")', // fallback
+    ]
+    let hamburger = null
+    for (const selector of hamburgerSelectors) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        hamburger = el
+        break
+      }
+    }
+    if (!hamburger) {
+      throw new Error('Hamburger button not found with any selector')
+    }
+    await hamburger.waitForDisplayed({
       timeout: 15000,
       timeoutMsg: 'Hamburger button not visible on main screen',
     })
-    await hamburgerButton.click()
+    await hamburger.click()
 
     await browser.waitUntil(
       async () => {
@@ -117,9 +131,23 @@ describe('Menu – Contact Support (Web)', () => {
     await backBtn.click()
 
     // ---------- FINAL SANITY ----------
-    const hamburgerAgain = await $(
-      'android=new UiSelector().description("sharedHeader.menuButton.button")',
-    )
+    // Use resource-id as primary (not description)
+    const hamburgerSelectors = [
+      'id=sharedHeader.menuButton.button',
+      'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+      'android=new UiSelector().description("sharedHeader.menuButton.button")', // fallback
+    ]
+    let hamburgerAgain = null
+    for (const selector of hamburgerSelectors) {
+      const el = await $(selector)
+      if (await el.isDisplayed().catch(() => false)) {
+        hamburgerAgain = el
+        break
+      }
+    }
+    if (!hamburgerAgain) {
+      throw new Error('Hamburger button not found with any selector')
+    }
     await hamburgerAgain.waitForDisplayed({
       timeout: 15000,
       timeoutMsg: 'Returned to home but hamburger not visible',

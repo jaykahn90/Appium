@@ -25,15 +25,15 @@ config.specs = [
     {
       'appium:platformName': 'Android',
       'appium:platformVersion': '12.0',
-      'appium:udid': 'emulator-5554',
-      'appium:deviceName': 'Pixel XL',
+      'appium:udid': 'emulator-5556',
+      'appium:deviceName': 'Pixel 6 Pro API 31',
       'appium:automationName': 'UIAutomator2',
   
       'appium:autoGrantPermissions': true,
       'appium:disableWindowAnimation': true,
   
       // install + launch
-      'appium:app': path.join(process.cwd(), 'app/android/appium.apk'),
+      'appium:app': path.join(process.cwd(), 'app/android/app-release.apk'),
       'appium:appPackage': 'com.rolleaseacmeda.automatepulse',
       'appium:appActivity': 'com.rolleaseacmeda.automatepulse.MainActivity',
   
