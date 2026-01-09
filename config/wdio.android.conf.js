@@ -25,7 +25,7 @@ config.specs = [
     {
       'appium:platformName': 'Android',
       'appium:platformVersion': '12.0',
-      'appium:udid': 'emulator-5556',
+      'appium:udid': 'emulator-5554',
       'appium:deviceName': 'Pixel 6 Pro API 31',
       'appium:automationName': 'UIAutomator2',
   

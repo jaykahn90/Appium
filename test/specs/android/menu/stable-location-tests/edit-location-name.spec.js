@@ -142,7 +142,9 @@ describe('Menu - Location Name Edit', () => {
       25000,
     )
 
-    const newName = `My Home ${Date.now()}` // avoids clashes if name persists between runs
+    // Generate a simple number between 100-999 to keep name format short: "My home 123"
+    const randomNum = Math.floor(Math.random() * 900) + 100 // Random number between 100-999
+    const newName = `My home ${randomNum}` // Format: "My home 123" (lowercase 'h' in home)
     await setInputValue(nameInput, newName)
     await clickFirstReady(SELECTORS.saveNameCandidates, 25000)
 
