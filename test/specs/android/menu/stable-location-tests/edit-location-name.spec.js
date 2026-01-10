@@ -56,10 +56,22 @@ async function setInputValue(el, value) {
  */
 const SELECTORS = {
   // Home readiness marker - use accessibility ID with fallbacks
+  // Priority: hamburger menu (appears first/straightaway) → location name/text → icon
   homeReadyCandidates: [
+    // Primary: hamburger menu (appears first/straightaway after login)
+    '~sharedHeader.menuButton.button',
+    'id=sharedHeader.menuButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    'android=new UiSelector().description("sharedHeader.menuButton.button")',
+    // Fallback: location name text (appears later, but good fallback)
+    '~home.location.name.text',
+    'id=home.location.name.text',
+    'android=new UiSelector().resourceId("home.location.name.text")',
+    // Fallback: location icon (appears later, but good fallback)
     '~home.location.icon',
     'id=home.location.icon',
     'android=new UiSelector().resourceId("home.location.icon")',
+    'android=new UiSelector().description("home.location.icon")',
   ],
 
   // Hamburger menu button - use accessibility ID with fallbacks
@@ -80,14 +92,25 @@ const SELECTORS = {
     'android=new UiSelector().description("sidebar.locationCard.button")',
   ],
 
+  // Location name display field on Location Details screen (before edit mode)
+  // This is the EditText that shows the current location name (e.g., "My home 588")
+  locationNameDisplayCandidates: [
+      '~locationDetails.locationName.input',
+      'id=locationDetails.locationName.input',
+      'android=new UiSelector().resourceId("locationDetails.locationName.input")',
+      'android=new UiSelector().className("android.widget.EditText")',
+  ],
+
   // Edit pencil icon on Location Name screen - use accessibility ID with fallback
+  // Note: content-desc and resource-id are both "locationDetails.locationName.pencillcon.button"
   editNameCandidates: [
     '~locationDetails.locationName.pencillcon.button',
     'id=locationDetails.locationName.pencillcon.button',
+    'android=new UiSelector().description("locationDetails.locationName.pencillcon.button")',
     'android=new UiSelector().resourceId("locationDetails.locationName.pencillcon.button")',
-    // Fallback to text-based selector
-    '~Edit name',
   ],
+  
+
 
   // Location name input field - use accessibility ID with fallbacks
   locationNameInputCandidates: [
@@ -99,8 +122,9 @@ const SELECTORS = {
   // Confirm/save check icon on edit screen - use accessibility ID with fallbacks (note: capital I in checkIcon)
   saveNameCandidates: [
     '~locationDetails.locationName.checkIcon.button',
-    'id=locationDetails.locationName.checkicon.button',
-    'android=new UiSelector().resourceId("locationDetails.locationName.checkicon.button")',
+    'id=locationDetails.locationName.checkIcon.button',
+    'android=new UiSelector().description("locationDetails.locationName.checkIcon.button")',
+    'android=new UiSelector().resourceId("locationDetails.locationName.checkIcon.button")',
     // Fallback to text-based selector
     '~Save changes',
   ],
@@ -114,6 +138,9 @@ const SELECTORS = {
 
   // Menu title to confirm we returned - using text selector as accessibility ID may not be available
   menuTitle: 'android=new UiSelector().text("MENU")',
+
+  // Location Settings screen title - to confirm we're on the right screen
+  locationSettingsTitle: 'android=new UiSelector().text("LOCATION SETTINGS")',
 }
 
 describe('Menu - Location Name Edit', () => {
@@ -133,8 +160,36 @@ describe('Menu - Location Name Edit', () => {
     // Tap current location
     await clickFirstReady(SELECTORS.currentLocationCandidates, 25000)
 
-    // Tap pencil to edit Location Name
-    await clickFirstReady(SELECTORS.editNameCandidates, 25000)
+    // Wait for Location Details screen to fully load - confirm we're on the right screen
+    // First, wait for the screen title "LOCATION SETTINGS" to appear (best indicator screen is loaded)
+    try {
+      const title = await $(SELECTORS.locationSettingsTitle)
+      await title.waitForDisplayed({ timeout: 30000 })
+      await browser.pause(1000) // Brief pause after title appears
+    } catch (e) {
+      // If title not found, fall back to back button
+      console.log('Location Settings title not found, using back button as fallback...')
+    }
+    
+    // Wait for the back button to appear (indicates Location Details screen has loaded)
+    const locationDetailsBackButton = await findFirstDisplayed(
+      SELECTORS.inAppBackCandidates,
+      30000,
+    )
+    await locationDetailsBackButton.waitForDisplayed({ timeout: 10000 })
+    
+    // Wait for location name input field to be visible (confirms screen content is loaded)
+    // Clicking this input field directly puts it into edit mode (no need to click pencil icon)
+    const nameInputField = await $('~locationDetails.locationName.input')
+    await nameInputField.waitForExist({ timeout: 20000 })
+    await nameInputField.waitForDisplayed({ timeout: 10000 })
+    
+    // Click the input field to enter edit mode
+    await nameInputField.click()
+    
+    // Wait for check icon to appear to confirm we're in edit mode
+    const checkIcon = await $('~locationDetails.locationName.checkIcon.button')
+    await checkIcon.waitForDisplayed({ timeout: 15000 })
 
     // Edit name and confirm
     const nameInput = await findFirstDisplayed(

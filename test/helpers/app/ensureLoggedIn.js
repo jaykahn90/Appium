@@ -184,12 +184,27 @@ async function ensureLoggedIn() {
   )
   await driver.switchContext(webviewCtx)
 
-  // Wait for page to be ready
-  await browser.waitUntil(async () => (await browser.getTitle()).length > 0, {
-    timeout: 20000,
-    interval: 500,
-    timeoutMsg: 'Auth0 page title not ready',
-  })
+  // Wait for page to be ready - check multiple conditions for better reliability
+  await browser.waitUntil(
+    async () => {
+      try {
+        const title = await browser.getTitle().catch(() => '')
+        // Also check if document is ready and has content
+        const readyState = await browser.execute(() => document.readyState).catch(() => '')
+        return title.length > 0 && (readyState === 'complete' || readyState === 'interactive')
+      } catch {
+        return false
+      }
+    },
+    {
+      timeout: 30000,
+      interval: 500,
+      timeoutMsg: 'Auth0 page not ready (title or document state)',
+    },
+  )
+
+  // Give additional time for Auth0 page to fully render and load all elements
+  await browser.pause(2000)
 
   const emailToUse = process.env.TEST_EMAIL || 'j.k90@hotmail.com'
   const passToUse = process.env.TEST_PASSWORD || 'Zipscreen'
@@ -208,16 +223,158 @@ async function ensureLoggedIn() {
     )
     await tileBtn.click()
   } else {
-    // Normal email/password login
-    const emailInput = await $('[id="1-email"]')
-    await emailInput.waitForDisplayed({ timeout: 30000 })
+    // Normal email/password login - use multiple candidate selectors for email field
+    // Auth0 may use different IDs or the element may take time to appear
+    const emailInputCandidates = [
+      '[id="1-email"]',
+      '#1-email',
+      'input[id="1-email"]',
+      'input[type="email"]',
+      'input[name="email"]',
+      'input[placeholder*="email" i]',
+      'input[placeholder*="Email" i]',
+      '.auth0-lock-input-email input',
+      'input.auth0-lock-input',
+      'input[autocomplete="email"]',
+    ]
+
+    let emailInput = null
+    for (const selector of emailInputCandidates) {
+      try {
+        const el = await $(selector)
+        if (await el.isDisplayed().catch(() => false)) {
+          emailInput = el
+          break
+        }
+      } catch {
+        continue
+      }
+    }
+
+    // If still not found, wait with polling for any of the candidates to appear
+    if (!emailInput) {
+      const start = Date.now()
+      const timeout = 30000
+      while (Date.now() - start < timeout && !emailInput) {
+        for (const selector of emailInputCandidates) {
+          try {
+            const el = await $(selector)
+            if (await el.isDisplayed().catch(() => false)) {
+              emailInput = el
+              break
+            }
+          } catch {
+            continue
+          }
+        }
+        if (!emailInput) {
+          await browser.pause(500)
+        }
+      }
+    }
+
+    if (!emailInput) {
+      throw new Error(
+        `Email input field not found within ${30000}ms. Tried selectors:\n${emailInputCandidates.join('\n')}`,
+      )
+    }
+
+    // Wait for email input to be ready for interaction
+    await emailInput.waitForDisplayed({ timeout: 10000 })
+    await emailInput.waitForClickable({ timeout: 10000 })
     await emailInput.setValue(emailToUse)
 
-    const passwordInput = await $('input[name="password"]')
-    await passwordInput.waitForDisplayed({ timeout: 30000 })
+    // Password field with fallbacks
+    const passwordInputCandidates = [
+      'input[name="password"]',
+      'input[type="password"]',
+      'input[placeholder*="password" i]',
+      'input[placeholder*="Password" i]',
+      '.auth0-lock-input-password input',
+      'input[autocomplete="current-password"]',
+    ]
+
+    let passwordInput = null
+    for (const selector of passwordInputCandidates) {
+      try {
+        const el = await $(selector)
+        if (await el.isDisplayed().catch(() => false)) {
+          passwordInput = el
+          break
+        }
+      } catch {
+        continue
+      }
+    }
+
+    if (!passwordInput) {
+      const start = Date.now()
+      const timeout = 30000
+      while (Date.now() - start < timeout && !passwordInput) {
+        for (const selector of passwordInputCandidates) {
+          try {
+            const el = await $(selector)
+            if (await el.isDisplayed().catch(() => false)) {
+              passwordInput = el
+              break
+            }
+          } catch {
+            continue
+          }
+        }
+        if (!passwordInput) {
+          await browser.pause(500)
+        }
+      }
+    }
+
+    if (!passwordInput) {
+      throw new Error(
+        `Password input field not found within ${30000}ms. Tried selectors:\n${passwordInputCandidates.join('\n')}`,
+      )
+    }
+
+    await passwordInput.waitForDisplayed({ timeout: 10000 })
+    await passwordInput.waitForClickable({ timeout: 10000 })
     await passwordInput.setValue(passToUse)
 
-    const submit = (await $$('button[type="submit"]'))[0] || (await $('.auth0-label-submit'))
+    // Submit button with fallbacks
+    const submitCandidates = [
+      'button[type="submit"]',
+      'button.auth0-label-submit',
+      '.auth0-label-submit',
+      'button:contains("Log in")',
+      'button:contains("Continue")',
+      'button:contains("Sign in")',
+      '[type="submit"]',
+    ]
+
+    // Submit button - try primary selector first, then fallbacks
+    let submit = null
+    try {
+      const submitButtons = await $$('button[type="submit"]')
+      submit = submitButtons[0] || (await $('.auth0-label-submit'))
+    } catch {
+      // Try other candidates
+      for (const selector of submitCandidates) {
+        try {
+          const el = await $(selector)
+          if (await el.isDisplayed().catch(() => false)) {
+            submit = el
+            break
+          }
+        } catch {
+          continue
+        }
+      }
+    }
+
+    if (!submit) {
+      throw new Error(
+        `Submit button not found. Tried selectors:\n${submitCandidates.join('\n')}`,
+      )
+    }
+
     await submit.waitForClickable({ timeout: 30000 })
     await submit.click()
   }

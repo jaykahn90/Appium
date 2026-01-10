@@ -105,8 +105,18 @@ async function scrollToElement(selectors, timeout = 15000) {
  */
 const SELECTORS = {
   // Home readiness marker - use accessibility ID with fallbacks
-  // Priority: accessibility ID → resource-id → description
+  // Priority: hamburger menu (appears first/straightaway) → location name/text → icon
   homeReadyCandidates: [
+    // Primary: hamburger menu (appears first/straightaway after login)
+    '~sharedHeader.menuButton.button',
+    'id=sharedHeader.menuButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    'android=new UiSelector().description("sharedHeader.menuButton.button")',
+    // Fallback: location name text (appears later, but good fallback)
+    '~home.location.name.text',
+    'id=home.location.name.text',
+    'android=new UiSelector().resourceId("home.location.name.text")',
+    // Fallback: location icon (appears later, but good fallback)
     '~home.location.icon',
     'id=home.location.icon',
     'android=new UiSelector().resourceId("home.location.icon")',
