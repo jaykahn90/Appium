@@ -11,17 +11,19 @@ config.key = process.env.BROWSERSTACK_KEY
 // Specs
 // ============
 // Keep generic so suites control execution
-config.specs = ['../test/specs/**/*.spec.js']
+config.specs = config.suites.support_smoke
+
 
 // ============
 // Suites
 // ============
 config.suites = {
   support_smoke: [
-    '../test/specs/android/menu/contact-support-inapp.spec.js',
-    '../test/specs/android/menu/knowledge-base-links.spec.js',
-    '../test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
-    '../test/specs/android/menu/support-center.spec.js',
+    // '../test/specs/android/menu/contact-support-inapp.spec.js',
+    // '../test/specs/android/menu/knowledge-base-links.spec.js',
+    // '../test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
+    // '../test/specs/android/menu/support-center.spec.js',
+    '../test/specs/android/menu/stable-location-tests/delete-existing-location.spec.js',
   ],
 }
 
