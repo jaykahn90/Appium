@@ -13,7 +13,10 @@
     "eslint-plugin-wdio": "^9.16.2"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "bs:smoke": "wdio run ./config/wdio.android.bs.conf.js --suite support_smoke",
+    "bs:support-center": "wdio run ./config/wdio.android.bs.conf.js --spec ./test/specs/android/menu/support-center.spec.js",
+    "bs:delete-location": "wdio run ./config/wdio.android.bs.conf.js --spec ./test/specs/android/menu/stable-location-tests/delete-existing-location.spec.js",
+    "bs:run": "wdio run ./config/wdio.android.bs.conf.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3"

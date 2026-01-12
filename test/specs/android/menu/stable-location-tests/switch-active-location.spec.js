@@ -144,6 +144,15 @@ const SELECTORS = {
     'android=new UiSelector().description("home.location.icon")',
   ],
 
+  // Hamburger menu button - use accessibility ID with fallbacks
+  // Priority: accessibility ID → resource-id → description
+  hamburgerCandidates: [
+    '~sharedHeader.menuButton.button',
+    'id=sharedHeader.menuButton.button',
+    'android=new UiSelector().resourceId("sharedHeader.menuButton.button")',
+    'android=new UiSelector().description("sharedHeader.menuButton.button")',
+  ],
+
   // Current location name on home screen - use accessibility ID with fallbacks
   // Priority: accessibility ID → resource-id → description
   // Used to get current active location name and verify after switch
@@ -372,7 +381,7 @@ describe('Menu - Switch Active Location', () => {
     await browser.pause(3000) // Give time for location switch and dropdown to close
 
     // Step 5: Verify home screen shows the newly selected location
-    await findFirstDisplayed(SELECTORS.homeReadyCandidates, 30000) // Wait for home to be ready
+    await findFirstDisplayed(SELECTORS.hamburgerCandidates, 30000) // Wait for hamburger menu
 
     // Verify the location name on home screen matches the selected location
     const updatedLocationElement = await findFirstDisplayed(

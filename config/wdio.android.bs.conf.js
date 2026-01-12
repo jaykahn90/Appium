@@ -7,12 +7,11 @@ const { config } = require('./wdio.shared.conf')
 config.user = process.env.BROWSERSTACK_USER
 config.key = process.env.BROWSERSTACK_KEY
 
-// ============
-// Specs
-// ============
-// Keep generic so suites control execution
-config.specs = config.suites.support_smoke
-
+if (!config.user || !config.key) {
+  throw new Error(
+    'Missing BrowserStack creds. Set BROWSERSTACK_USER and BROWSERSTACK_KEY (env or GitHub secrets).',
+  )
+}
 
 // ============
 // Suites
@@ -23,9 +22,20 @@ config.suites = {
     // '../test/specs/android/menu/knowledge-base-links.spec.js',
     // '../test/specs/android/menu/KnowledgeBase-Help-URL-Links.spec.js',
     // '../test/specs/android/menu/support-center.spec.js',
-    '../test/specs/android/menu/stable-location-tests/delete-existing-location.spec.js',
+    '../test/specs/android/menu/stable-location-tests/edit-location-name.spec.js',
+    '../test/specs/android/menu/stable-location-tests/create-new-location.spec.js',
+    '../test/specs/android/menu/stable-location-tests/switch-active-location.spec.js',
   ],
 }
+
+// ============
+// Default specs (fallback only)
+// IMPORTANT: If you run without --suite/--spec, this will run.
+// Keep it broad OR narrow it if you want a safe default.
+// ============
+config.specs = ['../test/specs/**/*.spec.js']
+// If you want "safe default" instead, use this:
+// config.specs = config.suites.support_smoke
 
 // ============
 // BrowserStack Build Naming
@@ -46,15 +56,17 @@ config.capabilities = [
     'appium:autoGrantPermissions': true,
 
     // BrowserStack uploaded app
-    'appium:app': 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
+    'appium:app': process.env.BS_APP_ID || 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
 
-    // BrowserStack metadata (fixes "Untitled Build Run")
+    // BrowserStack metadata
     'bstack:options': {
       projectName: 'Automate Pulse',
       buildName,
-      sessionName: 'Support Smoke Suite',
+      sessionName: 'Android – Support Smoke',
       debug: true,
-      networkLogs: true,
+      networkLogs: true
+      // video: true, // optional
+      // deviceLogs: true, // optional
     },
   },
 ]

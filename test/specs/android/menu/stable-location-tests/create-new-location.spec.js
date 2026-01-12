@@ -314,7 +314,7 @@ describe('Menu - Create New Location', () => {
 
     // Wait for home screen to be fully ready after closing sidebar
     await browser.pause(2000) // Give time for sidebar close animation and screen to settle
-    await findFirstDisplayed(SELECTORS.homeReadyCandidates, 30000) // Wait for home location icon
+    await findFirstDisplayed(SELECTORS.hamburgerCandidates, 30000) // Wait for hamburger menu
 
     // Step 9: Open location dropdown
     await clickFirstReady(SELECTORS.locationDropdownCandidates, 30000)
