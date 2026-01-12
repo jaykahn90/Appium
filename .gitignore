@@ -1,4 +1,21 @@
+# Dependencies
 node_modules/
+
+# Local drivers / binaries
 drivers/chromedriver
+
+# Built app artifacts
 app/android/*.apk
+
+# Environment variables
 .env
+.env.*
+
+# BrowserStack / WDIO runtime artifacts
+log/key-metrics.json
+log/sdk-cli.log
+logs/bstack-wdio-service.log
+
+# (optional catch-all)
+log/
+logs/
