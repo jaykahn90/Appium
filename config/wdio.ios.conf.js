@@ -1,40 +1,38 @@
 const path = require('path');
-const {config} = require('./wdio.shared.conf')
+const { config } = require('./wdio.shared.conf');
 
-// ====================
-  // Runner Configuration
-  // ====================
-config.port =  4723,
-
-// ============
-  // Specs
-  // ============
+config.port = 4723;
 
 config.specs = [
-    // ToDo: define location for spec files here
-    '../test/specs/ios/ios-counteroperation-screen.spec.js',
-  ]
+  '../test/specs/android/menu/stable-location-tests/edit-location-name.spec.js',
+];
 
-  // ============
-  // Capabilities
-  // ============
 
-  config.capabilities = [
-    {
-        'appium:platformName': 'ios',
-        'appium:platformVersion': '26.1',          // set to your actual sim version
-        'appium:deviceName': 'iPhone 17',          // or provide 'appium:udid': '<sim-udid>'
-        // 'appium:udid': '13BDF56E-5011-42A6-99EF-9D774275162B',
-        'appium:automationName': 'XCUITest',
-        'appium:app': path.join(process.cwd(), 'app/ios/TestApp.app'),
-      
-      }
-  ]
+config.capabilities = [
+  {
+    platformName: 'iOS',
+    'appium:automationName': 'XCUITest',
 
-  // Test runner services
-  // Services take over a specific job you don't want to take care of. They enhance
-  // your test setup with almost no effort. Unlike plugins, they don't add new
-  // commands. Instead, they hook themselves up into the test process.
-  config.services = ['appium'];
+    // 🔹 REAL DEVICE
+    'appium:deviceName': 'Jay-iPhone',                    // from Xcode / device
+    'appium:platformVersion': '26.2',                     // shown in Xcode (23C55)
+    'appium:udid': '00008130-000E1C9221C0001C',           // from Xcode Devices
 
-  exports.config = config;
+    // 🔹 USE INSTALLED APP (no .app file needed)
+    'appium:bundleId': 'com.RolleaseAcmeda.Automate2',
+
+    // 🔹 SIGNING (so Appium can build & run WebDriverAgent)
+    'appium:xcodeOrgId': '9B6M2X2XA7',                    // Team ID
+    'appium:xcodeSigningId': 'Apple Development',
+
+    // 🔹 TIMEOUTS
+    'appium:wdaLaunchTimeout': 120000,
+    'appium:wdaConnectionTimeout': 120000,
+    'appium:newCommandTimeout': 300,
+    'appium:showXcodeLog': true,   
+  },
+];
+
+config.services = ['appium'];
+
+exports.config = config;

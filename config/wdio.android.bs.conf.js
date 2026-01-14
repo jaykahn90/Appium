@@ -56,7 +56,7 @@ config.capabilities = [
     'appium:autoGrantPermissions': true,
 
     // BrowserStack uploaded app
-    'appium:app': process.env.BS_APP_ID || 'bs://e03ecaf012f9c7233c2ed179e02da4a74f1d3c01',
+    'appium:app': process.env.BS_APP_ID || 'bs://a634d4063c8589783ef723e1ad553e81100cb608',
 
     // BrowserStack metadata
     'bstack:options': {
