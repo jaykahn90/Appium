@@ -1,7 +1,66 @@
 // test/helpers/app/ensureLoggedIn.js
 
-const APP_PKG = 'com.rolleaseacmeda.automatepulse'
-const CHROME_PKG = 'com.android.chrome'
+// Platform detection helper
+function getPlatform() {
+  try {
+    const caps = driver.capabilities || browser.capabilities || {}
+    return (caps.platformName || '').toLowerCase()
+  } catch {
+    // Default to Android for backward compatibility if detection fails
+    return 'android'
+  }
+}
+
+// Cache platform detection
+let cachedPlatform = null
+function isIOS() {
+  if (cachedPlatform === null) {
+    cachedPlatform = getPlatform() === 'ios'
+  }
+  return cachedPlatform
+}
+
+function isAndroid() {
+  if (cachedPlatform === null) {
+    cachedPlatform = getPlatform() === 'ios'
+  }
+  return !cachedPlatform
+}
+
+// Platform-specific constants
+const APP_PKG = 'com.rolleaseacmeda.automatepulse' // Android package
+const APP_BUNDLE_ID = 'com.RolleaseAcmeda.Automate2' // iOS bundle ID
+const CHROME_PKG = 'com.android.chrome' // Android Chrome
+const SAFARI_BUNDLE_ID = 'com.apple.mobilesafari' // iOS Safari
+
+// Get current app identifier based on platform
+async function getCurrentAppIdentifier() {
+  if (isIOS()) {
+    // Use execute for iOS bundle ID (getCurrentBundleId may not be available in all WebDriverIO versions)
+    try {
+      // @ts-expect-error - getCurrentBundleId is available at runtime for iOS but not in TypeScript types
+      return await driver.getCurrentBundleId().catch(() => null)
+    } catch {
+      // Fallback: try to get it via execute command
+      try {
+        const result = await driver.execute('mobile: getCurrentApp', {})
+        return result?.bundleId || null
+      } catch {
+        return null
+      }
+    }
+  } else {
+    return await driver.getCurrentPackage().catch(() => null)
+  }
+}
+
+// Filter Android-only selectors when on iOS
+function filterPlatformSelectors(selectors) {
+  if (isIOS()) {
+    return selectors.filter(sel => !sel.startsWith('android='))
+  }
+  return selectors
+}
 
 const SELECTORS = {
   // Hamburger menu button - use accessibility ID for cross-platform uniformity
@@ -13,10 +72,16 @@ const SELECTORS = {
     'android=new UiSelector().description("sharedHeader.menuButton.button")',
   ],
 
-  // More flexible login marker
+  // Login button - platform-specific selectors
   // Note: Login button may not have accessibility ID, using text match as fallback
-  loginBtn:
-    'android=new UiSelector().textMatches("(?i)log\\s?in|sign\\s?in")',
+  loginBtnCandidates: isIOS()
+    ? [
+        '-ios predicate string:name CONTAINS[cd] "log in" OR name CONTAINS[cd] "sign in"',
+        '-ios class chain:**/XCUIElementTypeButton[`name CONTAINS[cd] "log in" OR name CONTAINS[cd] "sign in"`]',
+      ]
+    : [
+        'android=new UiSelector().textMatches("(?i)log\\s?in|sign\\s?in")',
+      ],
 
   // Optional: another home marker that sometimes shows even if hamburger is delayed
   // Use accessibility ID with fallbacks for reliability
@@ -30,12 +95,14 @@ const SELECTORS = {
 
 /**
  * Helper: find first displayed element from candidate selectors
+ * Automatically filters platform-specific selectors
  */
 async function findFirstDisplayed(selectors, timeout = 20000, pollMs = 300) {
   const start = Date.now()
+  const filteredSelectors = filterPlatformSelectors(selectors)
 
   while (Date.now() - start < timeout) {
-    for (const sel of selectors) {
+    for (const sel of filteredSelectors) {
       const el = await $(sel)
       const displayed = await el.isDisplayed().catch(() => false)
       if (displayed) return el
@@ -44,26 +111,41 @@ async function findFirstDisplayed(selectors, timeout = 20000, pollMs = 300) {
   }
 
   throw new Error(
-    `None of these selectors became visible within ${timeout}ms:\n${selectors.join('\n')}`,
+    `None of these selectors became visible within ${timeout}ms:\n${filteredSelectors.join('\n')}`,
   )
 }
 
 async function ensureAppForegroundOnce() {
   await driver.switchContext('NATIVE_APP')
 
-  const current = await driver.getCurrentPackage().catch(() => null)
+  const current = await getCurrentAppIdentifier()
 
-  // If Chrome is in front, bring AUT forward
-  if (current === CHROME_PKG) {
-    await driver.activateApp(APP_PKG)
-    await browser.pause(800)
-    return
-  }
+  if (isAndroid()) {
+    // Android: If Chrome is in front, bring AUT forward
+    if (current === CHROME_PKG) {
+      await driver.activateApp(APP_PKG)
+      await browser.pause(800)
+      return
+    }
 
-  // If anything else is in front (launcher, settings, etc), bring AUT forward
-  if (current && current !== APP_PKG) {
-    await driver.activateApp(APP_PKG)
-    await browser.pause(800)
+    // If anything else is in front (launcher, settings, etc), bring AUT forward
+    if (current && current !== APP_PKG) {
+      await driver.activateApp(APP_PKG)
+      await browser.pause(800)
+    }
+  } else {
+    // iOS: If Safari is in front, bring AUT forward
+    if (current === SAFARI_BUNDLE_ID) {
+      await driver.activateApp(APP_BUNDLE_ID)
+      await browser.pause(800)
+      return
+    }
+
+    // If anything else is in front (launcher, settings, etc), bring AUT forward
+    if (current && current !== APP_BUNDLE_ID) {
+      await driver.activateApp(APP_BUNDLE_ID)
+      await browser.pause(800)
+    }
   }
 }
 
@@ -74,21 +156,27 @@ async function ensureLoggedIn() {
   // 🔑 Phase 0: bring app to foreground ONCE (no terminate loops)
   await ensureAppForegroundOnce()
 
-  const loginBtn = await $(SELECTORS.loginBtn)
-
   // Phase 1: wait until we see either Login or Home (hamburger/marker)
   await browser.waitUntil(
     async () => {
       // small nudge only if we're clearly not in app
-      const pkg = await driver.getCurrentPackage().catch(() => null)
-      if (pkg && pkg !== APP_PKG && pkg !== CHROME_PKG) {
-        await driver.activateApp(APP_PKG)
+      const currentApp = await getCurrentAppIdentifier()
+      const appId = isIOS() ? APP_BUNDLE_ID : APP_PKG
+      const browserId = isIOS() ? SAFARI_BUNDLE_ID : CHROME_PKG
+      
+      if (currentApp && currentApp !== appId && currentApp !== browserId) {
+        if (isIOS()) {
+          await driver.activateApp(APP_BUNDLE_ID)
+        } else {
+          await driver.activateApp(APP_PKG)
+        }
         await browser.pause(600)
       }
 
-      // Try to find hamburger using candidates
+      // Try to find hamburger using candidates (filtered by platform)
       let hamburgerVisible = false
-      for (const sel of SELECTORS.hamburgerCandidates) {
+      const hamburgerSelectors = filterPlatformSelectors(SELECTORS.hamburgerCandidates)
+      for (const sel of hamburgerSelectors) {
         const el = await $(sel)
         if (await el.isDisplayed().catch(() => false)) {
           hamburgerVisible = true
@@ -96,9 +184,10 @@ async function ensureLoggedIn() {
         }
       }
 
-      // Try to find home marker using candidates
+      // Try to find home marker using candidates (filtered by platform)
       let homeMarkerVisible = false
-      for (const sel of SELECTORS.homeMarkerCandidates) {
+      const homeMarkerSelectors = filterPlatformSelectors(SELECTORS.homeMarkerCandidates)
+      for (const sel of homeMarkerSelectors) {
         const el = await $(sel)
         if (await el.isDisplayed().catch(() => false)) {
           homeMarkerVisible = true
@@ -108,7 +197,19 @@ async function ensureLoggedIn() {
 
       const onHome = hamburgerVisible || homeMarkerVisible
 
-      const onLogin = await loginBtn.isDisplayed().catch(() => false)
+      // Check for login button using platform-specific selectors
+      let onLogin = false
+      for (const sel of SELECTORS.loginBtnCandidates) {
+        try {
+          const el = await $(sel)
+          if (await el.isDisplayed().catch(() => false)) {
+            onLogin = true
+            break
+          }
+        } catch {
+          continue
+        }
+      }
 
       return onHome || onLogin
     },
@@ -122,7 +223,8 @@ async function ensureLoggedIn() {
 
   // If already on Home, we're done
   let alreadyHome = false
-  for (const sel of SELECTORS.hamburgerCandidates) {
+  const hamburgerSelectors = filterPlatformSelectors(SELECTORS.hamburgerCandidates)
+  for (const sel of hamburgerSelectors) {
     const el = await $(sel)
     if (await el.isDisplayed().catch(() => false)) {
       alreadyHome = true
@@ -130,7 +232,8 @@ async function ensureLoggedIn() {
     }
   }
   if (!alreadyHome) {
-    for (const sel of SELECTORS.homeMarkerCandidates) {
+    const homeMarkerSelectors = filterPlatformSelectors(SELECTORS.homeMarkerCandidates)
+    for (const sel of homeMarkerSelectors) {
       const el = await $(sel)
       if (await el.isDisplayed().catch(() => false)) {
         alreadyHome = true
@@ -146,29 +249,33 @@ async function ensureLoggedIn() {
   }
 
   // Phase 2: Login path (Strategy B expects this usually)
-  await loginBtn.waitForDisplayed({ timeout: 30000 })
+  // Find and click login button using platform-specific selectors
+  const loginBtn = await findFirstDisplayed(SELECTORS.loginBtnCandidates, 30000)
   await loginBtn.click()
 
-  // Now Chrome Custom Tab / Auth0 should appear
+  // Now browser (Chrome on Android, Safari on iOS) / Auth0 should appear
+  const browserId = isIOS() ? SAFARI_BUNDLE_ID : CHROME_PKG
   await browser.waitUntil(
-    async () => (await driver.getCurrentPackage().catch(() => null)) === CHROME_PKG,
+    async () => (await getCurrentAppIdentifier()) === browserId,
     {
       timeout: 30000,
       interval: 500,
-      timeoutMsg: 'Chrome did not come to foreground after tapping login',
+      timeoutMsg: `${isIOS() ? 'Safari' : 'Chrome'} did not come to foreground after tapping login`,
     },
   )
 
-  // Handle Chrome first-run prompts (safe)
-  try {
-    const accept = await $('id=com.android.chrome:id/terms_accept')
-    if (await accept.isDisplayed().catch(() => false)) await accept.click()
-  } catch {}
+  // Handle Chrome first-run prompts (Android only)
+  if (isAndroid()) {
+    try {
+      const accept = await $('id=com.android.chrome:id/terms_accept')
+      if (await accept.isDisplayed().catch(() => false)) await accept.click()
+    } catch {}
 
-  try {
-    const noThanks = await $('id=com.android.chrome:id/negative_button')
-    if (await noThanks.isDisplayed().catch(() => false)) await noThanks.click()
-  } catch {}
+    try {
+      const noThanks = await $('id=com.android.chrome:id/negative_button')
+      if (await noThanks.isDisplayed().catch(() => false)) await noThanks.click()
+    } catch {}
+  }
 
   // Switch into WEBVIEW context (Auth0 page)
   const webviewCtx = await browser.waitUntil(
@@ -397,15 +504,22 @@ async function ensureLoggedIn() {
   // Final: wait for Home markers (hamburger)
   await browser.waitUntil(
     async () => {
-      const pkg = await driver.getCurrentPackage().catch(() => null)
-      if (pkg && pkg !== APP_PKG) {
-        await driver.activateApp(APP_PKG)
+      const currentApp = await getCurrentAppIdentifier()
+      const appId = isIOS() ? APP_BUNDLE_ID : APP_PKG
+      
+      if (currentApp && currentApp !== appId) {
+        if (isIOS()) {
+          await driver.activateApp(APP_BUNDLE_ID)
+        } else {
+          await driver.activateApp(APP_PKG)
+        }
         await browser.pause(600)
       }
 
-      // Try to find hamburger using candidates
+      // Try to find hamburger using candidates (filtered by platform)
       let hamburgerVisible = false
-      for (const sel of SELECTORS.hamburgerCandidates) {
+      const hamburgerSelectors = filterPlatformSelectors(SELECTORS.hamburgerCandidates)
+      for (const sel of hamburgerSelectors) {
         const el = await $(sel)
         if (await el.isDisplayed().catch(() => false)) {
           hamburgerVisible = true
@@ -413,9 +527,10 @@ async function ensureLoggedIn() {
         }
       }
 
-      // Try to find home marker using candidates
+      // Try to find home marker using candidates (filtered by platform)
       let homeMarkerVisible = false
-      for (const sel of SELECTORS.homeMarkerCandidates) {
+      const homeMarkerSelectors = filterPlatformSelectors(SELECTORS.homeMarkerCandidates)
+      for (const sel of homeMarkerSelectors) {
         const el = await $(sel)
         if (await el.isDisplayed().catch(() => false)) {
           homeMarkerVisible = true
