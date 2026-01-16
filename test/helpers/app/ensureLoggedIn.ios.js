@@ -1,8 +1,458 @@
 // test/helpers/app/ensureLoggedIn.ios.js
 
 const fs = require('fs')
+const { loginIOSBrowserStack } = require('../login/login.ios.browserstack')
 const APP_BUNDLE_ID = 'com.RolleaseAcmeda.Automate2'
 const SAFARI_BUNDLE_ID = 'com.apple.mobilesafari'
+
+/**
+ * Helper: Handle iOS alert if present (try to accept with preferred buttons)
+ * @param {string} tag - Tag to identify where this log is from
+ */
+async function logIOSAlertButtons(tag) {
+  // Detect alert existence using getAlertText
+  try {
+    await driver.getAlertText()
+    // Alert exists, try to accept with preferred buttons directly
+    const preferredButtons = ['Allow', 'OK', 'Allow While Using App', 'Always Allow', 'Allow Once', 'Continue']
+    let accepted = false
+    for (const preferred of preferredButtons) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept', buttonLabel: preferred })
+        console.log(`[${tag}] Successfully accepted button: "${preferred}"`)
+        accepted = true
+        break
+      } catch (e) {
+        // This button doesn't exist, try next one
+        continue
+      }
+    }
+    // If no preferred button worked, try generic accept
+    if (!accepted) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept' })
+        console.log(`[${tag}] Successfully accepted using generic accept`)
+      } catch (e) {
+        console.log(`[${tag}] Failed to accept alert:`, e?.message || e)
+      }
+    }
+    return accepted
+  } catch (e) {
+    // No alert present, return immediately
+    return false
+  }
+}
+
+/**
+ * Helper: Bulletproof iOS post-login permission handler for BrowserStack
+ * Phase A: Handles system alerts
+ * Phase B: Falls back to checklist/settings if home marker not visible
+ */
+async function handlePostLoginPermissionsIOS() {
+  if (!driver.isIOS) return
+
+  // Flag to suppress alert polling after activating AUT app
+  let suppressAlertPolling = false
+
+  // Helper to normalize apostrophes for comparison (case-insensitive)
+  const normalizeLabel = (label) => {
+    return label
+      .replace(/'/g, "'") // Normalize curly apostrophe to straight
+      .replace(/'/g, "'") // Normalize curly apostrophe to straight
+      .toLowerCase()
+  }
+
+  // Preferred button priority order (case-insensitive)
+  const preferredButtons = [
+    'Allow',
+    'OK',
+    'Allow While Using App',
+    'Always Allow',
+    'Allow Once',
+    'Continue',
+  ]
+
+  // Buttons to ignore
+  const ignoredButtons = ["Don't Allow", "Don't Allow", "Precise: On"]
+
+  // ========== PHASE A: Alerts Loop ==========
+  console.log('[post-login-permissions] Phase A: Starting alerts loop')
+  let lastAlertTime = null
+  const STABLE_NO_ALERT_WINDOW = 2000 // 2 seconds
+  const POLL_INTERVAL = 500 // ms
+
+  for (let i = 0; i < 12; i++) {
+    // Check if alert polling should be suppressed
+    if (suppressAlertPolling) {
+      console.log('[post-login-permissions] Phase A: Alert polling suppressed after activateApp')
+      break
+    }
+
+    // Check if home marker is visible - if so, we're done with alerts
+    try {
+      const hamburger = await $('~sharedHeader.menuButton.button')
+      if (await hamburger.isDisplayed().catch(() => false)) {
+        console.log('[post-login-permissions] Phase A: Home marker visible; skipping alert polling')
+        break
+      }
+    } catch (e) {
+      // Home marker not found, continue with alert polling
+    }
+
+    // Check if alert is present using getAlertText (W3C standard)
+    let alertPresent = false
+    try {
+      await driver.getAlertText()
+      alertPresent = true
+    } catch (e) {
+      // No alert present - check if we've had stable no-alert window
+      const errorMsg = e?.message || String(e)
+      if (
+        errorMsg.includes('no such alert') ||
+        errorMsg.includes('not open') ||
+        errorMsg.includes('modal dialog not open') ||
+        errorMsg.includes('An attempt was made to operate on a modal dialog when one was not open')
+      ) {
+        const now = Date.now()
+        if (lastAlertTime && now - lastAlertTime >= STABLE_NO_ALERT_WINDOW) {
+          console.log(
+            `[post-login-permissions] Phase A: No alerts detected for ${STABLE_NO_ALERT_WINDOW}ms, exiting loop`,
+          )
+          break
+        }
+        // Still in transition, pause and retry
+        await driver.pause(300)
+        continue
+      }
+      // Other errors, treat as no alert
+      alertPresent = false
+    }
+
+    // If no alert present, continue checking
+    if (!alertPresent) {
+      const now = Date.now()
+      if (lastAlertTime && now - lastAlertTime >= STABLE_NO_ALERT_WINDOW) {
+        console.log(
+          `[post-login-permissions] Phase A: No alerts detected for ${STABLE_NO_ALERT_WINDOW}ms, exiting loop`,
+        )
+        break
+      }
+      await driver.pause(300)
+      continue
+    }
+
+    // Alert is present - try to accept with preferred buttons in priority order
+    lastAlertTime = Date.now() // Reset timer when we see an alert
+    
+    // Try accepting with preferred buttons in priority order
+    let accepted = false
+    for (const preferred of preferredButtons) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept', buttonLabel: preferred })
+        console.log(`[post-login-permissions] Phase A: Successfully accepted button: "${preferred}"`)
+        accepted = true
+        await driver.pause(POLL_INTERVAL)
+        break
+      } catch (e) {
+        // This button doesn't exist, try next one
+        continue
+      }
+    }
+
+    // If no preferred button worked, try generic accept
+    if (!accepted) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept' })
+        console.log(`[post-login-permissions] Phase A: Successfully accepted using generic accept`)
+        await driver.pause(POLL_INTERVAL)
+      } catch (e) {
+        console.log(`[post-login-permissions] Phase A: Failed to accept alert:`, e?.message || e)
+        await driver.pause(POLL_INTERVAL)
+        continue
+      }
+    }
+  }
+
+  // ========== PHASE B: Checklist / Settings Fallback ==========
+  console.log('[post-login-permissions] Phase B: Checking for home marker...')
+
+  // Check if home marker is visible
+  let homeMarkerVisible = false
+  try {
+    const hamburger = await $('~sharedHeader.menuButton.button')
+    homeMarkerVisible = await hamburger.isDisplayed().catch(() => false)
+  } catch (e) {
+    // Home marker not found
+  }
+
+  if (homeMarkerVisible) {
+    console.log('[post-login-permissions] Phase B: Home marker visible, skipping checklist/settings')
+    return
+  }
+
+  console.log('[post-login-permissions] Phase B: Home marker not visible, checking for checklist...')
+
+  // Check if checklist screen is visible
+  let checklistVisible = false
+  try {
+    // Check for checklist text or Settings button
+    const checklistText = await $(
+      '-ios predicate string:name CONTAINS[c] "If not already ensure the following permissions are enabled" OR label CONTAINS[c] "If not already ensure the following permissions are enabled"',
+    )
+    if (await checklistText.isDisplayed().catch(() => false)) {
+      checklistVisible = true
+    }
+  } catch (e) {
+    // Checklist text not found, try Settings button
+  }
+
+  if (!checklistVisible) {
+    try {
+      // Settings button is XCUIElementTypeOther, not Button
+      const settingsButtonSelectors = [
+        '-ios class chain:**/XCUIElementTypeOther[`name == "Settings"`][2]',
+        '//XCUIElementTypeOther[@name="Settings"][2]',
+        '-ios predicate string:type == "XCUIElementTypeOther" AND (name == "Settings" OR label == "Settings")',
+      ]
+      for (const selector of settingsButtonSelectors) {
+        try {
+          const settingsButton = await $(selector)
+          if (await settingsButton.isDisplayed().catch(() => false)) {
+            checklistVisible = true
+            break
+          }
+        } catch (e) {
+          // Continue to next selector
+        }
+      }
+    } catch (e) {
+      // Settings button not found
+    }
+  }
+
+  if (!checklistVisible) {
+    console.log('[post-login-permissions] Phase B: Checklist not visible, waiting for home marker...')
+    // Wait for home marker as fallback
+    try {
+      const hamburger = await $('~sharedHeader.menuButton.button')
+      await hamburger.waitForExist({ timeout: 30000 })
+      await hamburger.waitForDisplayed({ timeout: 30000 })
+      console.log('[post-login-permissions] Phase B: Home screen marker found')
+    } catch (e) {
+      console.log('[post-login-permissions] Phase B: Home screen marker not found after 30s:', e?.message || e)
+    }
+    return
+  }
+
+  console.log('[post-login-permissions] Phase B: Checklist visible, tapping Settings button...')
+
+  // Tap Settings button to open iOS Settings (XCUIElementTypeOther, not Button)
+  try {
+    const settingsButtonSelectors = [
+      '-ios class chain:**/XCUIElementTypeOther[`name == "Settings"`][2]',
+      '//XCUIElementTypeOther[@name="Settings"][2]',
+      '-ios predicate string:type == "XCUIElementTypeOther" AND (name == "Settings" OR label == "Settings")',
+    ]
+    let settingsButton = null
+    for (const selector of settingsButtonSelectors) {
+      try {
+        const btn = await $(selector)
+        if (await btn.isDisplayed().catch(() => false)) {
+          settingsButton = btn
+          break
+        }
+      } catch (e) {
+        // Continue to next selector
+      }
+    }
+    
+    if (!settingsButton) {
+      console.log('[post-login-permissions] Phase B: Settings button not found with any selector')
+      return
+    }
+    
+    await settingsButton.waitForDisplayed({ timeout: 10000 })
+    await settingsButton.click()
+    console.log('[post-login-permissions] Phase B: Settings button tapped')
+    
+    // Short pause to let iOS transition
+    await driver.pause(1250) // 1000-1500ms range
+    
+    // Wait for Automate settings screen
+    console.log('[post-login-permissions] Phase B: Waiting for AUTOMATE settings screen...')
+    try {
+      await driver.waitUntil(
+        async () => {
+          try {
+            // Check navigation bar
+            const navBar = await $('-ios predicate string:type == "XCUIElementTypeNavigationBar" AND name CONTAINS[c] "AUTOMATE"')
+            if (await navBar.isDisplayed().catch(() => false)) {
+              return true
+            }
+            // Check header text
+            const header = await $('-ios predicate string:type == "XCUIElementTypeStaticText" AND (name CONTAINS[c] "ALLOW AUTOMATE TO ACCESS" OR label CONTAINS[c] "ALLOW AUTOMATE TO ACCESS")')
+            if (await header.isDisplayed().catch(() => false)) {
+              return true
+            }
+            return false
+          } catch (e) {
+            return false
+          }
+        },
+        {
+          timeout: 30000,
+          interval: 500,
+          timeoutMsg: 'AUTOMATE settings screen did not appear',
+        },
+      )
+      console.log('[post-login-permissions] Phase B: AUTOMATE settings screen detected')
+      
+      // Immediately switch back to AUT app
+      console.log('[post-login-permissions] Phase B: Activating AUT app...')
+      await driver.activateApp('com.RolleaseAcmeda.Automate2')
+      console.log('[post-login-permissions] Phase B: Activated AUT app')
+      suppressAlertPolling = true // Stop all alert polling after activating app
+    } catch (e) {
+      console.log('[post-login-permissions] Phase B: Failed to detect AUTOMATE settings screen:', e?.message || e)
+      return
+    }
+  } catch (e) {
+    console.log('[post-login-permissions] Phase B: Failed to tap Settings button:', e?.message || e)
+    return
+  }
+
+  // Wait for home marker after returning from Settings
+  console.log('[post-login-permissions] Phase B: Waiting for home marker after Settings...')
+  try {
+    const hamburger = await $('~sharedHeader.menuButton.button')
+    await hamburger.waitForExist({ timeout: 30000 })
+    await hamburger.waitForDisplayed({ timeout: 30000 })
+    console.log('[post-login-permissions] Phase B: Home screen marker found')
+  } catch (e) {
+    console.log('[post-login-permissions] Phase B: Home screen marker not found after 30s:', e?.message || e)
+  }
+}
+
+/**
+ * Helper: Handle iOS system alerts after login
+ * @param {string} tag - Tag to identify where this log is from
+ */
+async function handleIOSSystemAlerts(tag) {
+  if (!driver.isIOS) return
+
+  const MAX_LOOP_DURATION = 15000 // 15 seconds total
+  const STABLE_NO_ALERT_WINDOW = 2000 // 2 seconds
+  const POLL_INTERVAL = 500 // ms between polling attempts
+
+  // Helper to normalize apostrophes for comparison (case-insensitive)
+  const normalizeLabel = (label) => {
+    return label
+      .replace(/'/g, "'") // Normalize curly apostrophe to straight
+      .replace(/'/g, "'") // Normalize curly apostrophe to straight
+      .toLowerCase()
+  }
+
+  // Preferred button priority order (case-insensitive)
+  const preferredButtons = [
+    'Allow While Using App',
+    'Allow',
+    'OK',
+    'Continue',
+    'Allow Once',
+  ]
+
+  // Buttons to never click
+  const forbiddenButtons = ['Don\'t Allow', 'Don\'t Allow', 'Not Now', 'Cancel']
+
+  const loopStartTime = Date.now()
+  let lastAlertSeenAt = null
+  let iteration = 0
+  const POLL_MS = 250 // Poll every ~250ms
+
+  while (Date.now() - loopStartTime < MAX_LOOP_DURATION) {
+    iteration++
+
+    // Check if alert is present using getAlertText (W3C standard)
+    let alertPresent = false
+    try {
+      await driver.getAlertText()
+      alertPresent = true
+    } catch (e) {
+      // No alert present - check if we've had stable no-alert window
+      const errorMsg = e?.message || String(e)
+      if (
+        errorMsg.includes('no such alert') ||
+        errorMsg.includes('not open') ||
+        errorMsg.includes('modal dialog not open') ||
+        errorMsg.includes('An attempt was made to operate on a modal dialog when one was not open')
+      ) {
+        const now = Date.now()
+        if (lastAlertSeenAt && now - lastAlertSeenAt >= STABLE_NO_ALERT_WINDOW) {
+          console.log(`[${tag}] No alerts detected for ${STABLE_NO_ALERT_WINDOW}ms, exiting loop`)
+          break
+        }
+        // Still in transition, pause and retry
+        await driver.pause(POLL_MS)
+        continue
+      }
+      // Other errors, treat as no alert
+      alertPresent = false
+    }
+
+    // If no alert present, continue checking
+    if (!alertPresent) {
+      const now = Date.now()
+      if (lastAlertSeenAt && now - lastAlertSeenAt >= STABLE_NO_ALERT_WINDOW) {
+        console.log(`[${tag}] No alerts detected for ${STABLE_NO_ALERT_WINDOW}ms, exiting loop`)
+        break
+      }
+      await driver.pause(POLL_MS)
+      continue
+    }
+
+    // Alert is present - try to accept with preferred buttons in priority order
+    lastAlertSeenAt = Date.now() // Reset timer when we see an alert
+    
+    // Try accepting with preferred buttons in priority order
+    let accepted = false
+    for (const preferred of preferredButtons) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept', buttonLabel: preferred })
+        console.log(`[${tag}] Successfully accepted button: "${preferred}"`)
+        accepted = true
+        await driver.pause(500) // Settle pause after accepting
+        break
+      } catch (e) {
+        // This button doesn't exist, try next one
+        continue
+      }
+    }
+
+    // If no preferred button worked, try generic accept
+    if (!accepted) {
+      try {
+        await driver.execute('mobile: alert', { action: 'accept' })
+        console.log(`[${tag}] Successfully accepted using generic accept`)
+        await driver.pause(500) // Settle pause after accepting
+      } catch (e) {
+        console.log(`[${tag}] Failed to accept alert:`, e?.message || e)
+        await driver.pause(POLL_MS)
+        continue
+      }
+    }
+  }
+
+  // After the loop completes, wait explicitly for home screen marker
+  console.log(`[${tag}] Alert handling loop complete, waiting for home screen marker...`)
+  try {
+    const hamburger = await $('~sharedHeader.menuButton.button')
+    await hamburger.waitForExist({ timeout: 30000 })
+    await hamburger.waitForDisplayed({ timeout: 30000 })
+    console.log(`[${tag}] Home screen marker found`)
+  } catch (e) {
+    console.log(`[${tag}] Home screen marker not found after 30s:`, e?.message || e)
+  }
+}
 
 const SELECTORS = {
   // Hamburger menu button - use accessibility ID for cross-platform uniformity
@@ -380,6 +830,77 @@ async function ensureLoggedIn() {
     '-ios predicate string:type == "XCUIElementTypeButton" AND name == "Log In"'
   )
   await auth0LoginBtnMarker.waitForExist({ timeout: 30000 })
+
+  // BrowserStack-only branch: use loginIOSBrowserStack if BROWSERSTACK or BROWSERSTACK_USER is set
+  if (process.env.BROWSERSTACK || process.env.BROWSERSTACK_USER) {
+    // Wait for Auth0 webview to load (textfield appears)
+    await $('-ios predicate string:type == "XCUIElementTypeTextField" AND visible == 1')
+      .waitForDisplayed({ timeout: 30000 })
+    
+    const creds = { email: emailToUse, pass: passToUse }
+    await loginIOSBrowserStack(creds.email, creds.pass)
+    
+    // Handle iOS system alerts immediately after Auth0 login
+    await handlePostLoginPermissionsIOS()
+    
+    // Skip the rest of Phase 4 local login logic and go to Phase 5
+    // Phase 5: Wait until Auth0 Safari view closes
+    // Do NOT call activateApp immediately - wait ~10 seconds first, then retry every ~5 seconds
+    await browser.pause(10000) // Wait 10 seconds before first activate attempt
+
+    // Check for hamburger or home marker visible (indicates we're back in the app)
+    let lastActivateAttempt = Date.now()
+    const ACTIVATE_RETRY_INTERVAL = 5000 // 5 seconds
+
+    await browser.waitUntil(
+      async () => {
+        // Only retry activate every ~5 seconds
+        const now = Date.now()
+        if (now - lastActivateAttempt >= ACTIVATE_RETRY_INTERVAL) {
+          try {
+            await driver.activateApp(APP_BUNDLE_ID)
+            await browser.pause(600)
+            lastActivateAttempt = now
+          } catch {
+            // App might already be active
+          }
+        }
+
+        // Try to find hamburger using candidates
+        let hamburgerVisible = false
+        for (const sel of SELECTORS.hamburgerCandidates) {
+          const el = await $(sel)
+          if (await el.isDisplayed().catch(() => false)) {
+            hamburgerVisible = true
+            break
+          }
+        }
+
+        // Try to find home marker using candidates
+        let homeMarkerVisible = false
+        for (const sel of SELECTORS.homeMarkerCandidates) {
+          const el = await $(sel)
+          if (await el.isDisplayed().catch(() => false)) {
+            homeMarkerVisible = true
+            break
+          }
+        }
+
+        const onHome = hamburgerVisible || homeMarkerVisible
+
+        return onHome
+      },
+      {
+        timeout: 90000, // 90s timeout as specified
+        interval: 500,
+        timeoutMsg: 'Auth0 Safari view did not close - home markers not visible after login',
+      },
+    )
+
+    // Wait for hamburger to be fully ready using candidate selectors
+    await findFirstDisplayed(SELECTORS.hamburgerCandidates, 30000)
+    return
+  }
 
   // Email field: first visible textfield
   const emailFieldCandidates = [

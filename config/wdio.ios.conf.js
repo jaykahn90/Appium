@@ -46,7 +46,7 @@ config.capabilities = [{
   config.services = ['appium'];
 
   // Mocha options - override timeout for iOS tests
-  config.mochaOpts = { ui: 'bdd', timeout: 180000 };
+  config.mochaOpts = { ui: 'bdd', timeout: 240000 };
 
   exports.config = config;
 
