@@ -14,7 +14,7 @@ const {config} = require('./wdio.shared.conf')
 
   config.specs = [
     // ToDo: define location for spec files here
-    '../test/specs/ios/ios-counteroperation-screen.spec.js',
+    '../test/specs/ios/edit-location-name.spec.js',
   ]
   // ============
   // Capabilities

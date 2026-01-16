@@ -12,24 +12,32 @@ config.port =  4723,
 
 config.specs = [
     // ToDo: define location for spec files here
-    '../test/specs/ios/ios-counteroperation-screen.spec.js',
+    '../test/specs/ios/edit-location-name.spec.js',
   ]
 
   // ============
   // Capabilities
   // ============
 
-  config.capabilities = [
-    {
-        'appium:platformName': 'ios',
-        'appium:platformVersion': '26.1',          // set to your actual sim version
-        'appium:deviceName': 'iPhone 17',          // or provide 'appium:udid': '<sim-udid>'
-        // 'appium:udid': '13BDF56E-5011-42A6-99EF-9D774275162B',
-        'appium:automationName': 'XCUITest',
-        'appium:app': path.join(process.cwd(), 'app/ios/TestApp.app'),
-      
-      }
-  ]
+config.capabilities = [{
+  platformName: 'iOS',
+  'appium:automationName': 'XCUITest',
+  'appium:udid': '00008130-000E1C9221C0001C',
+  'appium:deviceName': 'Jay-iPhone',
+  'appium:platformVersion': '26.2',
+  'appium:bundleId': 'com.RolleaseAcmeda.Automate2',
+  'appium:xcodeOrgId': '9B6M2X2XA7',
+  'appium:xcodeSigningId': 'Apple Development',
+  'appium:wdaLaunchTimeout': 120000,
+  'appium:wdaConnectionTimeout': 120000,
+  'appium:newCommandTimeout': 300,
+  'appium:showXcodeLog': true,
+  'appium:includeSafariInWebviews': true,
+  'appium:connectHardwareKeyboard': true,
+  'appium:shouldTerminateApp': true,
+  'appium:forceAppLaunch': true,
+  'appium:autoAcceptAlerts': true
+}]
 
   // Test runner services
   // Services take over a specific job you don't want to take care of. They enhance
@@ -37,4 +45,10 @@ config.specs = [
   // commands. Instead, they hook themselves up into the test process.
   config.services = ['appium'];
 
+  // Mocha options - override timeout for iOS tests
+  config.mochaOpts = { ui: 'bdd', timeout: 180000 };
+
   exports.config = config;
+
+
+
